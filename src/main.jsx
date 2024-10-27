@@ -1,3 +1,4 @@
+// main.jsx 또는 index.js
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { Globalstyle } from "./styles/globalstyle.js";
