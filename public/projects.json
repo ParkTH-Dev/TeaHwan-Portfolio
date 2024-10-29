@@ -1,0 +1,164 @@
+{
+  "projects": [
+    {
+      "category": "TypeScript",
+      "items": [
+        {
+          "id": 1,
+          "title": "TS Shopping Mall",
+          "description": "타입스크립트 기반 쇼핑몰 프로젝트",
+          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+          "github": "https://github.com/username/ts-shop",
+          "demo": "https://ts-shop-demo.com",
+          "tags": ["TypeScript", "React", "Redux"]
+        },
+        {
+          "id": 2,
+          "title": "TS Blog Platform",
+          "description": "타입스크립트로 구현한 블로그 ",
+          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+          "github": "https://github.com/username/ts-blog",
+          "demo": "https://ts-blog-demo.com",
+          "tags": ["TypeScript", "Node.js", "MongoDB"]
+        },
+        {
+          "id": 3,
+          "title": "TS Task Manager",
+          "description": "타입스크립트 기반 작업 관리 ",
+          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
+          "github": "https://github.com/username/ts-task",
+          "demo": "https://ts-task-demo.com",
+          "tags": ["TypeScript", "Express", "PostgreSQL"]
+        }
+      ]
+    },
+    {
+      "category": "React",
+      "items": [
+        {
+          "id": 4,
+          "title": "React Weather App",
+          "description": "리액트로 만든 날씨 정보 앱",
+          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+          "github": "https://github.com/username/react-weather",
+          "demo": "https://react-weather-demo.com",
+          "tags": ["React", "Redux", "OpenWeather API"]
+        },
+        {
+          "id": 5,
+          "title": "React Social Media",
+          "description": "리액트 기반 소셜 미디어 플랫폼",
+          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
+          "github": "https://github.com/username/react-social",
+          "demo": "https://react-social-demo.com",
+          "tags": ["React", "Firebase", "Material-UI"]
+        },
+        {
+          "id": 6,
+          "title": "React Dashboard",
+          "description": "리액트로 구현한 관리자 ",
+          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+          "github": "https://github.com/username/react-dashboard",
+          "demo": "https://react-dashboard-demo.com",
+          "tags": ["React", "Chart.js", "Styled-Components"]
+        }
+      ]
+    },
+    {
+      "category": "Next.js",
+      "items": [
+        {
+          "id": 7,
+          "title": "Next.js E-commerce",
+          "description": "Next.js로 구현한 전자상거래 사이트",
+          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
+          "github": "https://github.com/username/next-commerce",
+          "demo": "https://next-commerce-demo.com",
+          "tags": ["Next.js", "Prisma", "Stripe"]
+        },
+        {
+          "id": 8,
+          "title": "Next.js Blog",
+          "description": "Next.js 기반 개인 블로그",
+          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+          "github": "https://github.com/username/next-blog",
+          "demo": "https://next-blog-demo.com",
+          "tags": ["Next.js", "MDX", "Tailwind CSS"]
+        },
+        {
+          "id": 9,
+          "title": "Next.js Portfolio",
+          "description": "Next.js로 만든 포트폴리오 사이트",
+          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+          "github": "https://github.com/username/next-portfolio",
+          "demo": "https://next-portfolio-demo.com",
+          "tags": ["Next.js", "Framer Motion", "GSAP"]
+        }
+      ]
+    },
+    {
+      "category": "JavaScript",
+      "items": [
+        {
+          "id": 10,
+          "title": "JS Game",
+          "description": "바닐라 자바스크립트로 만든 웹 ",
+          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+          "github": "https://github.com/username/js-game",
+          "demo": "https://js-game-demo.com",
+          "tags": ["JavaScript", "Canvas", "Web Audio API"]
+        },
+        {
+          "id": 11,
+          "title": "JS Todo App",
+          "description": "자바스크립트로 구현한 할 일 관리 앱",
+          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+          "github": "https://github.com/username/js-todo",
+          "demo": "https://js-todo-demo.com",
+          "tags": ["JavaScript", "LocalStorage", "DOM API"]
+        },
+        {
+          "id": 12,
+          "title": "JS Music Player",
+          "description": "자바스크립트 기반 음악 플레이어",
+          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
+          "github": "https://github.com/username/js-music",
+          "demo": "https://js-music-demo.com",
+          "tags": ["JavaScript", "Web Audio API", "IndexedDB"]
+        }
+      ]
+    },
+    {
+      "category": "SCSS",
+      "items": [
+        {
+          "id": 13,
+          "title": "SCSS Landing Page",
+          "description": "SCSS로 스타일링한 랜딩 페이지",
+          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
+          "github": "https://github.com/username/scss-landing",
+          "demo": "https://scss-landing-demo.com",
+          "tags": ["SCSS", "HTML5", "JavaScript"]
+        },
+        {
+          "id": 14,
+          "title": "SCSS Components",
+          "description": "SCSS로 만든 재사용 가능한 컴포넌트",
+          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+          "github": "https://github.com/username/scss-components",
+          "demo": "https://scss-components-demo.com",
+          "tags": ["SCSS", "BEM", "JavaScript"]
+        },
+        {
+          "id": 15,
+          "title": "SCSS Dashboard",
+          "description": "SCSS로 스타일링한 대시보드 UI",
+          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+          "github": "https://github.com/username/scss-dashboard",
+          "demo": "https://scss-dashboard-demo.com",
+          "tags": ["SCSS", "Grid", "Flexbox"]
+        }
+      ]
+    }
+  ]
+}

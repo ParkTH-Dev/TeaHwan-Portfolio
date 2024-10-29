@@ -8,7 +8,7 @@ const skillImages = import.meta.glob("/public/img/skills/*.png", {
 // Styled Components
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
 `;
 
@@ -23,17 +23,18 @@ const Inner = styled.div`
 
 const Content = styled.div`
   width: 100%;
+  height: 60%;
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
-  gap: 50px;
+  margin-top: 300px;
+  margin-bottom: 200px;
 `;
 
 const TitleWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  position: absolute;
+  top: 100px;
+  width: 100%;
 `;
 
 const TitleInner = styled.div`
@@ -70,8 +71,23 @@ const TitleBar = styled.div`
   background-color: black;
 `;
 
-const SkillsContainer = styled.div`
+const SkillsInfo = styled.div`
+  width: 100%;
+  flex: 1;
+  font-size: 20px;
+  font-weight: bold;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SkillsWrap = styled.div`
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
   flex-direction: column;
   gap: 30px;
 `;
@@ -79,6 +95,7 @@ const SkillsContainer = styled.div`
 const Category = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
 `;
 
 const CategoryName = styled.h3`
@@ -88,16 +105,19 @@ const CategoryName = styled.h3`
 `;
 
 const SkillIcons = styled.div`
+  min-width: 60px;
+  min-height: 60px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 15px;
 `;
 
 const SkillIcon = styled.img`
   cursor: pointer;
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
   background-color: #fff;
   padding: 5px;
   border-radius: 10px;
@@ -142,17 +162,17 @@ const Skills = () => {
   return (
     <Wrapper>
       <Inner>
+        <TitleWrap>
+          <TitleInner>
+            <SubTitle>Some Word About Me</SubTitle>
+            <BackgroundText>SKILLS</BackgroundText>
+            <Title>SKILLS</Title>
+          </TitleInner>
+          <TitleBar />
+        </TitleWrap>
         <Content>
-          <TitleWrap>
-            <TitleInner>
-              <SubTitle>Some Word About Me</SubTitle>
-              <BackgroundText>SKILLS</BackgroundText>
-              <Title>SKILLS</Title>
-            </TitleInner>
-            <TitleBar />
-          </TitleWrap>
-
-          <SkillsContainer>
+          <SkillsInfo>Skills Info</SkillsInfo>
+          <SkillsWrap>
             {skillCategories.map((category, index) => (
               <Category key={index}>
                 <CategoryName>#{category.name}</CategoryName>
@@ -173,7 +193,7 @@ const Skills = () => {
                 </SkillIcons>
               </Category>
             ))}
-          </SkillsContainer>
+          </SkillsWrap>
         </Content>
         <Footer>
           <PageNumber>03/06</PageNumber>

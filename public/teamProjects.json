@@ -1,0 +1,20 @@
+{
+  "teamProjects": [
+    {
+      "id": 1,
+      "title": "Create powerful apps",
+      "description": "Lorem ipsum dolor sit amet consectetur. Cras turpis leo volutpat lobortis nunc egestas bibendum non pharetra. Quam at donec arni nulla auctor. Tempor facilisis ipsum et porta egestas tincidunt pretium aliquam.",
+      "category": "Inspiration",
+      "updated": "March 16, 2024",
+      "author": "Jenny Wilson",
+      "readingTime": "2 min",
+      "mainImage": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+      "thumbnails": [
+        "https://yozm.wishket.com/media/news/1379/image021.png",
+        "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+        "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+        "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg"
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
 `;
 
@@ -17,13 +17,12 @@ const Inner = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  height: 100%;
-  position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 100px;
+  margin-top: 300px;
+  /* justify-content: space-around; */
 `;
 
 const SubTitle = styled.h2`
@@ -32,9 +31,9 @@ const SubTitle = styled.h2`
 `;
 
 const TitleWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  position: absolute;
+  top: 100px;
+  width: 100%;
 `;
 const TitleInner = styled.div`
   margin-left: 33px;
@@ -66,9 +65,12 @@ const TitleBar = styled.div`
 
 const DescriptionWrap = styled.div`
   width: 100%;
-  font-size: 40px;
-  margin-bottom: 20px;
+  height: 100%;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 `;
 
 const DescriptionTitle = styled.h3`
@@ -79,14 +81,14 @@ const DescriptionTitle = styled.h3`
 
 const Description = styled.p`
   font-size: 20px;
-  width: 80%;
+  width: 90%;
 `;
 
 const InfoGrid = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 40px;
+  margin: 200px 0;
   font-size: 20px;
 `;
 
@@ -124,15 +126,15 @@ const AboutMe = () => {
   return (
     <Wrapper>
       <Inner>
+        <TitleWrap>
+          <TitleInner>
+            <SubTitle>Some Word About Me</SubTitle>
+            <BackgroundText>ABOUT ME</BackgroundText>
+            <Title>ABOUT ME</Title>
+          </TitleInner>
+          <TitleBar />
+        </TitleWrap>
         <Content>
-          <TitleWrap>
-            <TitleInner>
-              <SubTitle>Some Word About Me</SubTitle>
-              <BackgroundText>ABOUT ME</BackgroundText>
-              <Title>ABOUT ME</Title>
-            </TitleInner>
-            <TitleBar />
-          </TitleWrap>
           <DescriptionWrap>
             <DescriptionTitle>
               안녕하세요 프론트엔드 개발자를 꿈꾸는 박태환입니다.
@@ -147,21 +149,21 @@ const AboutMe = () => {
               inventore perferendis ad impedit aspernatur a quas numquam
               eveniet?
             </Description>
-            <InfoGrid>
-              <InfoItem>
-                <InfoLabel>Email:</InfoLabel>
-                <InfoValue>xxx12345@naver.com</InfoValue>
-              </InfoItem>
-              <InfoItem>
-                <InfoLabel>Date of Birth:</InfoLabel>
-                <InfoValue>11 November, 1987</InfoValue>
-              </InfoItem>
-              <InfoItem>
-                <InfoLabel>Email:</InfoLabel>
-                <InfoValue>Los Angeles, California</InfoValue>
-              </InfoItem>
-            </InfoGrid>
           </DescriptionWrap>
+          <InfoGrid>
+            <InfoItem>
+              <InfoLabel>Email:</InfoLabel>
+              <InfoValue>xxx12345@naver.com</InfoValue>
+            </InfoItem>
+            <InfoItem>
+              <InfoLabel>Date of Birth:</InfoLabel>
+              <InfoValue>11 November, 1987</InfoValue>
+            </InfoItem>
+            <InfoItem>
+              <InfoLabel>Email:</InfoLabel>
+              <InfoValue>Los Angeles, California</InfoValue>
+            </InfoItem>
+          </InfoGrid>
         </Content>
         <Footer>
           <PageNumber>02/06</PageNumber>

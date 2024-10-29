@@ -18,7 +18,8 @@ const Inner = styled.div`
 `;
 
 const Left = styled.div`
-  width: 80%;
+  flex: 2;
+
   margin-left: 80px;
   display: flex;
   justify-content: center;
@@ -72,8 +73,10 @@ const Right = styled.div`
 `;
 
 const ImgWrapper = styled.div`
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  height: 100%;
+  min-width: 350px;
+  min-height: 350px;
 `;
 
 const Img = styled.img`

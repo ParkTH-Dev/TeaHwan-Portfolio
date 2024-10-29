@@ -7,35 +7,20 @@ const StyledButton = styled.button`
   border-radius: 30px;
   border: 1px solid #000;
   transition: background-color 0.3s, color 0.3s;
-  ${({ variant }) =>
-    variant === "primary"
-      ? `
-        background-color: black;
-        color: white;
-
-      `
-      : `
-        background-color: transparent;
-        color: black;
-      `}
+  background-color: ${({ $variant }) =>
+    $variant === "primary" ? "#000" : "transparent"};
+  color: ${({ $variant }) => ($variant === "primary" ? "#fff" : "#000")};
 
   &:hover {
-    ${({ variant }) =>
-      variant === "secondary"
-        ? `
-          background-color: black;
-          color: white;
-        `
-        : `
-      background-color: transparent;
-          color: black;
-        `}
+    background-color: ${({ $variant }) =>
+      $variant === "primary" ? "#333" : "#f8f9fa"};
+    color: ${({ $variant }) => ($variant === "primary" ? "#fff" : "#000")};
   }
 `;
 
 const Button = ({ onClick, children, variant = "primary" }) => {
   return (
-    <StyledButton onClick={onClick} variant={variant}>
+    <StyledButton onClick={onClick} $variant={variant}>
       {children}
     </StyledButton>
   );

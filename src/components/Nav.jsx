@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  /* background-color: #f0f0f0; */
 `;
 const Inner = styled.div`
   height: 100%;
@@ -28,6 +27,7 @@ const Inner = styled.div`
     transition: all 0.2s;
     overflow: hidden;
     b {
+      font-weight: bold;
       margin-left: 20px;
     }
     &:hover {
