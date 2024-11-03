@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import NextChapter from "../components/NextChapter";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -46,7 +47,7 @@ const BackgroundText = styled.div`
   color: rgba(0, 0, 0, 0.2);
   top: -50px;
   left: 50px;
-  z-index: 0;
+  z-index: -1;
 `;
 
 const Title = styled.h1`
@@ -81,18 +82,23 @@ const DescriptionTitle = styled.h3`
 
 const Description = styled.p`
   font-size: 20px;
+  line-height: 2;
   width: 90%;
 `;
 
-const InfoGrid = styled.div`
+const Info = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 200px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 100px 0;
   font-size: 20px;
+  gap: 20px;
 `;
 
-const InfoItem = styled.div``;
+const InfoItem = styled.div`
+  display: flex;
+  gap: 20px;
+`;
 
 const InfoLabel = styled.span`
   font-weight: bold;
@@ -115,13 +121,6 @@ const Footer = styled.footer`
 
 const PageNumber = styled.div``;
 
-const NextChapter = styled.div`
-  font-weight: bold;
-  &::after {
-    content: " →";
-  }
-`;
-
 const AboutMe = () => {
   return (
     <Wrapper>
@@ -140,34 +139,38 @@ const AboutMe = () => {
               안녕하세요 프론트엔드 개발자를 꿈꾸는 박태환입니다.
             </DescriptionTitle>
             <Description>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia
-              dolorem, deleniti sequi asperiores voluptate illo earum hic,
-              perferendis neque beatae doloremque doloribus eveniet minima fuga
-              in nesciunt ex sint sapiente! Lorem ipsum dolor, sit amet
-              consectetur adipisicing elit. Iusto, at molestiae alias dolores,
-              explicabo saepe veniam ullam aliquam possimus minus, repellendus
-              inventore perferendis ad impedit aspernatur a quas numquam
-              eveniet?
+              저는 온라인 사업을 운영하며 소비자의 관점과 니즈를 깊이 이해하게
+              되었습니다. 이러한 경험을 바탕으로 사용자 중심의 웹 서비스를
+              개발하는 데 열정을 가지고 있습니다. JavaScript, React, TypeScript,
+              Next.js 등 다양한 기술을 학습하며 개인 프로젝트를 진행하였고, 팀
+              프로젝트를 통해 협업의 중요성을 배웠습니다. 신입 개발자로서
+              지속적인 학습과 성장을 통해 계속 발전하고 싶습니다.
             </Description>
           </DescriptionWrap>
-          <InfoGrid>
+          <Info>
             <InfoItem>
-              <InfoLabel>Email:</InfoLabel>
-              <InfoValue>xxx12345@naver.com</InfoValue>
+              <InfoLabel>이름:</InfoLabel>
+              <InfoValue>박태환</InfoValue>
             </InfoItem>
             <InfoItem>
-              <InfoLabel>Date of Birth:</InfoLabel>
-              <InfoValue>11 November, 1987</InfoValue>
+              <InfoLabel>생년월일:</InfoLabel>
+              <InfoValue>99.03.02</InfoValue>
             </InfoItem>
             <InfoItem>
-              <InfoLabel>Email:</InfoLabel>
-              <InfoValue>Los Angeles, California</InfoValue>
+              <InfoLabel>위치:</InfoLabel>
+              <InfoValue>서울특별시 중랑구</InfoValue>
             </InfoItem>
-          </InfoGrid>
+            <InfoItem>
+              <InfoLabel>교육사항:</InfoLabel>
+              <InfoValue>
+                K-Digital Training(KDT) 기업연계 프론트엔드 개발 수료
+              </InfoValue>
+            </InfoItem>
+          </Info>
         </Content>
         <Footer>
           <PageNumber>02/06</PageNumber>
-          <NextChapter>Next Chapter</NextChapter>
+          <NextChapter to="skills" />
         </Footer>
       </Inner>
     </Wrapper>

@@ -16,7 +16,8 @@ li,ul,ol{
     list-style: none;
 }
 body{
-    background-color: #FFDC66;
+    background-color: ${({ theme }) => theme.bgColor};
+    color: ${({ theme }) => theme.textColor};
     font-family: 'LINESeedKR-Bd';
 }
 `;

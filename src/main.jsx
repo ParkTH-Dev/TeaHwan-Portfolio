@@ -1,12 +1,10 @@
-// main.jsx 또는 index.js
+// main.jsx
 import { createRoot } from "react-dom/client";
+import { RecoilRoot } from "recoil";
 import App from "./App.jsx";
-import { Globalstyle } from "./styles/globalstyle.js";
-import { BrowserRouter } from "react-router-dom"; // BrowserRouter 임포트
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <Globalstyle />
+  <RecoilRoot>
     <App />
-  </BrowserRouter>
+  </RecoilRoot>
 );

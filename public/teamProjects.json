@@ -15,6 +15,22 @@
         "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
         "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg"
       ]
+    },
+    {
+      "id": 2,
+      "title": "Team Project Portfolio",
+      "description": "두 번째 프로젝트입니다. 팀원들과 함께 협업하여 만든 포트폴리오 웹사이트입니다. React와 다양한 라이브러리를 활용하여 제작했습니다.",
+      "category": "Web Development",
+      "updated": "March 20, 2024",
+      "author": "Team Portfolio",
+      "readingTime": "3 min",
+      "mainImage": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+      "thumbnails": [
+        "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+        "https://yozm.wishket.com/media/news/1379/image021.png",
+        "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+        "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg"
+      ]
     }
   ]
 }

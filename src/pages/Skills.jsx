@@ -1,8 +1,12 @@
 import styled from "styled-components";
+import NextChapter from "../components/NextChapter";
+import SkillModal from "../components/SkillModal";
+import { useState } from "react";
 
-// 이미지 가져오기 (Vite 환경 가정)
-const skillImages = import.meta.glob("/public/img/skills/*.png", {
+// SVG 이미지 가져오기 (Vite 환경 가정)
+const skillImages = import.meta.glob("/src/assets/skills/*.svg", {
   eager: true,
+  import: "default",
 });
 
 // Styled Components
@@ -49,7 +53,7 @@ const BackgroundText = styled.div`
   color: rgba(0, 0, 0, 0.2);
   top: -50px;
   left: 50px;
-  z-index: 0;
+  z-index: -1;
 `;
 
 const SubTitle = styled.h2`
@@ -114,9 +118,8 @@ const SkillIcons = styled.div`
 
 const SkillIcon = styled.img`
   cursor: pointer;
-  width: 100%;
-  height: 100%;
-
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   background-color: #fff;
   padding: 5px;
@@ -136,28 +139,31 @@ const Footer = styled.footer`
 
 const PageNumber = styled.div``;
 
-const NextChapter = styled.div`
-  font-weight: bold;
-  &::after {
-    content: " →";
-  }
-`;
-
 // Skills 컴포넌트
 const Skills = () => {
   const skillCategories = [
     { name: "백엔드 및 데이터베이스", skills: ["nodejs", "firebase"] },
-    {
-      name: "상태 관리 및 데이터 통신",
-      skills: ["redux", "recoil", "graphql"],
-    },
     { name: "스타일링 도구", skills: ["sass", "styledcomponents", "tailwind"] },
     { name: "개발 및 협업 도구", skills: ["vite", "github", "git", "figma"] },
     {
+      name: "상태 관리 및 데이터 통신",
+      skills: ["recoil", "reactquery", "redux", "graphql"],
+    },
+    {
       name: "프론트엔드",
-      skills: ["html", "css", "JavaScript", "react", "typescript", "nextjs"],
+      skills: ["javascript", "react", "typescript", "nextjs"],
     },
   ];
+
+  // SVG 이미지 가져오기
+  const defaultImage = Object.values(skillImages).find((img) =>
+    img.toLowerCase().includes("javascript")
+  );
+
+  const [selectedSkill, setSelectedSkill] = useState({
+    name: "JAVASCRIPT",
+    image: defaultImage,
+  });
 
   return (
     <Wrapper>
@@ -171,7 +177,12 @@ const Skills = () => {
           <TitleBar />
         </TitleWrap>
         <Content>
-          <SkillsInfo>Skills Info</SkillsInfo>
+          <SkillsInfo>
+            <SkillModal
+              skill={selectedSkill.name}
+              image={selectedSkill.image}
+            />
+          </SkillsInfo>
           <SkillsWrap>
             {skillCategories.map((category, index) => (
               <Category key={index}>
@@ -179,14 +190,15 @@ const Skills = () => {
                 <SkillIcons>
                   {category.skills.map((skill, skillIndex) => {
                     const image = Object.values(skillImages).find((img) =>
-                      img.default.toLowerCase().includes(skill.toLowerCase())
-                    )?.default;
+                      img.toLowerCase().includes(skill.toLowerCase())
+                    );
                     return (
                       <SkillIcon
                         key={skillIndex}
                         src={image || ""}
                         alt={skill}
                         title={skill}
+                        onClick={() => setSelectedSkill({ name: skill, image })}
                       />
                     );
                   })}
@@ -197,7 +209,7 @@ const Skills = () => {
         </Content>
         <Footer>
           <PageNumber>03/06</PageNumber>
-          <NextChapter>Next Chapter</NextChapter>
+          <NextChapter to="project" />
         </Footer>
       </Inner>
     </Wrapper>

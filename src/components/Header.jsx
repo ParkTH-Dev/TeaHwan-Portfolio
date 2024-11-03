@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import ThemeSwitch from "./ThemeSwitch";
 
 const Wrapper = styled.div`
+  max-width: 1600px;
   width: 100%;
   height: 80px;
   backdrop-filter: blur(1.5px);
@@ -11,12 +13,15 @@ const Wrapper = styled.div`
     font-weight: 800;
   }
 `;
+
 const Inner = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 50px;
+  /* position: relative; */
 `;
 
 const Header = () => {
@@ -24,6 +29,7 @@ const Header = () => {
     <Wrapper>
       <Inner>
         <span>ParkTH-Dev</span>
+        <ThemeSwitch />
       </Inner>
     </Wrapper>
   );
