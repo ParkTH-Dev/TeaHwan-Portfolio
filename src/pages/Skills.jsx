@@ -2,6 +2,8 @@ import styled from "styled-components";
 import NextChapter from "../components/NextChapter";
 import SkillModal from "../components/SkillModal";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 // SVG 이미지 가져오기 (Vite 환경 가정)
 const skillImages = import.meta.glob("/src/assets/skills/*.svg", {
@@ -23,29 +25,45 @@ const Inner = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 50px;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   width: 100%;
-  height: 60%;
   position: relative;
   z-index: 1;
   display: flex;
   margin-top: 300px;
   margin-bottom: 200px;
+
+  @media (max-width: 1200px) {
+    margin-top: 200px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 150px;
+    margin-bottom: 100px;
+  }
 `;
 
 const TitleWrap = styled.div`
   position: absolute;
   top: 100px;
   width: 100%;
+  @media (max-width: 1200px) {
+    top: 50px;
+  }
 `;
 
 const TitleInner = styled.div`
   margin-left: 33px;
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  }
 `;
 
-const BackgroundText = styled.div`
+const BackgroundText = styled(motion.div)`
   position: absolute;
   font-size: 130px;
   width: 100%;
@@ -54,36 +72,64 @@ const BackgroundText = styled.div`
   top: -50px;
   left: 50px;
   z-index: -1;
+  @media (max-width: 1200px) {
+    font-size: 100px;
+  }
+  @media (max-width: 768px) {
+    font-size: 60px;
+    top: -30px;
+    left: 20px;
+  }
 `;
 
 const SubTitle = styled.h2`
   font-size: 18px;
   margin-bottom: 10px;
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 80px;
   font-weight: bold;
   margin-right: 20px;
+  @media (max-width: 1200px) {
+    font-size: 60px;
+  }
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
-const TitleBar = styled.div`
+const TitleBar = styled(motion.div)`
   position: absolute;
   top: -40px;
   width: 4px;
   height: 150px;
   background-color: black;
+  @media (max-width: 1200px) {
+    height: 120px;
+  }
+  @media (max-width: 768px) {
+    height: 100px;
+    top: -30px;
+  }
 `;
 
 const SkillsInfo = styled.div`
   width: 100%;
+  margin: auto;
   flex: 1;
   font-size: 20px;
   font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  transition: all 0.3s ease-in-out;
+  @media (max-width: 768px) {
+    position: absolute;
+  }
 `;
 
 const SkillsWrap = styled.div`
@@ -94,18 +140,28 @@ const SkillsWrap = styled.div`
   align-items: flex-end;
   flex-direction: column;
   gap: 30px;
+  @media (max-width: 768px) {
+    gap: 20px;
+    align-items: center;
+  }
 `;
 
 const Category = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 const CategoryName = styled.h3`
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const SkillIcons = styled.div`
@@ -114,16 +170,39 @@ const SkillIcons = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 15px;
+  @media (max-width: 1200px) {
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
 `;
 
 const SkillIcon = styled.img`
   cursor: pointer;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   background-color: #fff;
   padding: 5px;
   border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+  @media (max-width: 768px) {
+    /* width: 50px;
+    height: 50px; */
+  }
 `;
 
 const Footer = styled.footer`
@@ -135,6 +214,9 @@ const Footer = styled.footer`
   align-items: center;
   gap: 20px;
   font-size: 20px;
+  @media (max-width: 768px) {
+    left: 20px;
+  }
 `;
 
 const PageNumber = styled.div``;
@@ -164,6 +246,24 @@ const Skills = () => {
     name: "JAVASCRIPT",
     image: defaultImage,
   });
+  const [showMobileModal, setShowMobileModal] = useState(false);
+
+  const handleSkillClick = (skill, image) => {
+    setSelectedSkill({ name: skill, image });
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      setShowMobileModal(true);
+    }
+  };
+
+  const [titleRef, titleInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [contentRef, contentInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <Wrapper>
@@ -171,16 +271,52 @@ const Skills = () => {
         <TitleWrap>
           <TitleInner>
             <SubTitle>Some Word About Me</SubTitle>
-            <BackgroundText>SKILLS</BackgroundText>
+            <BackgroundText
+              ref={titleRef}
+              initial={{ opacity: 0, x: -100 }}
+              animate={titleInView ? { opacity: 0.2, x: 0 } : {}}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 100,
+              }}
+            >
+              SKILLS
+            </BackgroundText>
             <Title>SKILLS</Title>
           </TitleInner>
-          <TitleBar />
+          <TitleBar
+            initial={{ height: 0 }}
+            animate={{
+              height:
+                window.innerWidth <= 768
+                  ? 100
+                  : window.innerWidth <= 1200
+                  ? 120
+                  : 150,
+            }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+            }}
+          />
         </TitleWrap>
-        <Content>
+        <Content
+          ref={contentRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={contentInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+          }}
+        >
           <SkillsInfo>
             <SkillModal
               skill={selectedSkill.name}
               image={selectedSkill.image}
+              isOpen={showMobileModal}
+              onClose={() => setShowMobileModal(false)}
             />
           </SkillsInfo>
           <SkillsWrap>
@@ -198,7 +334,7 @@ const Skills = () => {
                         src={image || ""}
                         alt={skill}
                         title={skill}
-                        onClick={() => setSelectedSkill({ name: skill, image })}
+                        onClick={() => handleSkillClick(skill, image)}
                       />
                     );
                   })}

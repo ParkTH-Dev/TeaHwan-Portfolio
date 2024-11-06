@@ -12,6 +12,9 @@ const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const ModalContent = styled.div`
@@ -25,6 +28,12 @@ const ModalContent = styled.div`
   border-radius: 12px;
   padding: 30px;
   position: relative;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 20px;
+    gap: 20px;
+  }
 `;
 
 const InfoWrap = styled.div`
@@ -65,16 +74,31 @@ const CloseButton = styled.button`
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
+  @media (max-width: 768px) {
+    top: 5px;
+    right: 5px;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+  }
 `;
 
 const ProjectTitle = styled.h2`
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const ProjectPeriod = styled.p`
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const TechStack = styled.div`
@@ -110,6 +134,10 @@ const ButtonGroup = styled.div`
   display: flex;
   gap: 15px;
   margin-top: 30px;
+  @media (max-width: 768px) {
+    margin-top: 0;
+    padding-bottom: 20px;
+  }
 `;
 
 const ProjectModal = ({ project, onClose }) => {

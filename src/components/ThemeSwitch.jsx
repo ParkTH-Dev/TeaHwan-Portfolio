@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
-import { themeState } from "../state/themeState";
+import { themeState } from "../state/atom";
 import { nightTheme, oceanTheme, sunnyTheme } from "../styles/theme";
 
 const SwitchWrapper = styled.div`

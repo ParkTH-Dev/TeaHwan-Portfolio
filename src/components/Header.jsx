@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import ThemeSwitch from "./ThemeSwitch";
+import { useRecoilState } from "recoil";
+import { menuState } from "../state/atom";
 
 const Wrapper = styled.div`
   max-width: 1600px;
@@ -12,6 +14,14 @@ const Wrapper = styled.div`
     font-size: 30px;
     font-weight: 800;
   }
+  @media (max-width: 1200px) {
+    backdrop-filter: ${({ $isOpen }) => ($isOpen ? "none" : "blur(1.5px)")};
+  }
+  @media (max-width: 768px) {
+    span {
+      font-size: 20px;
+    }
+  }
 `;
 
 const Inner = styled.div`
@@ -21,15 +31,69 @@ const Inner = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 50px;
-  /* position: relative; */
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+`;
+
+const Right = styled.div`
+  @media (max-width: 1200px) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* gap: 0; */
+  }
+`;
+
+const MenuIcon = styled.div`
+  display: none;
+  @media (max-width: 1200px) {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    right: 50px;
+    div {
+      position: relative;
+      transition: all 0.3s ease;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      transform-origin: center;
+    }
+
+    ${({ $isOpen }) =>
+      $isOpen &&
+      `
+      div:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      div:nth-child(2) {
+        opacity: 0;
+      }
+      div:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    `}
+  }
 `;
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useRecoilState(menuState);
   return (
-    <Wrapper>
+    <Wrapper $isOpen={isOpen}>
       <Inner>
         <span>ParkTH-Dev</span>
-        <ThemeSwitch />
+        <Right>
+          <ThemeSwitch />
+          <MenuIcon $isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </MenuIcon>
+        </Right>
       </Inner>
     </Wrapper>
   );

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import NextChapter from "../components/NextChapter";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -14,32 +16,52 @@ const Inner = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 50px;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   width: 100%;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 300px;
-  /* justify-content: space-around; */
+  margin-top: 350px;
+  @media (max-width: 1200px) {
+    margin-top: 200px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 150px;
+  }
 `;
 
 const SubTitle = styled.h2`
   font-size: 18px;
   margin-bottom: 10px;
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const TitleWrap = styled.div`
   position: absolute;
   top: 100px;
   width: 100%;
+  @media (max-width: 1200px) {
+    top: 50px;
+  }
 `;
 const TitleInner = styled.div`
   margin-left: 33px;
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  }
 `;
-const BackgroundText = styled.div`
+const BackgroundText = styled(motion.div)`
   position: absolute;
   font-size: 130px;
   width: 100%;
@@ -48,12 +70,26 @@ const BackgroundText = styled.div`
   top: -50px;
   left: 50px;
   z-index: -1;
+  @media (max-width: 1200px) {
+    font-size: 100px;
+  }
+  @media (max-width: 768px) {
+    font-size: 60px;
+    top: -30px;
+    left: 20px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 80px;
   font-weight: bold;
   margin-right: 20px;
+  @media (max-width: 1200px) {
+    font-size: 60px;
+  }
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
 const TitleBar = styled.div`
@@ -62,6 +98,13 @@ const TitleBar = styled.div`
   width: 4px;
   height: 150px;
   background-color: black;
+  @media (max-width: 1200px) {
+    height: 120px;
+  }
+  @media (max-width: 768px) {
+    height: 100px;
+    top: -30px;
+  }
 `;
 
 const DescriptionWrap = styled.div`
@@ -72,27 +115,52 @@ const DescriptionWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  background: ${({ theme }) => theme.cardColor}60;
+  padding: 20px;
+  border-radius: 10px;
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 const DescriptionTitle = styled.h3`
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
 `;
 
 const Description = styled.p`
   font-size: 20px;
-  line-height: 2;
+  line-height: 2.3;
   width: 90%;
+  @media (max-width: 768px) {
+    line-height: 1.5;
+    font-size: 16px;
+  }
 `;
 
 const Info = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 100px 0;
+  margin-top: 20px;
+  margin-bottom: 150px;
   font-size: 20px;
   gap: 20px;
+  background: ${({ theme }) => theme.cardColor}60;
+  padding: 20px;
+  border-radius: 10px;
+  @media (max-width: 1200px) {
+    margin-top: 50px;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 100px;
+    font-size: 16px;
+  }
 `;
 
 const InfoItem = styled.div`
@@ -104,11 +172,20 @@ const InfoLabel = styled.span`
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+    width: 20%;
+  }
 `;
 
-const InfoValue = styled.span``;
+const InfoValue = styled.span`
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+`;
 
 const Footer = styled.footer`
+  z-index: 1;
   position: absolute;
   bottom: 40px;
   left: 50px;
@@ -117,23 +194,55 @@ const Footer = styled.footer`
   align-items: center;
   gap: 20px;
   font-size: 20px;
+  @media (max-width: 768px) {
+    left: 20px;
+  }
 `;
 
 const PageNumber = styled.div``;
 
 const AboutMe = () => {
+  const [titleRef, titleInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [contentRef, contentInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Wrapper>
       <Inner>
         <TitleWrap>
           <TitleInner>
             <SubTitle>Some Word About Me</SubTitle>
-            <BackgroundText>ABOUT ME</BackgroundText>
+            <BackgroundText
+              ref={titleRef}
+              initial={{ opacity: 0, x: -100 }}
+              animate={titleInView ? { opacity: 0.2, x: 0 } : {}}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 100,
+              }}
+            >
+              SKILLS
+            </BackgroundText>
             <Title>ABOUT ME</Title>
           </TitleInner>
           <TitleBar />
         </TitleWrap>
-        <Content>
+        <Content
+          ref={contentRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={contentInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+          }}
+        >
           <DescriptionWrap>
             <DescriptionTitle>
               안녕하세요 프론트엔드 개발자를 꿈꾸는 박태환입니다.

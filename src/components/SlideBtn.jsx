@@ -6,25 +6,31 @@ const Arrow = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
-  border: 1px solid #000;
+  width: 40px;
+  height: 40px;
+  border: 1px solid ${({ theme }) => theme.textColor};
   border-radius: 50%;
-  color: #000;
+  color: ${({ theme }) => theme.textColor};
   font-size: 24px;
   cursor: pointer;
   position: absolute;
   z-index: 1;
   transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    display: none; // 768px 이하에서 버튼 숨김
+  }
+
   svg {
     width: 100%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
+
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: ${({ theme }) => theme.bgColor};
+    background-color: ${({ theme }) => theme.textColor};
   }
 `;
 
@@ -33,7 +39,10 @@ const NextArrow = (props) => {
   return (
     <Arrow
       className={className}
-      style={{ ...style, right: "-70px" }}
+      style={{
+        ...style,
+        right: "-40px",
+      }}
       onClick={onClick}
     >
       <IoMdArrowForward />
@@ -46,7 +55,10 @@ const PrevArrow = (props) => {
   return (
     <Arrow
       className={className}
-      style={{ ...style, left: "-70px" }}
+      style={{
+        ...style,
+        left: "-40px",
+      }}
       onClick={onClick}
     >
       <IoMdArrowBack />

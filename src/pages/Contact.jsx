@@ -7,11 +7,16 @@ import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import Button from "../components/Button";
 import NextChapter from "../components/NextChapter";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   position: relative;
+  @media (max-width: 768px) {
+    height: 100%;
+  }
 `;
 
 const Inner = styled.div`
@@ -21,27 +26,44 @@ const Inner = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 50px;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
-const Content = styled.div`
-  margin-top: 100px;
+const Content = styled(motion.div)`
   width: 100%;
-  height: 100%;
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
+  margin-top: 300px;
+  margin-bottom: 200px;
+
+  @media (max-width: 1200px) {
+    margin-top: 200px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 150px;
+    margin-bottom: 100px;
+  }
 `;
 
 const TitleWrap = styled.div`
   position: absolute;
   top: 120px;
   width: 100%;
+  @media (max-width: 768px) {
+    top: 40px;
+  }
 `;
 const TitleInner = styled.div`
   margin-left: 33px;
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  }
 `;
-const BackgroundText = styled.div`
+const BackgroundText = styled(motion.div)`
   position: absolute;
   font-size: 130px;
   width: 100%;
@@ -50,23 +72,50 @@ const BackgroundText = styled.div`
   top: -50px;
   left: 50px;
   z-index: -1;
+  @media (max-width: 1200px) {
+    font-size: 100px;
+  }
+  @media (max-width: 768px) {
+    font-size: 60px;
+    top: -30px;
+    left: 20px;
+  }
 `;
 const SubTitle = styled.h2`
   font-size: 18px;
   margin-bottom: 10px;
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 const Title = styled.h1`
   font-size: 80px;
   font-weight: bold;
   margin-right: 20px;
+  @media (max-width: 1200px) {
+    font-size: 60px;
+  }
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
-const TitleBar = styled.div`
+const TitleBar = styled(motion.div)`
   position: absolute;
   top: -40px;
   width: 4px;
   height: 150px;
   background-color: black;
+  @media (max-width: 1200px) {
+    height: 120px;
+  }
+  @media (max-width: 768px) {
+    height: 100px;
+    top: -30px;
+  }
 `;
 
 const Items = styled.div`
@@ -77,6 +126,12 @@ const Items = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 20px;
+  @media (max-width: 1200px) {
+    gap: 10px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 50px;
+  }
 `;
 const Item = styled.div`
   display: flex;
@@ -85,20 +140,38 @@ const Item = styled.div`
   gap: 20px;
   span {
     font-size: 20px;
+    @media (max-width: 1200px) {
+      font-size: 16px;
+    }
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 `;
 const Icon = styled.div`
   width: 70px;
   height: 70px;
-  border: 1px solid black;
+  border: 1px solid ${(props) => props.theme.textColor};
   border-radius: 50%;
   position: relative;
+  transition: all 0.3s ease-in-out;
   svg {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 30px;
+  }
+  &:hover {
+    background-color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.bgColor};
+  }
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    svg {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -111,6 +184,10 @@ const Footer = styled.footer`
   align-items: center;
   gap: 20px;
   font-size: 20px;
+  @media (max-width: 768px) {
+    bottom: 20px;
+    left: 20px;
+  }
 `;
 
 const PageNumber = styled.div``;
@@ -122,6 +199,13 @@ const FormWrapper = styled.form`
   flex-direction: column;
   gap: 40px;
   margin-top: 30px;
+  @media (max-width: 1200px) {
+    max-width: 600px;
+  }
+  @media (max-width: 500px) {
+    max-width: 400px;
+    gap: 20px;
+  }
 `;
 
 const InputGroup = styled.div`
@@ -129,8 +213,9 @@ const InputGroup = styled.div`
   gap: 30px;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     flex-direction: column;
+    gap: 20px;
   }
 `;
 
@@ -139,6 +224,9 @@ const InputWrapper = styled.div`
   flex-direction: column;
   gap: 15px;
   flex: 1;
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 const Label = styled.div`
@@ -175,6 +263,9 @@ const Input = styled.input`
     transition: background-color 5000s ease-in-out 0s;
     background: none !important;
   }
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -196,12 +287,19 @@ const TextArea = styled.textarea`
       opacity: 0;
     }
   }
+  @media (max-width: 1200px) {
+    font-size: 16px;
+    min-height: 100px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
 
   margin-top: 20px;
+  @media (max-width: 500px) {
+    margin-top: 10px;
+  }
 `;
 
 const MessageBox = styled.div`
@@ -213,6 +311,16 @@ const Contact = () => {
   const form = useRef();
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
+
+  const [titleRef, titleInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [contentRef, contentInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -242,12 +350,46 @@ const Contact = () => {
         <TitleWrap>
           <TitleInner>
             <SubTitle>Some Word About Me</SubTitle>
-            <BackgroundText>CONTACT</BackgroundText>
+            <BackgroundText
+              ref={titleRef}
+              initial={{ opacity: 0, x: -100 }}
+              animate={titleInView ? { opacity: 0.2, x: 0 } : {}}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 100,
+              }}
+            >
+              CONTACT
+            </BackgroundText>
             <Title>CONTACT</Title>
           </TitleInner>
-          <TitleBar />
+          <TitleBar
+            initial={{ height: 0 }}
+            animate={{
+              height:
+                window.innerWidth <= 768
+                  ? 100
+                  : window.innerWidth <= 1200
+                  ? 120
+                  : 150,
+            }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+            }}
+          />
         </TitleWrap>
-        <Content>
+        <Content
+          ref={contentRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={contentInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: 0.8,
+            delay: 0.3,
+          }}
+        >
           <FormWrapper ref={form} onSubmit={sendEmail}>
             <InputGroup>
               <InputWrapper>

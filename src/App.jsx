@@ -8,8 +8,9 @@ import Project from "./pages/Project";
 import TeamProject from "./pages/TeamProject";
 import Contact from "./pages/Contact";
 import { useRecoilValue } from "recoil";
-import { themeState } from "./state/themeState";
+import { themeState } from "./state/atom.js";
 import { Globalstyle } from "./styles/globalstyle.js";
+import MouseFollower from "./components/MouseFollower";
 
 const Wrapper = styled.div`
   max-width: 1600px;
@@ -21,18 +22,24 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   width: calc(100% - 300px);
   height: 100%;
+  transition: all 0.3s ease;
+  @media (max-width: 1200px) {
+    width: 100%;
+    overflow-x: hidden;
+  }
 `;
 
 function App() {
   const theme = useRecoilValue(themeState);
-
   return (
     <ThemeProvider theme={theme}>
       <Globalstyle />
+      <MouseFollower />
+
       <Wrapper>
         <Header />
-        <Nav />
         <Inner>
+          <Nav />
           <div id="top">
             <Top />
           </div>

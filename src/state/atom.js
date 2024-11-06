@@ -15,3 +15,8 @@ export const themeState = atom({
     },
   ],
 });
+
+export const menuState = atom({
+  key: "menuState",
+  default: false,
+});

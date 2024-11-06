@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "../components/SlideBtn";
 import NextChapter from "../components/NextChapter";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 // Wrapper 스타일
 const Wrapper = styled.div`
@@ -21,32 +23,65 @@ const Inner = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 50px;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
 // 콘텐츠 섹션
-const Content = styled.div`
+const Content = styled(motion.div)`
   width: 100%;
+  height: 100%;
   position: relative;
+  z-index: 1;
+  display: flex;
   margin-top: 300px;
   margin-bottom: 200px;
+  @media (max-width: 1200px) {
+    margin-top: 200px;
+  }
+  @media (max-width: 768px) {
+    margin: 150px 0;
+  }
 `;
 
 // 새로운 슬라이더 스타일 컴포넌트 추가
 const ProjectContainer = styled(Slider)`
   width: 90%;
+  height: 100%;
   margin: 0 auto;
-  gap: 30px;
   margin-top: 15px;
+  position: relative;
+  .slick-list {
+    overflow: hidden;
+  }
 
   .slick-slide {
     padding: 0 10px;
-    display: flex;
-    justify-content: center;
+    > div {
+      width: 100%;
+    }
   }
 
-  .slick-prev:before,
-  .slick-next:before {
-    display: none;
+  .slick-track {
+    display: flex;
+    width: 100%;
+  }
+
+  .slick-prev,
+  .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    @media (max-width: 768px) {
+      display: none;
+    }
+    &:before {
+      display: none;
+    }
   }
 
   .slick-dots {
@@ -57,6 +92,9 @@ const ProjectContainer = styled(Slider)`
     font-size: 12px;
     color: black;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 // 제목 섹션 스타일
@@ -64,53 +102,94 @@ const TitleWrap = styled.div`
   position: absolute;
   top: 100px;
   width: 100%;
+  @media (max-width: 1200px) {
+    top: 50px;
+  }
 `;
 
 const TitleInner = styled.div`
   margin-left: 33px;
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  }
 `;
 
 const SubTitle = styled.h2`
   font-size: 18px;
   margin-bottom: 10px;
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
-const BackgroundText = styled.div`
+const BackgroundText = styled(motion.div)`
   position: absolute;
-  font-size: 100px;
+  font-size: 130px;
   width: 100%;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.2);
   top: -50px;
   left: 50px;
   z-index: -1;
+
+  @media (max-width: 1200px) {
+    font-size: 100px;
+  }
+  @media (max-width: 768px) {
+    font-size: 60px;
+    top: -30px;
+    left: 20px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 80px;
   font-weight: bold;
   margin-right: 20px;
+  @media (max-width: 1200px) {
+    font-size: 60px;
+  }
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
-const TitleBar = styled.div`
+const TitleBar = styled(motion.div)`
   position: absolute;
   top: -40px;
   width: 4px;
   height: 150px;
   background-color: black;
+
+  @media (max-width: 1200px) {
+    height: 120px;
+  }
+  @media (max-width: 768px) {
+    height: 100px;
+    top: -30px;
+  }
 `;
 
 // 아이템 섹션 스타일
 const ItemsWrap = styled.div`
-  max-height: 700px;
   height: 100%;
+  @media (max-width: 1000px) {
+    max-height: 100%;
+  }
 `;
 
 const Items = styled.div`
-  min-height: 500px;
   height: 100%;
   display: flex;
   gap: 20px;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    min-height: auto;
+    gap: 15px;
+  }
 `;
 
 const ItemLeft = styled.div`
@@ -118,7 +197,10 @@ const ItemLeft = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 100%;
+  height: auto;
+  @media (max-width: 1000px) {
+    gap: 15px;
+  }
 `;
 
 // 왼쪽 아이템 스타일
@@ -130,7 +212,9 @@ const LeftFirstItem = styled.div`
   flex-direction: column;
   padding: 20px;
   height: 100%;
-  flex: 1;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const LeftSecondItem = styled.div`
@@ -139,9 +223,11 @@ const LeftSecondItem = styled.div`
   background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  height: 100%;
   flex: 1;
   padding: 20px;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const ItemTitle = styled.div`
@@ -152,58 +238,119 @@ const ItemTitle = styled.div`
   border-bottom: 1px solid #000;
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const ItemDesc = styled.div`
   font-size: 16px;
+  line-height: 1.5;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 // 오른쪽 아이템 스타일
 const ItemRight = styled.div`
-  flex: 3;
+  flex: 2;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.1);
   height: 100%;
   padding: 20px;
+  width: 100%;
+
+  @media (max-width: 1000px) {
+    flex: 1;
+  }
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+  @media (max-width: 600px) {
+    padding: 10px;
+  }
 `;
 
 const RightImgWrap = styled.div`
   display: flex;
   gap: 20px;
+  flex-direction: column-reverse;
+  width: 100%;
+
+  @media (max-width: 1000px) {
+    gap: 15px;
+  }
+  @media (max-width: 600px) {
+    gap: 12px;
+  }
 `;
 
 const MainImage = styled.img`
   width: 100%;
   border-radius: 10px;
   object-fit: cover;
+  max-height: 400px;
+  @media (max-width: 768px) {
+    max-height: 300px;
+  }
+  @media (max-width: 600px) {
+    max-height: 200px;
+  }
 `;
 
 const FirstImage = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  flex: 3;
+  @media (max-width: 1000px) {
+    gap: 15px;
+  }
+  @media (max-width: 600px) {
+    gap: 12px;
+  }
 `;
 
 const SecondImage = styled.div`
-  flex: 1;
-  gap: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+  padding: 5px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 const Thumbnail = styled.img`
-  width: 100%;
-  max-width: 200px;
-  max-height: 200px;
+  min-width: 80px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 8px;
   cursor: pointer;
   border: 2px solid transparent;
+
   &:hover {
     border-color: rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 1000px) {
+    min-width: 70px;
+    width: 70px;
+    height: 70px;
+  }
+
+  @media (max-width: 600px) {
+    min-width: 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
   }
 `;
 
@@ -211,6 +358,16 @@ const RightDesc = styled.div`
   width: 100%;
   gap: 10px;
   font-size: 16px;
+  line-height: 1.5;
+  margin-top: 15px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  @media (max-width: 600px) {
+    font-size: 13px;
+    margin-top: 10px;
+  }
 `;
 
 // 푸터 스타일
@@ -223,6 +380,9 @@ const Footer = styled.div`
   align-items: center;
   gap: 20px;
   font-size: 20px;
+  @media (max-width: 768px) {
+    left: 20px;
+  }
 `;
 
 const PageNumber = styled.div``;
@@ -230,6 +390,18 @@ const PageNumber = styled.div``;
 // 메인 컴포넌트
 const TeamProject = () => {
   const [projects, setProjects] = useState([]);
+  const [selectedImages, setSelectedImages] = useState({});
+  const [sliderRef, setSliderRef] = useState(null);
+
+  const [titleRef, titleInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [contentRef, contentInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -237,39 +409,56 @@ const TeamProject = () => {
         const response = await fetch("/teamProjects.json");
         const data = await response.json();
         setProjects(data.teamProjects);
+
+        const initialSelectedImages = {};
+        data.teamProjects.forEach((project) => {
+          initialSelectedImages[project.id] = project.thumbnails[0];
+        });
+        setSelectedImages(initialSelectedImages);
+
+        // 슬라이더를 첫 번째 슬라이드로 이동
+        if (sliderRef) {
+          sliderRef.slickGoTo(0);
+        }
       } catch (error) {
         console.error("팀 프로젝트 데이터를 불러오는데 실패했습니다:", error);
       }
     };
     fetchProjects();
-  }, []);
+  }, [sliderRef]);
 
-  if (!projects) return null;
-
-  // TeamProject 컴포넌트 내부의 슬라이더 설정 수정
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    adaptiveHeight: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          initialSlide: 0,
+          swipe: true,
         },
       },
     ],
   };
+
+  const handleThumbnailClick = (projectId, newImage) => {
+    setSelectedImages((prev) => ({
+      ...prev,
+      [projectId]: newImage,
+    }));
+  };
+
+  if (!projects) return null;
 
   return (
     <Wrapper>
@@ -278,15 +467,47 @@ const TeamProject = () => {
         <TitleWrap>
           <TitleInner>
             <SubTitle>Some Word About Me</SubTitle>
-            <BackgroundText>TEAM PROJECT</BackgroundText>
+            <BackgroundText
+              ref={titleRef}
+              initial={{ opacity: 0, x: -100 }}
+              animate={titleInView ? { opacity: 0.2, x: 0 } : {}}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 100,
+              }}
+            >
+              TEAM PROJECT
+            </BackgroundText>
             <Title>TEAM PROJECT</Title>
           </TitleInner>
-          <TitleBar />
+          <TitleBar
+            initial={{ height: 0 }}
+            animate={{
+              height:
+                window.innerWidth <= 768
+                  ? 100
+                  : window.innerWidth <= 1200
+                  ? 120
+                  : 150,
+            }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+            }}
+          />
         </TitleWrap>
-
-        {/* 콘텐츠 섹션 */}
-        <Content>
-          <ProjectContainer {...sliderSettings}>
+        <Content
+          ref={contentRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={contentInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+          }}
+        >
+          <ProjectContainer ref={setSliderRef} {...sliderSettings}>
             {projects.map((project) => (
               <ItemsWrap key={project.id}>
                 <Items>
@@ -305,19 +526,18 @@ const TeamProject = () => {
                       <ItemDesc>{project.description}</ItemDesc>
                     </LeftSecondItem>
                   </ItemLeft>
-
                   <ItemRight>
                     <RightImgWrap>
                       <FirstImage>
-                        <MainImage src={project.mainImage} alt="Main Project" />
+                        <MainImage
+                          src={selectedImages[project.id] || project.mainImage}
+                          alt="Main Project"
+                        />
                         <RightDesc>
                           Lorem ipsum dolor sit amet consectetur adipisicing
                           elit. Quas inventore beatae eaque dolores molestias
                           aut ducimus aspernatur ea maxime laudantium
                           asperiores, cumque quaerat nisi nostrum expedita ullam
-                          omnis sunt repellat! aspernatur ea maxime laudantium
-                          asperiores, cumque quaerat nisi nostrum expedita ullam
-                          omnis sunt repellat! {/* 생략 */}
                         </RightDesc>
                       </FirstImage>
                       <SecondImage>
@@ -326,6 +546,9 @@ const TeamProject = () => {
                             key={index}
                             src={thumb}
                             alt={`Thumbnail ${index + 1}`}
+                            onClick={() =>
+                              handleThumbnailClick(project.id, thumb)
+                            }
                           />
                         ))}
                       </SecondImage>
@@ -336,8 +559,6 @@ const TeamProject = () => {
             ))}
           </ProjectContainer>
         </Content>
-
-        {/* 푸터 섹션 */}
         <Footer>
           <PageNumber>05/06</PageNumber>
           <NextChapter to="contact" />

@@ -2,7 +2,7 @@ import { Link } from "react-scroll";
 import styled from "styled-components";
 
 const StyledLink = styled(Link)`
-  z-index: 2;
+  z-index: 0;
   font-weight: bold;
   cursor: pointer;
   &::after {

@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "../components/SlideBtn";
 import NextChapter from "../components/NextChapter";
 import ProjectModal from "../components/ProjectModal";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,25 +21,42 @@ const Inner = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 50px;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   width: 100%;
+  margin: 0 auto;
   position: relative;
   margin-top: 300px;
   margin-bottom: 200px;
+  @media (max-width: 1200px) {
+    margin-top: 200px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
 `;
 const TitleWrap = styled.div`
   position: absolute;
   top: 100px;
   width: 100%;
+  @media (max-width: 1200px) {
+    top: 50px;
+  }
 `;
 
 const TitleInner = styled.div`
   margin-left: 33px;
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  }
 `;
 
-const BackgroundText = styled.div`
+const BackgroundText = styled(motion.div)`
   position: absolute;
   font-size: 130px;
   width: 100%;
@@ -46,25 +65,52 @@ const BackgroundText = styled.div`
   top: -50px;
   left: 50px;
   z-index: -1;
+  @media (max-width: 1200px) {
+    font-size: 100px;
+  }
+  @media (max-width: 768px) {
+    font-size: 60px;
+    top: -30px;
+    left: 20px;
+  }
 `;
 
 const SubTitle = styled.h2`
   font-size: 18px;
   margin-bottom: 10px;
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 80px;
   font-weight: bold;
   margin-right: 20px;
+  @media (max-width: 1200px) {
+    font-size: 60px;
+  }
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
-const TitleBar = styled.div`
+const TitleBar = styled(motion.div)`
   position: absolute;
   top: -40px;
   width: 4px;
   height: 150px;
   background-color: black;
+  @media (max-width: 1200px) {
+    height: 120px;
+  }
+  @media (max-width: 768px) {
+    height: 100px;
+    top: -30px;
+  }
 `;
 const Footer = styled.div`
   position: absolute;
@@ -75,14 +121,17 @@ const Footer = styled.div`
   align-items: center;
   gap: 20px;
   font-size: 20px;
+  @media (max-width: 768px) {
+    left: 20px;
+  }
 `;
 const PageNumber = styled.div``;
 
 const ProjectContainer = styled(Slider)`
-  width: 90%;
-  margin: 0 auto;
-  gap: 30px;
+  width: 100%;
   margin-top: 15px;
+  .slick-list {
+  }
   .slick-slide {
     padding: 0 10px;
     display: flex;
@@ -105,6 +154,11 @@ const ProjectContainer = styled(Slider)`
 
   .slick-dots li.slick-active button:before {
   }
+  @media (max-width: 768px) {
+    .slick-dots {
+      bottom: -40px;
+    }
+  }
 `;
 
 const ProjectCard = styled.div`
@@ -115,6 +169,11 @@ const ProjectCard = styled.div`
     transform: translateY(-10px);
     transition: transform 0.3s ease;
   }
+  @media (max-width: 768px) {
+    &:hover {
+      transform: translateY(0);
+    }
+  }
 `;
 
 const ProjectImage = styled.img`
@@ -122,6 +181,7 @@ const ProjectImage = styled.img`
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
+  border: 1.5px solid ${({ theme }) => theme.textColor};
 `;
 
 const ProjectInfo = styled.div`
@@ -153,9 +213,30 @@ const CategoryTabs = styled.div`
   margin-top: 30px;
   width: 90%;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+
+    /* 스크롤바 스타일링 */
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+    }
+  }
 `;
 
 const CategoryTab = styled.button`
+  color: ${({ theme }) => theme.textColor};
   padding: 10px 20px;
   border: none;
   background: ${(props) =>
@@ -164,16 +245,32 @@ const CategoryTab = styled.button`
   cursor: pointer;
   font-size: 18px;
   transition: all 0.3s ease;
+  flex-shrink: 0; /* 추가: 버튼이 줄어들지 않도록 설정 */
 
   &:hover {
     background: rgba(0, 0, 0, 0.1);
+  }
+  @media (max-width: 768px) {
+    white-space: nowrap;
   }
 `;
 
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
   const [projects, setProjects] = useState([]);
   const [activeCategory, setActiveCategory] = useState("TypeScript");
+
+  const [titleRef, titleInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [contentRef, contentInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
@@ -186,6 +283,13 @@ const Project = () => {
     };
     fetchProjects();
   }, []);
+  useEffect(() => {
+    const hiddenElements = document.querySelectorAll('[aria-hidden="true"]');
+    hiddenElements.forEach((el) => {
+      el.setAttribute("inert", ""); // inert 속성 추가
+      el.removeAttribute("aria-hidden"); // aria-hidden 제거
+    });
+  }, []);
 
   const activeProjects =
     projects.find((p) => p.category === activeCategory)?.items || [];
@@ -196,22 +300,50 @@ const Project = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    initialSlide: 0,
+    nextArrow: window.innerWidth > 768 ? <NextArrow /> : null,
+    prevArrow: window.innerWidth > 768 ? <PrevArrow /> : null,
+    accessibility: false,
+    focusOnSelect: false,
+    draggable: true,
+    swipe: true,
+    swipeToSlide: true,
+    touchThreshold: 10,
+    beforeChange: () => {
+      setIsDragging(true);
+      document.activeElement.blur();
+    },
+    afterChange: () => {
+      setIsDragging(false);
+      const hiddenElements = document.querySelectorAll('[aria-hidden="true"]');
+      hiddenElements.forEach((el) => el.removeAttribute("aria-hidden")); // aria-hidden 제거
+    },
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          initialSlide: 0,
+          accessibility: false,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          arrows: false,
+          initialSlide: 0,
+          swipe: true,
+          accessibility: false,
         },
       },
     ],
+  };
+
+  const handleProjectClick = (project) => {
+    if (!isDragging) {
+      setSelectedProject(project);
+    }
   };
 
   return (
@@ -220,12 +352,46 @@ const Project = () => {
         <TitleWrap>
           <TitleInner>
             <SubTitle>Some Word About Me</SubTitle>
-            <BackgroundText>PROJECT</BackgroundText>
+            <BackgroundText
+              ref={titleRef}
+              initial={{ opacity: 0, x: -100 }}
+              animate={titleInView ? { opacity: 0.2, x: 0 } : {}}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 100,
+              }}
+            >
+              PROJECT
+            </BackgroundText>
             <Title>PROJECT</Title>
           </TitleInner>
-          <TitleBar />
+          <TitleBar
+            initial={{ height: 0 }}
+            animate={{
+              height:
+                window.innerWidth <= 768
+                  ? 100
+                  : window.innerWidth <= 1200
+                  ? 120
+                  : 150,
+            }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+            }}
+          />
         </TitleWrap>
-        <Content>
+        <Content
+          ref={contentRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={contentInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+          }}
+        >
           <CategoryTabs>
             {projects.map((project) => (
               <CategoryTab
@@ -238,10 +404,11 @@ const Project = () => {
             ))}
           </CategoryTabs>
           <ProjectContainer {...settings}>
-            {activeProjects.map((project) => (
+            {activeProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
-                onClick={() => setSelectedProject(project)}
+                onClick={() => handleProjectClick(project)}
+                tabIndex={index === settings.initialSlide ? 0 : -1}
               >
                 <ProjectImage src={project.image} alt={project.title} />
                 <ProjectInfo>

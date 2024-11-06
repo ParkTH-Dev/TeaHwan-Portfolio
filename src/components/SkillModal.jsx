@@ -1,32 +1,55 @@
 import styled from "styled-components";
 
 const ModalWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: ${({ theme }) => theme.bgColor};
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 440px;
-  z-index: 2;
-`;
-
-const SkillTitle = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  justify-content: center;
+  background: ${({ theme }) => theme.cardColor}60;
+  padding: 20px;
+  border-radius: 10px;
+  @media (max-width: 768px) {
+    display: none; // 모바일에서는 기존 내용 숨김
+  }
 `;
 
-const SkillIcon = styled.img`
+const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+`;
+
+const CloseButton = styled.button`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+  }
+`;
+
+const SkillImage = styled.img`
   width: 60px;
   height: 60px;
   object-fit: cover;
   background-color: #fff;
   padding: 5px;
   border-radius: 10px;
+  @media (max-width: 900px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 const SkillName = styled.h3`
@@ -37,9 +60,44 @@ const SkillName = styled.h3`
 const SkillDescription = styled.p`
   font-size: 18px;
   line-height: 2;
+  @media (max-width: 900px) {
+    font-size: 16px;
+  }
 `;
 
-const SkillModal = ({ skill = "HTML", image }) => {
+const MobileModal = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const MobileModalContent = styled.div`
+  @media (max-width: 768px) {
+    background: ${({ theme }) => theme.bgColor};
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+`;
+
+const SkillModal = ({ skill, image, isOpen, onClose }) => {
   const getSkillDescription = (skillName) => {
     const descriptions = {
       javascript:
@@ -78,13 +136,24 @@ const SkillModal = ({ skill = "HTML", image }) => {
   };
 
   return (
-    <ModalWrapper>
-      <SkillTitle>
-        <SkillIcon src={image} alt={skill} />
-        <SkillName>{skill.toUpperCase()}</SkillName>
-      </SkillTitle>
-      <SkillDescription>{getSkillDescription(skill)}</SkillDescription>
-    </ModalWrapper>
+    <>
+      <ModalWrapper>
+        <ModalContent>
+          <SkillImage src={image} alt={skill} />
+          <SkillName>{skill.toUpperCase()}</SkillName>
+          <SkillDescription>{getSkillDescription(skill)}</SkillDescription>
+        </ModalContent>
+      </ModalWrapper>
+
+      <MobileModal $isOpen={isOpen} onClick={onClose}>
+        <MobileModalContent onClick={(e) => e.stopPropagation()}>
+          <CloseButton onClick={onClose}>×</CloseButton>
+          <SkillImage src={image} alt={skill} />
+          <SkillName>{skill.toUpperCase()}</SkillName>
+          <SkillDescription>{getSkillDescription(skill)}</SkillDescription>
+        </MobileModalContent>
+      </MobileModal>
+    </>
   );
 };
 
