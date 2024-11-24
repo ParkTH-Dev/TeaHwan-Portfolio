@@ -10,10 +10,10 @@ import { useInView } from "react-intersection-observer";
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  position: relative;
-  /* @media (max-width: 600px) {
+  /* position: relative; */
+  @media (max-width: 600px) {
     height: 100%;
-  } */
+  }
 `;
 
 const Inner = styled.div`
@@ -42,7 +42,7 @@ const Left = styled(motion.div)`
   @media (max-width: 600px) {
     margin-left: 0;
     margin-top: 100px;
-    flex: 0;
+    flex: 1;
     align-items: center;
   }
 `;
@@ -79,14 +79,14 @@ const Title = styled.h2`
 `;
 
 const ButtotWrap = styled(motion.div)`
-  position: relative;
+  /* position: relative; */
   margin-top: 20px;
   display: flex;
   gap: 10px;
   @media (max-width: 600px) {
     margin-top: 0;
     position: absolute;
-    bottom: -80px;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -104,7 +104,7 @@ const Right = styled(motion.div)`
   }
   @media (max-width: 600px) {
     margin-right: 0;
-    margin-bottom: 170px;
+    margin-bottom: 210px;
   }
   position: relative;
 `;
@@ -144,7 +144,7 @@ const Footer = styled.footer`
   font-size: 20px;
   @media (max-width: 600px) {
     left: 20px;
-    bottom: -130px;
+    bottom: -30px;
   }
 `;
 
@@ -329,16 +329,15 @@ const Top = () => {
               height: "15px",
             }}
           />
-
           <ImgWrapper>
             <Img src={profile} alt="" />
           </ImgWrapper>
         </Right>
+        <Footer>
+          <PageNumber>01/06</PageNumber>
+          <NextChapter to="about" />
+        </Footer>
       </Inner>
-      <Footer>
-        <PageNumber>01/06</PageNumber>
-        <NextChapter to="about" />
-      </Footer>
     </Wrapper>
   );
 };
