@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 import { useRecoilValue } from "recoil";
 import { themeState } from "./state/atom.js";
 import MouseFollower from "./components/MouseFollower";
-import { GlobalStyle } from "./styles/GlobalStyle.js";
+import { GlobalStyle } from "./styles/globalstyle";
 
 const Wrapper = styled.div`
   max-width: 1600px;
