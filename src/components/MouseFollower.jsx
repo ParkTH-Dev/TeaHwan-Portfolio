@@ -13,6 +13,11 @@ const Cursor = styled.div`
   backdrop-filter: invert(100%) hue-rotate(180deg);
   filter: contrast(1.2) brightness(1.1);
   mix-blend-mode: difference;
+
+  // 모바일에서 숨기기
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
 `;
 
 const MouseFollower = () => {

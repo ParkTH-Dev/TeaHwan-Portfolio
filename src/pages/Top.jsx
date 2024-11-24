@@ -11,9 +11,9 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   position: relative;
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     height: 100%;
-  }
+  } */
 `;
 
 const Inner = styled.div`
