@@ -210,6 +210,7 @@ const Footer = styled.footer`
   font-size: 20px;
   @media (max-width: 768px) {
     left: 20px;
+    font-size: 16px;
   }
 `;
 

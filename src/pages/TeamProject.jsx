@@ -382,6 +382,7 @@ const Footer = styled.div`
   font-size: 20px;
   @media (max-width: 768px) {
     left: 20px;
+    font-size: 16px;
   }
 `;
 

@@ -175,6 +175,7 @@ const InfoLabel = styled.span`
   @media (max-width: 768px) {
     margin-bottom: 0;
     width: 20%;
+    font-size: 14px;
   }
 `;
 
@@ -196,6 +197,7 @@ const Footer = styled.footer`
   font-size: 20px;
   @media (max-width: 768px) {
     left: 20px;
+    font-size: 16px;
   }
 `;
 

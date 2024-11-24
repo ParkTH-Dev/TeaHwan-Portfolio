@@ -122,6 +122,7 @@ const Footer = styled.div`
   gap: 20px;
   font-size: 20px;
   @media (max-width: 768px) {
+    font-size: 16px;
     left: 20px;
   }
 `;
@@ -271,12 +272,23 @@ const Project = () => {
     threshold: 0.1,
   });
 
+  // 모든 프로젝트 이미지를 미리 로드하는 함수
+  const preloadImages = (projects) => {
+    projects.forEach((category) => {
+      category.items.forEach((project) => {
+        const img = new Image();
+        img.src = project.image;
+      });
+    });
+  };
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await fetch("/projects.json");
         const data = await response.json();
         setProjects(data.projects);
+        preloadImages(data.projects); // 이미지 미리 로드
       } catch (error) {
         console.error("프로젝트 데이터를 불러오는데 실패했습니다:", error);
       }
@@ -410,7 +422,12 @@ const Project = () => {
                 onClick={() => handleProjectClick(project)}
                 tabIndex={index === settings.initialSlide ? 0 : -1}
               >
-                <ProjectImage src={project.image} alt={project.title} />
+                <ProjectImage
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <ProjectInfo>
                   <ProjectTitle>{project.title}</ProjectTitle>
                   <p>{project.subTitle}</p>

@@ -132,6 +132,9 @@ const Items = styled.div`
   @media (max-width: 768px) {
     margin-top: 50px;
   }
+  @media (max-width: 500px) {
+    align-items: flex-start;
+  }
 `;
 const Item = styled.div`
   display: flex;
@@ -187,6 +190,7 @@ const Footer = styled.footer`
   @media (max-width: 768px) {
     bottom: 20px;
     left: 20px;
+    font-size: 16px;
   }
 `;
 

@@ -145,6 +145,7 @@ const Footer = styled.footer`
   @media (max-width: 600px) {
     left: 20px;
     bottom: -10px;
+    font-size: 16px;
   }
 `;
 
