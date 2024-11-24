@@ -10,9 +10,10 @@ import { useInView } from "react-intersection-observer";
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  /* position: relative; */
+  position: relative;
   @media (max-width: 600px) {
-    height: 100%;
+    /* height: 100%; */
+    margin-bottom: 40px;
   }
 `;
 
@@ -84,9 +85,8 @@ const ButtotWrap = styled(motion.div)`
   display: flex;
   gap: 10px;
   @media (max-width: 600px) {
-    margin-top: 0;
     position: absolute;
-    bottom: 80px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -144,7 +144,7 @@ const Footer = styled.footer`
   font-size: 20px;
   @media (max-width: 600px) {
     left: 20px;
-    bottom: -30px;
+    bottom: -10px;
   }
 `;
 
