@@ -22,6 +22,7 @@ const Wrapper = styled.div`
     visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
     height: 100vh;
     z-index: 10;
+    background: ${({ theme }) => theme.bgColor};
   }
   @media (max-width: 768px) {
     width: 200px;
