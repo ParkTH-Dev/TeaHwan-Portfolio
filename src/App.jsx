@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 import { useRecoilValue } from "recoil";
 import { themeState } from "./state/atom.js";
 import MouseFollower from "./components/MouseFollower";
-import { Globalstyle } from "./styles/GlobalStyle.js";
+import { GlobalStyle } from "./styles/GlobalStyle.js";
 
 const Wrapper = styled.div`
   max-width: 1600px;
@@ -33,7 +33,7 @@ function App() {
   const theme = useRecoilValue(themeState);
   return (
     <ThemeProvider theme={theme}>
-      <Globalstyle />
+      <GlobalStyle />
       <MouseFollower />
       <Wrapper>
         <Header />
