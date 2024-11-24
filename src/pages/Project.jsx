@@ -165,6 +165,8 @@ const ProjectCard = styled.div`
   flex: 1;
   position: relative;
   cursor: pointer;
+  z-index: 1;
+  touch-action: manipulation;
   &:hover {
     transform: translateY(-10px);
     transition: transform 0.3s ease;
@@ -291,6 +293,20 @@ const LoadingSpinner = styled.div`
   }
 `;
 
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: none;
+`;
+
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -382,7 +398,13 @@ const Project = () => {
   const handleProjectClick = (project) => {
     if (!isDragging) {
       setSelectedProject(project);
+      document.body.style.overflow = "hidden";
     }
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProject(null);
+    document.body.style.overflow = "auto";
   };
 
   useEffect(() => {
@@ -495,10 +517,12 @@ const Project = () => {
             </LoadingWrapper>
           }
         >
-          <ProjectModal
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-          />
+          <ModalOverlay onClick={handleCloseModal}>
+            <ProjectModal
+              project={selectedProject}
+              onClose={handleCloseModal}
+            />
+          </ModalOverlay>
         </Suspense>
       )}
     </Wrapper>
