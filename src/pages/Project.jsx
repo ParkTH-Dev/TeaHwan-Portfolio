@@ -167,6 +167,8 @@ const ProjectCard = styled.div`
   cursor: pointer;
   z-index: 1;
   touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+
   &:hover {
     transform: translateY(-10px);
     transition: transform 0.3s ease;
@@ -293,20 +295,6 @@ const LoadingSpinner = styled.div`
   }
 `;
 
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  touch-action: none;
-`;
-
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -360,15 +348,14 @@ const Project = () => {
     draggable: true,
     swipe: true,
     swipeToSlide: true,
-    touchThreshold: 10,
+    touchThreshold: 5,
     beforeChange: () => {
       setIsDragging(true);
-      document.activeElement.blur();
     },
     afterChange: () => {
-      setIsDragging(false);
-      const hiddenElements = document.querySelectorAll('[aria-hidden="true"]');
-      hiddenElements.forEach((el) => el.removeAttribute("aria-hidden")); // aria-hidden 제거
+      setTimeout(() => {
+        setIsDragging(false);
+      }, 100);
     },
     responsive: [
       {
@@ -387,9 +374,10 @@ const Project = () => {
           initialSlide: 0,
           swipe: true,
           swipeToSlide: true,
-          touchThreshold: 10,
+          touchThreshold: 5,
           accessibility: false,
           verticalSwiping: false,
+          draggable: true,
         },
       },
     ],
@@ -517,12 +505,7 @@ const Project = () => {
             </LoadingWrapper>
           }
         >
-          <ModalOverlay onClick={handleCloseModal}>
-            <ProjectModal
-              project={selectedProject}
-              onClose={handleCloseModal}
-            />
-          </ModalOverlay>
+          <ProjectModal project={selectedProject} onClose={handleCloseModal} />
         </Suspense>
       )}
     </Wrapper>
