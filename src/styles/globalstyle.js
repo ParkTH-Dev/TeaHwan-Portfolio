@@ -3,7 +3,12 @@ import reset from "styled-reset";
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
-  
+  @font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
   * {
     box-sizing: border-box;
     margin: 0;
@@ -15,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
     
     @media (max-width: 1200px) {
       font-size: 14px;
@@ -28,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.bgColor};
     color: ${({ theme }) => theme.textColor};
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'LINESeedKR-Bd', sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
     width: 100%;
@@ -64,4 +70,6 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
+
+
 `;
