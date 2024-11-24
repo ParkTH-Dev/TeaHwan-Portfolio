@@ -300,6 +300,7 @@ const Project = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [projects, setProjects] = useState([]);
   const [activeCategory, setActiveCategory] = useState("TypeScript");
+  const [sliderRef, setSliderRef] = useState(null);
 
   const [titleRef, titleInView] = useInView({
     triggerOnce: true,
@@ -409,6 +410,13 @@ const Project = () => {
     preloadImages();
   }, []); // 컴포넌트 마운트 시 한 번만 실행
 
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+    if (sliderRef) {
+      sliderRef.slickGoTo(0); // 슬라이더를 첫 번째 슬라이드로 이동
+    }
+  };
+
   return (
     <Wrapper>
       <Inner>
@@ -460,13 +468,13 @@ const Project = () => {
               <CategoryTab
                 key={project.category}
                 $active={activeCategory === project.category}
-                onClick={() => setActiveCategory(project.category)}
+                onClick={() => handleCategoryChange(project.category)}
               >
                 {project.category}
               </CategoryTab>
             ))}
           </CategoryTabs>
-          <ProjectContainer {...settings}>
+          <ProjectContainer ref={setSliderRef} {...settings}>
             {activeProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}

@@ -5,17 +5,6 @@
       "items": [
         {
           "id": 1,
-          "title": "Crypto Tracker",
-          "subTitle": "실시간 암호화폐 가격 추적기",
-          "contribution": "전체 프로젝트 참여",
-          "description": "암호화폐 시세를 실시간으로 추적하고 차트로 시각화하는 웹 애플리케이션입니다. CoinGecko API를 활용하여 실시간 데이터를 제공하며, 사용자가 관심 있는 코인을 즐겨찾기할 수 있습니다.",
-          "image": "/img/crypto.png",
-          "github": "https://github.com/ParkTH-Dev/CryptoTracker-challenge",
-          "demo": "https://lucent-tanuki-6b4665.netlify.app/",
-          "tags": ["TypeScript", "React", "API 통합"]
-        },
-        {
-          "id": 2,
           "title": "Mini SNS",
           "subTitle": "타입스크립트 기반 소셜 네트워크",
           "contribution": "전체 프로젝트 참여",
@@ -24,6 +13,17 @@
           "github": "https://github.com/ParkTH-Dev/Mini-sns",
           "demo": "https://sns-faltfrom.web.app/",
           "tags": ["TypeScript", "React", "Firebase"]
+        },
+        {
+          "id": 2,
+          "title": "Crypto Tracker",
+          "subTitle": "실시간 암호화폐 가격 추적기",
+          "contribution": "전체 프로젝트 참여",
+          "description": "암호화폐 시세를 실시간으로 추적하고 차트로 시각화하는 웹 애플리케이션입니다. CoinGecko API를 활용하여 실시간 데이터를 제공하며, 사용자가 관심 있는 코인을 즐겨찾기할 수 있습니다.",
+          "image": "/img/crypto.png",
+          "github": "https://github.com/ParkTH-Dev/CryptoTracker-challenge",
+          "demo": "https://lucent-tanuki-6b4665.netlify.app/",
+          "tags": ["TypeScript", "React", "API 통합"]
         },
         {
           "id": 3,
@@ -81,39 +81,6 @@
       "items": [
         {
           "id": 7,
-          "title": "Tving Login Form",
-          "subTitle": "바닐라 자바스크립트로 구현한 티빙 로그인 폼",
-          "contribution": "전체 프로젝트 참여",
-          "description": "바닐라 자바스크립트로 구현한 티빙 로그인 폼",
-          "image": "/img/tvingForm.png",
-          "github": "https://github.com/ParkTH-Dev/TvingLoginForm",
-          "demo": "https://tivinloginform.netlify.app/",
-          "tags": ["JavaScript", "Form Validation", "CSS"]
-        },
-        {
-          "id": 8,
-          "title": "NewJeans Slide",
-          "subTitle": "뉴진스 이미지 슬라이더 구현",
-          "contribution": "전체 프로젝트 참여",
-          "description": "JavaScript와 CSS 애니메이션을 활용한 이미지 슬라이더입니다. 자동 슬라이드, 수동 네비게이션, 페이드 효과 등 다양한 애니메이션 효과를 구현했습니다.",
-          "image": "/img/newjeansSlide.png",
-          "github": "https://github.com/ParkTH-Dev/NewJeansSlide",
-          "demo": "https://kaleidoscopic-rugelach-e7e851.netlify.app/",
-          "tags": ["JavaScript", "슬라이더", "애니메이션"]
-        },
-        {
-          "id": 9,
-          "title": "NewJeans Chrome App",
-          "subTitle": "뉴진스 테마 크롬 확장 프로그램",
-          "contribution": "전체 프로젝트 참여",
-          "description": "크롬 확장 프로그램으로 개발한 뉴진스 테마 앱입니다. 새 탭을 열 때마다 랜덤한 뉴진스 이미지와 시계, 날씨 정보를 표시합니다. OpenWeather API를 활용했습니다.",
-          "image": "/img/newjeansChrome.png",
-          "github": "https://github.com/ParkTH-Dev/NewJeansChromeApp",
-          "demo": "https://statuesque-gumdrop-8af43c.netlify.app/",
-          "tags": ["JavaScript", "Chrome Extension", "API"]
-        },
-        {
-          "id": 10,
           "title": "Hanwha Eagles Fanpage",
           "subTitle": "한화 이글스 팬 커뮤니티 페이지",
           "contribution": "전체 프로젝트 참여",
@@ -123,8 +90,21 @@
           "demo": "https://magenta-kataifi-82acd5.netlify.app/",
           "tags": ["JavaScript", "커뮤니티", "반응형"]
         },
+
         {
-          "id": 11,
+          "id": 8,
+          "title": "NewJeans Chrome App",
+          "subTitle": "뉴진스 테마 크롬 확장 프로그램",
+          "contribution": "전체 프로젝트 참여",
+          "description": "크롬 확장 프로그램으로 개발한 뉴진스 테마 앱입니다. 새 탭을 열 때마다 랜덤한 뉴진스 이미지와 시계, 날씨 정보를 표시합니다. OpenWeather API를 활용했습니다.",
+          "image": "/img/newjeansChrome.png",
+          "github": "https://github.com/ParkTH-Dev/NewJeansChromeApp",
+          "demo": "https://statuesque-gumdrop-8af43c.netlify.app/",
+          "tags": ["JavaScript", "Chrome Extension", "API"]
+        },
+
+        {
+          "id": 9,
           "title": "Custom SNS",
           "subTitle": "커스텀 소셜 네트워크 서비스",
           "contribution": "전체 프로젝트 참여",
@@ -135,7 +115,18 @@
           "tags": ["JavaScript", "SNS", "LocalStorage"]
         },
         {
-          "id": 12,
+          "id": 10,
+          "title": "Music Player",
+          "subTitle": "웹 기반 음악 플레이어",
+          "contribution": "전체 프로젝트 참여",
+          "description": "Web Audio API를 활용한 음악 플레이어입니다. 재생/일시정지, 볼륨 조절, 프로그레스 바, 재생 목록 관리 등의 기능을 구현했습니다.",
+          "image": "/img/music.png",
+          "github": "https://github.com/ParkTH-Dev/Music-Player",
+          "demo": "https://harmonious-sfogliatella-5049a9.netlify.app/",
+          "tags": ["JavaScript", "Web Audio API", "UI/UX"]
+        },
+        {
+          "id": 11,
           "title": "Canvas Drawing App",
           "subTitle": "Canvas API를 활용한 그림판",
           "contribution": "전체 프로젝트 참여",
@@ -145,16 +136,28 @@
           "demo": "https://fascinating-maamoul-d8cd6c.netlify.app/",
           "tags": ["JavaScript", "Canvas API", "그래픽"]
         },
+
+        {
+          "id": 12,
+          "title": "NewJeans Slide",
+          "subTitle": "뉴진스 이미지 슬라이더 구현",
+          "contribution": "전체 프로젝트 참여",
+          "description": "JavaScript와 CSS 애니메이션을 활용한 이미지 슬라이더입니다. 자동 슬라이드, 수동 네비게이션, 페이드 효과 등 다양한 애니메이션 효과를 구현했습니다.",
+          "image": "/img/newjeansSlide.png",
+          "github": "https://github.com/ParkTH-Dev/NewJeansSlide",
+          "demo": "https://kaleidoscopic-rugelach-e7e851.netlify.app/",
+          "tags": ["JavaScript", "슬라이더", "애니메이션"]
+        },
         {
           "id": 13,
-          "title": "Music Player",
-          "subTitle": "웹 기반 음악 플레이어",
+          "title": "Tving Login Form",
+          "subTitle": "바닐라 자바스크립트로 구현한 티빙 로그인 폼",
           "contribution": "전체 프로젝트 참여",
-          "description": "Web Audio API를 활용한 음악 플레이어입니다. 재생/일시정지, 볼륨 조절, 프로그레스 바, 재생 목록 관리 등의 기능을 구현했습니다.",
-          "image": "/img/music.png",
-          "github": "https://github.com/ParkTH-Dev/Music-Player",
-          "demo": "https://harmonious-sfogliatella-5049a9.netlify.app/",
-          "tags": ["JavaScript", "Web Audio API", "UI/UX"]
+          "description": "바닐라 자바스크립트로 구현한 티빙 로그인 폼",
+          "image": "/img/tvingForm.png",
+          "github": "https://github.com/ParkTH-Dev/TvingLoginForm",
+          "demo": "https://tivinloginform.netlify.app/",
+          "tags": ["JavaScript", "Form Validation", "CSS"]
         }
       ]
     },
