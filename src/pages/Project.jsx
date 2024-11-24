@@ -176,7 +176,9 @@ const ProjectCard = styled.div`
   }
 `;
 
-const ProjectImage = styled.img`
+const ProjectImage = styled.img.attrs({
+  loading: "eager",
+})`
   width: 100%;
   height: 300px;
   object-fit: cover;
@@ -305,23 +307,12 @@ const Project = () => {
     threshold: 0.1,
   });
 
-  // 모든 프로젝트 이미지를 미리 로드하는 함수
-  const preloadImages = (projects) => {
-    projects.forEach((category) => {
-      category.items.forEach((project) => {
-        const img = new Image();
-        img.src = project.image;
-      });
-    });
-  };
-
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await fetch("/projects.json");
         const data = await response.json();
         setProjects(data.projects);
-        preloadImages(data.projects); // 이미지 미리 로드
       } catch (error) {
         console.error("프로젝트 데이터를 불러오는데 실패했습니다:", error);
       }
@@ -393,6 +384,20 @@ const Project = () => {
       setSelectedProject(project);
     }
   };
+
+  useEffect(() => {
+    // 페이지 진입 시 즉시 이미지 로드 시작
+    const preloadImages = () => {
+      projects.forEach((category) => {
+        category.items.forEach((project) => {
+          const img = new Image();
+          img.src = project.image;
+        });
+      });
+    };
+
+    preloadImages();
+  }, []); // 컴포넌트 마운트 시 한 번만 실행
 
   return (
     <Wrapper>
