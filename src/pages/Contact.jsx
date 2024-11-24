@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { HiOutlineMailOpen } from "react-icons/hi";
-import { FiPhone } from "react-icons/fi";
 
 import { FiGithub } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
@@ -53,6 +52,7 @@ const TitleWrap = styled.div`
   position: absolute;
   top: 120px;
   width: 100%;
+
   @media (max-width: 768px) {
     top: 40px;
   }
@@ -122,10 +122,11 @@ const Items = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
+  flex: 1;
   @media (max-width: 1200px) {
     gap: 10px;
   }
@@ -134,6 +135,7 @@ const Items = styled.div`
   }
   @media (max-width: 500px) {
     align-items: flex-start;
+    margin-left: 0;
   }
 `;
 const Item = styled.div`
@@ -147,7 +149,7 @@ const Item = styled.div`
       font-size: 16px;
     }
     @media (max-width: 768px) {
-      font-size: 14px;
+      /* font-size: 14px; */
     }
   }
 `;
@@ -158,6 +160,7 @@ const Icon = styled.div`
   border-radius: 50%;
   position: relative;
   transition: all 0.3s ease-in-out;
+
   svg {
     position: absolute;
     top: 50%;
@@ -169,7 +172,7 @@ const Icon = styled.div`
     background-color: ${(props) => props.theme.textColor};
     color: ${(props) => props.theme.bgColor};
   }
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     width: 50px;
     height: 50px;
     svg {
@@ -197,6 +200,7 @@ const Footer = styled.footer`
 const PageNumber = styled.div``;
 
 const FormWrapper = styled.form`
+  flex: 1.5;
   width: 100%;
   max-width: 800px;
   display: flex;
@@ -431,19 +435,15 @@ const Contact = () => {
               <Icon>
                 <HiOutlineMailOpen />
               </Icon>
-              <span>dudwns123@naver.com</span>
+              <span>xotj2635@naver.com</span>
             </Item>
             <Item>
               <Icon>
-                <FiPhone />
+                <a href="https://github.com/ParkTH-Dev">
+                  <FiGithub />
+                </a>
               </Icon>
-              <span>dudwns123@naver.com</span>
-            </Item>
-            <Item>
-              <Icon>
-                <FiGithub />
-              </Icon>
-              <span>dudwns123@naver.com</span>
+              <span>https://github.com/ParkTH-Dev</span>
             </Item>
           </Items>
         </Content>
