@@ -413,7 +413,7 @@ const Project = () => {
                 <ProjectImage src={project.image} alt={project.title} />
                 <ProjectInfo>
                   <ProjectTitle>{project.title}</ProjectTitle>
-                  <p>{project.description}</p>
+                  <p>{project.subTitle}</p>
                   <TagContainer>
                     {project.tags.map((tag, index) => (
                       <Tag key={index}>{tag}</Tag>

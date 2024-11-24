@@ -1,36 +1,44 @@
 {
   "teamProjects": [
     {
-      "id": 1,
-      "title": "Create powerful apps",
-      "description": "Lorem ipsum dolor sit amet consectetur. Cras turpis leo volutpat lobortis nunc egestas bibendum non pharetra. Quam at donec arni nulla auctor. Tempor facilisis ipsum et porta egestas tincidunt pretium aliquam.",
-      "category": "Inspiration",
-      "updated": "March 16, 2024",
-      "author": "Jenny Wilson",
-      "readingTime": "2 min",
-      "mainImage": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
+      "id": 2,
+      "title": "페이스북 클론",
+      "description": "React와 Firebase를 기반으로 한 페이스북 클론 프로젝트입니다. 소셜 미디어의 핵심 기능들을 구현했습니다.",
+      "category": "Web Development",
+      "updated": "2024",
+      "author": "Team Facebook",
+      "readingTime": "3 min",
+      "mainImage": "/img/facebook-main.png",
       "thumbnails": [
-        "https://yozm.wishket.com/media/news/1379/image021.png",
-        "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
-        "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
-        "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg"
-      ]
+        "/img/facebook-main.png",
+        "/img/facebook-main2.png",
+        "/img/facebook-mypage.png",
+        "/img/facebook-login.png",
+        "/img/facebook-signup.png"
+      ],
+      "demo": "https://facebook-ez-ba531.web.app/",
+      "github": "https://github.com/ParkTH-Dev/facebook-TeamProject",
+      "tags": ["React", "Firebase", "팀 프로젝트", "소셜 미디어"]
     },
     {
-      "id": 2,
-      "title": "Team Project Portfolio",
-      "description": "두 번째 프로젝트입니다. 팀원들과 함께 협업하여 만든 포트폴리오 웹사이트입니다. React와 다양한 라이브러리를 활용하여 제작했습니다.",
+      "id": 1,
+      "title": "마켓컬리 클론",
+      "description": "React와 Firebase를 활용한 마켓컬리 클론 프로젝트입니다. 팀원들과 협업하여 실제 마켓컬리의 주요 기능들을 구현했습니다.",
       "category": "Web Development",
-      "updated": "March 20, 2024",
-      "author": "Team Portfolio",
+      "updated": "2024",
+      "author": "Team Kurly",
       "readingTime": "3 min",
-      "mainImage": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
+      "mainImage": "/images/kurly-main.jpg",
       "thumbnails": [
-        "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
-        "https://yozm.wishket.com/media/news/1379/image021.png",
-        "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
-        "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg"
-      ]
+        "/img/kurly-main.png",
+        "/img/kurly-main2.png",
+        "/img/kurly-detail.png",
+        "/img/kurly-signup.png",
+        "/img/kurly-cart.png"
+      ],
+      "demo": "https://marketcoding-aa088.web.app/",
+      "github": "https://github.com/ParkTH-Dev/kurly-TeamProject",
+      "tags": ["React", "Firebase", "팀 프로젝트", "클론 코딩"]
     }
   ]
 }

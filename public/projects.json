@@ -5,30 +5,36 @@
       "items": [
         {
           "id": 1,
-          "title": "TS Shopping Mall",
-          "description": "타입스크립트 기반 쇼핑몰 프로젝트",
-          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
-          "github": "https://github.com/username/ts-shop",
-          "demo": "https://ts-shop-demo.com",
-          "tags": ["TypeScript", "React", "Redux"]
+          "title": "Crypto Tracker",
+          "subTitle": "실시간 암호화폐 가격 추적기",
+          "contribution": "전체 프로젝트 참여",
+          "description": "암호화폐 시세를 실시간으로 추적하고 차트로 시각화하는 웹 애플리케이션입니다. CoinGecko API를 활용하여 실시간 데이터를 제공하며, 사용자가 관심 있는 코인을 즐겨찾기할 수 있습니다.",
+          "image": "/img/crypto.png",
+          "github": "https://github.com/ParkTH-Dev/CryptoTracker-challenge",
+          "demo": "https://lucent-tanuki-6b4665.netlify.app/",
+          "tags": ["TypeScript", "React", "API 통합"]
         },
         {
           "id": 2,
-          "title": "TS Blog Platform",
-          "description": "타입스크립트로 구현한 블로그 ",
-          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
-          "github": "https://github.com/username/ts-blog",
-          "demo": "https://ts-blog-demo.com",
-          "tags": ["TypeScript", "Node.js", "MongoDB"]
+          "title": "Mini SNS",
+          "subTitle": "타입스크립트 기반 소셜 네트워크",
+          "contribution": "전체 프로젝트 참여",
+          "description": "TypeScript와 Firebase를 활용한 소셜 네트워크 서비스입니다. 사용자 인증, 게시물 작성/수정/삭제, 실시간 댓글 기능, 프로필 관리 등 SNS의 핵심 기능들을 구현했습니다.",
+          "image": "/img/minisns.png",
+          "github": "https://github.com/ParkTH-Dev/Mini-sns",
+          "demo": "https://sns-faltfrom.web.app/",
+          "tags": ["TypeScript", "React", "Firebase"]
         },
         {
           "id": 3,
-          "title": "TS Task Manager",
-          "description": "타입스크립트 기반 작업 관리 ",
-          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
-          "github": "https://github.com/username/ts-task",
-          "demo": "https://ts-task-demo.com",
-          "tags": ["TypeScript", "Express", "PostgreSQL"]
+          "title": "DnD Todo App",
+          "subTitle": "드래그 앤 드롭 할 일 관리 앱",
+          "contribution": "전체 프로젝트 참여",
+          "description": "React Beautiful DnD 라이브러리를 활용한 드래그 앤 드롭 방식의 할 일 관리 앱입니다. 직관적인 UI로 작업 우선순위를 조정하고 진행 상태를 관리할 수 있습니다.",
+          "image": "/img/taskmanager.png",
+          "github": "https://github.com/ParkTH-Dev/DnD-ToDoApp",
+          "demo": "https://bright-truffle-31af6e.netlify.app/",
+          "tags": ["TypeScript", "React", "DnD"]
         }
       ]
     },
@@ -37,62 +43,36 @@
       "items": [
         {
           "id": 4,
-          "title": "React Weather App",
-          "description": "리액트로 만든 날씨 정보 앱",
-          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
-          "github": "https://github.com/username/react-weather",
-          "demo": "https://react-weather-demo.com",
-          "tags": ["React", "Redux", "OpenWeather API"]
+          "title": "Shopping Mall",
+          "subTitle": "리액트 기반 이커머스 플랫폼",
+          "contribution": "전체 프로젝트 참여",
+          "description": "React와 상태관리 라이브러리를 활용한 이커머스 플랫폼입니다. 상품 목록/상세 페이지, 장바구니 기능, 주문 프로세스, 사용자 인증 등 쇼핑몰의 핵심 기능들을 구현했습니다.",
+          "image": "/img/shoping.png",
+          "github": "https://github.com/ParkTH-Dev/shoppingmall/",
+          "demo": "https://cheery-genie-4c544a.netlify.app/",
+          "tags": ["React", "상태관리", "이커머스"]
         },
         {
           "id": 5,
-          "title": "React Social Media",
-          "description": "리액트 기반 소셜 미디어 플랫폼",
-          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
-          "github": "https://github.com/username/react-social",
-          "demo": "https://react-social-demo.com",
-          "tags": ["React", "Firebase", "Material-UI"]
+          "title": "Emotion Diary",
+          "subTitle": "감정 일기 작성 애플리케이션",
+          "contribution": "전체 프로젝트 참여",
+          "description": "Firebase를 활용한 CRUD 기능이 구현된 감정 일기장입니다. 사용자는 그날의 감정을 선택하고 일기를 작성할 수 있으며, 작성된 일기는 날짜별로 조회하고 수정/삭제할 수 있습니다.",
+          "image": "/img/emotion.png",
+          "github": "https://github.com/ParkTH-Dev/EmotionDiary",
+          "demo": "https://ezenminiproject.web.app/",
+          "tags": ["React", "Firebase", "CRUD"]
         },
         {
           "id": 6,
-          "title": "React Dashboard",
-          "description": "리액트로 구현한 관리자 ",
-          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
-          "github": "https://github.com/username/react-dashboard",
-          "demo": "https://react-dashboard-demo.com",
-          "tags": ["React", "Chart.js", "Styled-Components"]
-        }
-      ]
-    },
-    {
-      "category": "Next.js",
-      "items": [
-        {
-          "id": 7,
-          "title": "Next.js E-commerce",
-          "description": "Next.js로 구현한 전자상거래 사이트",
-          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
-          "github": "https://github.com/username/next-commerce",
-          "demo": "https://next-commerce-demo.com",
-          "tags": ["Next.js", "Prisma", "Stripe"]
-        },
-        {
-          "id": 8,
-          "title": "Next.js Blog",
-          "description": "Next.js 기반 개인 블로그",
-          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
-          "github": "https://github.com/username/next-blog",
-          "demo": "https://next-blog-demo.com",
-          "tags": ["Next.js", "MDX", "Tailwind CSS"]
-        },
-        {
-          "id": 9,
-          "title": "Next.js Portfolio",
-          "description": "Next.js로 만든 포트폴리오 사이트",
-          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
-          "github": "https://github.com/username/next-portfolio",
-          "demo": "https://next-portfolio-demo.com",
-          "tags": ["Next.js", "Framer Motion", "GSAP"]
+          "title": "MBTI App",
+          "subTitle": "MBTI 성격 유형 테스트 앱",
+          "contribution": "전체 프로젝트 참여",
+          "description": "React를 활용한 MBTI 성격 유형 테스트 앱입니다. 질문에 따른 응답을 분석하여 사용자의 MBTI 유형을 판단하고, 결과를 시각적으로 표현합니다. 결과 공유 기능도 포함되어 있습니다.",
+          "image": "/img/mbti.png",
+          "github": "https://github.com/ParkTH-Dev/MBTI-App",
+          "demo": "https://th-catmbti.netlify.app/",
+          "tags": ["React", "상태관리", "인터랙티브"]
         }
       ]
     },
@@ -100,31 +80,108 @@
       "category": "JavaScript",
       "items": [
         {
+          "id": 7,
+          "title": "Tving Login Form",
+          "subTitle": "바닐라 자바스크립트로 구현한 티빙 로그인 폼",
+          "contribution": "전체 프로젝트 참여",
+          "description": "바닐라 자바스크립트로 구현한 티빙 로그인 폼",
+          "image": "/img/tvingForm.png",
+          "github": "https://github.com/ParkTH-Dev/TvingLoginForm",
+          "demo": "https://tivinloginform.netlify.app/",
+          "tags": ["JavaScript", "Form Validation", "CSS"]
+        },
+        {
+          "id": 8,
+          "title": "NewJeans Slide",
+          "subTitle": "뉴진스 이미지 슬라이더 구현",
+          "contribution": "전체 프로젝트 참여",
+          "description": "JavaScript와 CSS 애니메이션을 활용한 이미지 슬라이더입니다. 자동 슬라이드, 수동 네비게이션, 페이드 효과 등 다양한 애니메이션 효과를 구현했습니다.",
+          "image": "/img/newjeansSlide.png",
+          "github": "https://github.com/ParkTH-Dev/NewJeansSlide",
+          "demo": "https://kaleidoscopic-rugelach-e7e851.netlify.app/",
+          "tags": ["JavaScript", "슬라이더", "애니메이션"]
+        },
+        {
+          "id": 9,
+          "title": "NewJeans Chrome App",
+          "subTitle": "뉴진스 테마 크롬 확장 프로그램",
+          "contribution": "전체 프로젝트 참여",
+          "description": "크롬 확장 프로그램으로 개발한 뉴진스 테마 앱입니다. 새 탭을 열 때마다 랜덤한 뉴진스 이미지와 시계, 날씨 정보를 표시합니다. OpenWeather API를 활용했습니다.",
+          "image": "/img/newjeansChrome.png",
+          "github": "https://github.com/ParkTH-Dev/NewJeansChromeApp",
+          "demo": "https://statuesque-gumdrop-8af43c.netlify.app/",
+          "tags": ["JavaScript", "Chrome Extension", "API"]
+        },
+        {
           "id": 10,
-          "title": "JS Game",
-          "description": "바닐라 자바스크립트로 만든 웹 ",
-          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
-          "github": "https://github.com/username/js-game",
-          "demo": "https://js-game-demo.com",
-          "tags": ["JavaScript", "Canvas", "Web Audio API"]
+          "title": "Hanwha Eagles Fanpage",
+          "subTitle": "한화 이글스 팬 커뮤니티 페이지",
+          "contribution": "전체 프로젝트 참여",
+          "description": "한화 이글스 팬들을 위한 커뮤니티 웹사이트입니다. 경기 일정, 선수 정보, 팬 게시판 등을 제공하며, 반응형 디자인으로 모바일 환경에서도 최적화되어 있습니다.",
+          "image": "/img/hanwha.png",
+          "github": "https://github.com/ParkTH-Dev/HanwhaEaglesFanpage",
+          "demo": "https://magenta-kataifi-82acd5.netlify.app/",
+          "tags": ["JavaScript", "커뮤니티", "반응형"]
         },
         {
           "id": 11,
-          "title": "JS Todo App",
-          "description": "자바스크립트로 구현한 할 일 관리 앱",
-          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
-          "github": "https://github.com/username/js-todo",
-          "demo": "https://js-todo-demo.com",
-          "tags": ["JavaScript", "LocalStorage", "DOM API"]
+          "title": "Custom SNS",
+          "subTitle": "커스텀 소셜 네트워크 서비스",
+          "contribution": "전체 프로젝트 참여",
+          "description": "LocalStorage를 활용한 소셜 네트워크 서비스입니다. 게시물 작성/수정/삭제, 좋아요 기능, 댓글 시스템 등을 구현했으며, 새로고침 후에도 데이터가 유지됩니다.",
+          "image": "/img/webSns.png",
+          "github": "https://github.com/ParkTH-Dev/CustomSNS-webPage",
+          "demo": "https://celadon-druid-7e0395.netlify.app/",
+          "tags": ["JavaScript", "SNS", "LocalStorage"]
         },
         {
           "id": 12,
-          "title": "JS Music Player",
-          "description": "자바스크립트 기반 음악 플레이어",
-          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
-          "github": "https://github.com/username/js-music",
-          "demo": "https://js-music-demo.com",
-          "tags": ["JavaScript", "Web Audio API", "IndexedDB"]
+          "title": "Canvas Drawing App",
+          "subTitle": "Canvas API를 활용한 그림판",
+          "contribution": "전체 프로젝트 참여",
+          "description": "HTML5 Canvas API를 활용한 드로잉 앱입니다. 다양한 색상과 브러시 크기 선택, 지우개 기능, 이미지 저장 기능 등을 제공합니다.",
+          "image": "/img/canvas.png",
+          "github": "https://github.com/ParkTH-Dev/canvasAPI-canvas",
+          "demo": "https://fascinating-maamoul-d8cd6c.netlify.app/",
+          "tags": ["JavaScript", "Canvas API", "그래픽"]
+        },
+        {
+          "id": 13,
+          "title": "Music Player",
+          "subTitle": "웹 기반 음악 플레이어",
+          "contribution": "전체 프로젝트 참여",
+          "description": "Web Audio API를 활용한 음악 플레이어입니다. 재생/일시정지, 볼륨 조절, 프로그레스 바, 재생 목록 관리 등의 기능을 구현했습니다.",
+          "image": "/img/music.png",
+          "github": "https://github.com/ParkTH-Dev/Music-Player",
+          "demo": "https://harmonious-sfogliatella-5049a9.netlify.app/",
+          "tags": ["JavaScript", "Web Audio API", "UI/UX"]
+        }
+      ]
+    },
+    {
+      "category": "Next.js",
+      "items": [
+        {
+          "id": 14,
+          "title": "Mini Movie App",
+          "subTitle": "Next.js로 구현한 영화 정보 앱",
+          "contribution": "전체 프로젝트 참여",
+          "description": "Next.js의 SSR 기능을 활용한 영화 정보 앱입니다. TMDB API를 통해 영화 정보를 제공하며, 검색, 필터링, 상세 정보 조회 등의 기능을 구현했습니다.",
+          "image": "/img/nextmovie.png",
+          "github": "https://github.com/ParkTH-Dev/Next.js-MiniMovieApp",
+          "demo": "https://peppy-salamander-6b3c69.netlify.app/",
+          "tags": ["Next.js", "SSR", "API"]
+        },
+        {
+          "id": 15,
+          "title": "Mini Movie App",
+          "subTitle": "Next.js로 구현한 영화 정보 앱",
+          "contribution": "전체 프로젝트 참여",
+          "description": "Next.js로 구현한 영화 정보 앱",
+          "image": "/images/movie.jpg",
+          "github": "https://github.com/ParkTH-Dev/Next.js-MiniMovieApp",
+          "demo": "https://peppy-salamander-6b3c69.netlify.app/",
+          "tags": ["Next.js", "SSR", "API"]
         }
       ]
     },
@@ -132,31 +189,59 @@
       "category": "SCSS",
       "items": [
         {
-          "id": 13,
-          "title": "SCSS Landing Page",
-          "description": "SCSS로 스타일링한 랜딩 페이지",
-          "image": "https://yozm.wishket.com/media/news/1379/image021.png",
-          "github": "https://github.com/username/scss-landing",
-          "demo": "https://scss-landing-demo.com",
+          "id": 16,
+          "title": "SCSS Landing Page 2",
+          "subTitle": "SCSS 기반 모던 웹 디자인",
+          "contribution": "전체 프로젝트 참여",
+          "description": "SCSS의 변수, 믹스인, 중첩 규칙 등을 활용한 모던한 웹사이트입니다. 반응형 디자인과 다양한 애니메이션 효과를 구현했습니다.",
+          "image": "/img/scss-2.png",
+          "github": "#",
+          "demo": "https://monumental-daffodil-f7d3a2.netlify.app/",
           "tags": ["SCSS", "HTML5", "JavaScript"]
         },
         {
-          "id": 14,
-          "title": "SCSS Components",
-          "description": "SCSS로 만든 재사용 가능한 컴포넌트",
-          "image": "https://d2v80xjmx68n4w.cloudfront.net/articles/GpKyK1708912837.jpg",
-          "github": "https://github.com/username/scss-components",
-          "demo": "https://scss-components-demo.com",
-          "tags": ["SCSS", "BEM", "JavaScript"]
+          "id": 17,
+          "title": "SCSS Landing Page 3",
+          "subTitle": "SCSS를 활용한 인터랙티브 웹사이트",
+          "contribution": "전체 프로젝트 참여",
+          "description": "SCSS를 활용한 인터랙티브 웹사이트입니다. 스크롤 애니메이션, 호버 효과, 페이지 전환 효과 등 다양한 인터랙션을 구현했습니다.",
+          "image": "/img/scss-3.png",
+          "github": "#",
+          "demo": "https://celebrated-froyo-abf330.netlify.app/",
+          "tags": ["SCSS", "HTML5", "인터랙티브"]
         },
         {
-          "id": 15,
-          "title": "SCSS Dashboard",
-          "description": "SCSS로 스타일링한 대시보드 UI",
-          "image": "https://static.wixstatic.com/media/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg/v1/fill/w_924,h_591,al_c,q_85,enc_auto/2d5b26_09626568e92b48b99b3c4d80b81e7314~mv2.jpg",
-          "github": "https://github.com/username/scss-dashboard",
-          "demo": "https://scss-dashboard-demo.com",
+          "id": 18,
+          "title": "SCSS Landing Page 4",
+          "subTitle": "SCSS 애니메이션 포트폴리오",
+          "contribution": "전체 프로젝트 참여",
+          "description": "SCSS 애니메이션을 활용한 포트폴리오 웹사이트입니다. 부드러운 스크롤 효과, 요소 페이드인/아웃, 패럴랙스 효과 등을 구현했습니다.",
+          "image": "/img/scss-4.png",
+          "github": "#",
+          "demo": "https://incomparable-pegasus-5d73c2.netlify.app/",
+          "tags": ["SCSS", "애니메이션", "포트폴리오"]
+        },
+        {
+          "id": 19,
+          "title": "SCSS Landing Page 5",
+          "subTitle": "SCSS 그리드 레이아웃 프로젝트",
+          "contribution": "전체 프로젝트 참여",
+          "description": "SCSS Grid와 Flexbox를 활용한 레이아웃 프로젝트입니다. 복잡한 그리드 시스템과 반응형 디자인을 효율적으로 구현했습니다.",
+          "image": "/img/scss-5.png",
+          "github": "#",
+          "demo": "https://eloquent-kringle-6f74a9.netlify.app/",
           "tags": ["SCSS", "Grid", "Flexbox"]
+        },
+        {
+          "id": 20,
+          "title": "SCSS Landing Page 6",
+          "subTitle": "SCSS 반응형 대시보드",
+          "contribution": "전체 프로젝트 참여",
+          "description": "SCSS를 활용한 반응형 대시보드입니다. 데이터 시각화, 관리자 패널, 다크 모드 등을 구현했으며 다양한 디바이스에 최적화되어 있습니다.",
+          "image": "/img/scss-6.png",
+          "github": "#",
+          "demo": "https://taupe-pothos-6782f3.netlify.app/",
+          "tags": ["SCSS", "대시보드", "반응형"]
         }
       ]
     }

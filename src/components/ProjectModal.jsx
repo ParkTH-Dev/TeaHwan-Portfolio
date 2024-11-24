@@ -145,12 +145,12 @@ const ProjectModal = ({ project, onClose }) => {
 
   const {
     title,
-    period,
+    subTitle,
     tags = [],
     contribution = "",
     description = "",
-    siteUrl = "#",
-    githubUrl = "#",
+    demo = "#",
+    github = "#",
     image = "",
   } = project;
 
@@ -164,7 +164,7 @@ const ProjectModal = ({ project, onClose }) => {
           <CloseButton onClick={onClose}>×</CloseButton>
 
           <ProjectTitle>{title}</ProjectTitle>
-          <ProjectPeriod>{period}</ProjectPeriod>
+          <ProjectPeriod>{subTitle}</ProjectPeriod>
 
           <TechStack>
             {tags.map((tech, index) => (
@@ -174,29 +174,19 @@ const ProjectModal = ({ project, onClose }) => {
 
           <Section>
             <SectionTitle>기여도</SectionTitle>
-            <SectionContent>
-              {contribution} dolor sit amet consectetur, adipisicing elit.
-              Beatae ullam explicabo soluta, vitae doloremque, maiores delectus
-              accusantium sunt eveniet aliquid reiciendis corporis debitis quae,
-              voluptas vero corrupti fuga modi harum.
-            </SectionContent>
+            <SectionContent>{contribution}</SectionContent>
           </Section>
 
           <Section>
             <SectionTitle>설명</SectionTitle>
-            <SectionContent>
-              {description} Lorem ipsum dolor sit amet consectetur, adipisicing
-              elit. Voluptatem debitis illo reiciendis voluptatum voluptates
-              dicta exercitationem quo omnis. Magni iste in voluptatibus saepe
-              quam quo doloribus tempore voluptate vitae accusantium?Lorem ipsum
-            </SectionContent>
+            <SectionContent>{description}</SectionContent>
           </Section>
 
           <ButtonGroup>
-            <Button onClick={() => window.open(siteUrl)} variant="primary">
+            <Button onClick={() => window.open(demo)} variant="primary">
               사이트 보러가기
             </Button>
-            <Button onClick={() => window.open(githubUrl)} variant="secondary">
+            <Button onClick={() => window.open(github)} variant="secondary">
               Git-Hub
             </Button>
           </ButtonGroup>
