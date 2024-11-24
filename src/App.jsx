@@ -9,8 +9,8 @@ import TeamProject from "./pages/TeamProject";
 import Contact from "./pages/Contact";
 import { useRecoilValue } from "recoil";
 import { themeState } from "./state/atom.js";
-import { Globalstyle } from "./styles/globalstyle.js";
 import MouseFollower from "./components/MouseFollower";
+import { Globalstyle } from "./styles/GlobalStyle.js";
 
 const Wrapper = styled.div`
   max-width: 1600px;
@@ -35,7 +35,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <Globalstyle />
       <MouseFollower />
-
       <Wrapper>
         <Header />
         <Inner>
