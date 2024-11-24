@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "../components/SlideBtn";
 import NextChapter from "../components/NextChapter";
-import ProjectModal from "../components/ProjectModal";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -256,6 +255,9 @@ const CategoryTab = styled.button`
   }
 `;
 
+// ProjectModal을 lazy loading으로 변경
+const ProjectModal = lazy(() => import("../components/ProjectModal"));
+
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -347,6 +349,8 @@ const Project = () => {
           initialSlide: 0,
           swipe: true,
           accessibility: false,
+          touchMove: false,
+          verticalSwiping: false,
         },
       },
     ],
@@ -447,10 +451,26 @@ const Project = () => {
         </Footer>
       </Inner>
       {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        <Suspense
+          fallback={
+            <div
+              style={{
+                position: "fixed",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                fontSize: "20px",
+              }}
+            >
+              Loading...
+            </div>
+          }
+        >
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        </Suspense>
       )}
     </Wrapper>
   );
