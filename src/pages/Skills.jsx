@@ -1,15 +1,9 @@
 import styled from "styled-components";
 import NextChapter from "../components/NextChapter";
 import SkillModal from "../components/SkillModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
-// SVG 이미지 가져오기 (Vite 환경 가정)
-const skillImages = import.meta.glob("/src/assets/skills/*.svg", {
-  eager: true,
-  import: "default",
-});
 
 // Styled Components
 const Wrapper = styled.div`
@@ -237,19 +231,38 @@ const Skills = () => {
     },
   ];
 
-  // SVG 이미지 가져오기
-  const defaultImage = Object.values(skillImages).find((img) =>
-    img.toLowerCase().includes("javascript")
-  );
+  // 새로운 방식으로 이미지 매핑
+  const skillImages = {
+    javascript: "/img/skills/JavaScript.svg",
+    react: "/img/skills/React.svg",
+    typescript: "/img/skills/TypeScript.svg",
+    nextjs: "/img/skills/NextJS.svg",
+    nodejs: "/img/skills/NodeJS.svg",
+    firebase: "/img/skills/Firebase.svg",
+    sass: "/img/skills/Sass.svg",
+    styledcomponents: "/img/skills/StyledComponents.svg",
+    tailwind: "/img/skills/TailwindCSS.svg",
+    vite: "/img/skills/Vite.svg",
+    github: "/img/skills/Github.svg",
+    git: "/img/skills/Git.svg",
+    figma: "/img/skills/Figma.svg",
+    recoil: "/img/skills/Recoil.svg",
+    reactquery: "/img/skills/Reactquery.svg",
+    redux: "/img/skills/Redux.svg",
+    graphql: "/img/skills/GraphQL.svg",
+  };
 
   const [selectedSkill, setSelectedSkill] = useState({
     name: "JAVASCRIPT",
-    image: defaultImage,
+    image: skillImages["javascript"],
   });
   const [showMobileModal, setShowMobileModal] = useState(false);
 
-  const handleSkillClick = (skill, image) => {
-    setSelectedSkill({ name: skill, image });
+  const handleSkillClick = (skill) => {
+    setSelectedSkill({
+      name: skill.toUpperCase(),
+      image: skillImages[skill.toLowerCase()],
+    });
     if (window.matchMedia("(max-width: 768px)").matches) {
       setShowMobileModal(true);
     }
@@ -264,6 +277,13 @@ const Skills = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  useEffect(() => {
+    Object.values(skillImages).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <Wrapper>
@@ -324,20 +344,15 @@ const Skills = () => {
               <Category key={index}>
                 <CategoryName>#{category.name}</CategoryName>
                 <SkillIcons>
-                  {category.skills.map((skill, skillIndex) => {
-                    const image = Object.values(skillImages).find((img) =>
-                      img.toLowerCase().includes(skill.toLowerCase())
-                    );
-                    return (
-                      <SkillIcon
-                        key={skillIndex}
-                        src={image || ""}
-                        alt={skill}
-                        title={skill}
-                        onClick={() => handleSkillClick(skill, image)}
-                      />
-                    );
-                  })}
+                  {category.skills.map((skill, skillIndex) => (
+                    <SkillIcon
+                      key={skillIndex}
+                      src={skillImages[skill.toLowerCase()]}
+                      alt={skill}
+                      title={skill}
+                      onClick={() => handleSkillClick(skill)}
+                    />
+                  ))}
                 </SkillIcons>
               </Category>
             ))}
