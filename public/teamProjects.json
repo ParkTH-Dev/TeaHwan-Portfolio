@@ -1,11 +1,11 @@
 {
   "teamProjects": [
     {
-      "id": 2,
+      "id": 1,
       "title": "페이스북 클론",
       "description": "React와 Firebase를 기반으로 한 페이스북 클론 프로젝트입니다. 소셜 미디어의 핵심 기능들을 구현했습니다.",
-      "category": "Web Development",
-      "updated": "2024",
+      "category": "SNS 페이지",
+      "updated": "2024.10 ~ 2024.11",
       "author": "Team Facebook",
       "readingTime": "3 min",
       "mainImage": "/img/facebook-main.png",
@@ -21,13 +21,13 @@
       "tags": ["React", "Firebase", "팀 프로젝트", "소셜 미디어"]
     },
     {
-      "id": 1,
+      "id": 2,
       "title": "마켓컬리 클론",
-      "description": "React와 Firebase를 활용한 마켓컬리 클론 프로젝트입니다. 팀원들과 협업하여 실제 마켓컬리의 주요 기능들을 구현했습니다.",
-      "category": "Web Development",
-      "updated": "2024",
-      "author": "Team Kurly",
-      "readingTime": "3 min",
+      "description": "마켓컬리를 모티브로 한 이커머스 웹사이트 ‘마트캘리’ 프로젝트에서 PM을 맡아, 순수 JavaScript로 메인 배너 슬라이드, 장바구니, 검색 기능을 구현했습니다. 회원가입 시 유효성 검사를 적용해 사용자 입력의 정확도를 높였으며, 프로젝트 기획 단계에서 요구사항 분석과 설계를 주도했습니다. 또한, 반응형 웹 디자인을 통해 다양한 디바이스에서 최적의 사용자 경험을 제공하고, 성능 최적화에도 주력해 팀 프로젝트를 성공적으로 이끌었습니다.",
+      "category": "쇼핑몰 페이지",
+      "updated": "2024.08 ~ 2024.09",
+      "teamSize": "4인(PM)",
+      "contribute": "상세페이지 및 장바구니 페이지 제작",
       "mainImage": "/images/kurly-main.jpg",
       "thumbnails": [
         "/img/kurly-main.png",
@@ -38,7 +38,7 @@
       ],
       "demo": "https://marketcoding-aa088.web.app/",
       "github": "https://github.com/ParkTH-Dev/kurly-TeamProject",
-      "tags": ["React", "Firebase", "팀 프로젝트", "클론 코딩"]
+      "tags": [" HTML |", " CSS |", " JavaScript |", " Firebase "]
     }
   ]
 }

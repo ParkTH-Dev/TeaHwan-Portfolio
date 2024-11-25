@@ -182,6 +182,7 @@ const InfoLabel = styled.span`
 const InfoValue = styled.span`
   @media (max-width: 768px) {
     width: 80%;
+    line-height: 1.5;
   }
 `;
 
@@ -230,7 +231,7 @@ const AboutMe = () => {
                 stiffness: 100,
               }}
             >
-              SKILLS
+              ABOUT ME
             </BackgroundText>
             <Title>ABOUT ME</Title>
           </TitleInner>
@@ -275,6 +276,15 @@ const AboutMe = () => {
               <InfoLabel>교육사항:</InfoLabel>
               <InfoValue>
                 K-Digital Training(KDT) 기업연계 프론트엔드 개발 수료
+              </InfoValue>
+            </InfoItem>
+            <InfoItem>
+              <InfoLabel>경력사항:</InfoLabel>
+              <InfoValue>
+                2018.04 ~ 2019.04 (주)그린광학 신소재 개발 생산 관리
+                <br />
+                2022.09 ~ 2023.11 에스티디컴퍼니 온라인 쇼핑몰 창업 (제품 소싱,
+                마케팅, 상세페이지 디자인 등)
               </InfoValue>
             </InfoItem>
           </Info>

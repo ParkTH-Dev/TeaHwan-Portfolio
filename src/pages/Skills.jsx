@@ -219,16 +219,25 @@ const PageNumber = styled.div``;
 // Skills 컴포넌트
 const Skills = () => {
   const skillCategories = [
-    { name: "백엔드 및 데이터베이스", skills: ["nodejs", "firebase"] },
-    { name: "스타일링 도구", skills: ["sass", "styledcomponents", "tailwind"] },
-    { name: "개발 및 협업 도구", skills: ["vite", "github", "git", "figma"] },
+    {
+      name: "프론트엔드",
+      skills: ["javascript", "react", "typescript", "nextjs"],
+    },
+    {
+      name: "백엔드 및 데이터베이스",
+      skills: ["nodejs", "firebase", "express", "mongodb"],
+    },
     {
       name: "상태 관리 및 데이터 통신",
       skills: ["recoil", "reactquery", "redux", "graphql"],
     },
     {
-      name: "프론트엔드",
-      skills: ["javascript", "react", "typescript", "nextjs"],
+      name: "스타일링 도구",
+      skills: ["sass", "styledcomponents", "tailwind", "pug"],
+    },
+    {
+      name: "개발 및 협업 도구",
+      skills: ["vite", "github", "git", "figma"],
     },
   ];
 
@@ -251,6 +260,9 @@ const Skills = () => {
     reactquery: "/img/skills/Reactquery.svg",
     redux: "/img/skills/Redux.svg",
     graphql: "/img/skills/GraphQL.svg",
+    pug: "/img/skills/Pug.svg",
+    express: "/img/skills/Express.svg",
+    mongodb: "/img/skills/MongoDB.svg",
   };
 
   const [selectedSkill, setSelectedSkill] = useState({

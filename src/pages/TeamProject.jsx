@@ -7,6 +7,7 @@ import { NextArrow, PrevArrow } from "../components/SlideBtn";
 import NextChapter from "../components/NextChapter";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Button from "../components/Button";
 
 // Wrapper 스타일
 const Wrapper = styled.div`
@@ -212,6 +213,7 @@ const LeftFirstItem = styled.div`
   flex-direction: column;
   padding: 20px;
   height: 100%;
+  flex: 1;
   @media (max-width: 768px) {
     padding: 10px;
   }
@@ -231,7 +233,7 @@ const LeftSecondItem = styled.div`
 `;
 
 const ItemTitle = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   padding: 15px 0;
   margin-bottom: 10px;
@@ -244,8 +246,8 @@ const ItemTitle = styled.div`
 `;
 
 const ItemDesc = styled.div`
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 2;
   @media (max-width: 768px) {
     font-size: 14px;
   }
@@ -367,6 +369,16 @@ const RightDesc = styled.div`
   @media (max-width: 600px) {
     font-size: 13px;
     margin-top: 10px;
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 15px;
+  margin: 30px 0;
+  @media (max-width: 768px) {
+    /* margin-top: 0; */
+    /* padding-bottom: 20px; */
   }
 `;
 
@@ -514,17 +526,20 @@ const TeamProject = () => {
                 <Items>
                   <ItemLeft>
                     <LeftFirstItem>
-                      <ItemTitle>Article Information</ItemTitle>
+                      <ItemTitle>프로젝트 정보</ItemTitle>
                       <ItemDesc>
-                        <div>Category: {project.category}</div>
-                        <div>Updated: {project.updated}</div>
-                        <div>Author: {project.author}</div>
-                        <div>Reading Time: {project.readingTime}</div>
+                        <div>프로젝트 이름: {project.title}</div>
+                        <div>팀 규모: {project.teamSize}</div>
+                        <div>제작 기간: {project.updated}</div>
+                        <div>카테고리: {project.category}</div>
+                        <div>기여: {project.contribute}</div>
+                        <div>기술스택: </div>
+                        <div>{project.tags}</div>
                       </ItemDesc>
                     </LeftFirstItem>
                     <LeftSecondItem>
-                      <ItemTitle>Article Information</ItemTitle>
-                      <ItemDesc>{project.description}</ItemDesc>
+                      <ItemTitle>기여도</ItemTitle>
+                      {/* <ItemDesc>{project.description}</ItemDesc> */}
                     </LeftSecondItem>
                   </ItemLeft>
                   <ItemRight>
@@ -534,12 +549,7 @@ const TeamProject = () => {
                           src={selectedImages[project.id] || project.mainImage}
                           alt="Main Project"
                         />
-                        <RightDesc>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Quas inventore beatae eaque dolores molestias
-                          aut ducimus aspernatur ea maxime laudantium
-                          asperiores, cumque quaerat nisi nostrum expedita ullam
-                        </RightDesc>
+                        <RightDesc>{project.description}</RightDesc>
                       </FirstImage>
                       <SecondImage>
                         {project.thumbnails.map((thumb, index) => (
@@ -556,6 +566,20 @@ const TeamProject = () => {
                     </RightImgWrap>
                   </ItemRight>
                 </Items>
+                <ButtonGroup>
+                  <Button
+                    onClick={() => window.open(project.demo)}
+                    variant="primary"
+                  >
+                    사이트 보러가기
+                  </Button>
+                  <Button
+                    onClick={() => window.open(project.github)}
+                    variant="secondary"
+                  >
+                    Git-Hub
+                  </Button>
+                </ButtonGroup>
               </ItemsWrap>
             ))}
           </ProjectContainer>
