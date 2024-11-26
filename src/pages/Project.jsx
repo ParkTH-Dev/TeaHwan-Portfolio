@@ -351,13 +351,12 @@ const Project = () => {
     swipeToSlide: true,
     touchThreshold: 5,
     beforeChange: () => {
-      setIsDragging(true);
+      // 드래그 상태 관리 로직 제거
     },
     afterChange: () => {
-      setTimeout(() => {
-        setIsDragging(false);
-      }, 100);
+      // 드래그 상태 관리 로직 제거
     },
+    swipeEvent: null, // 추가
     responsive: [
       {
         breakpoint: 1024,
@@ -385,10 +384,8 @@ const Project = () => {
   };
 
   const handleProjectClick = (project) => {
-    if (!isDragging) {
-      setSelectedProject(project);
-      document.body.style.overflow = "hidden";
-    }
+    setSelectedProject(project);
+    document.body.style.overflow = "hidden";
   };
 
   const handleCloseModal = () => {
@@ -397,7 +394,6 @@ const Project = () => {
   };
 
   useEffect(() => {
-    // 페이지 진입 시 즉시 이미지 로드 시작
     const preloadImages = () => {
       projects.forEach((category) => {
         category.items.forEach((project) => {
@@ -408,12 +404,12 @@ const Project = () => {
     };
 
     preloadImages();
-  }, []); // 컴포넌트 마운트 시 한 번만 실행
+  }, []);
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
     if (sliderRef) {
-      sliderRef.slickGoTo(0); // 슬라이더를 첫 번째 슬라이드로 이동
+      sliderRef.slickGoTo(0);
     }
   };
 
@@ -475,11 +471,11 @@ const Project = () => {
             ))}
           </CategoryTabs>
           <ProjectContainer ref={setSliderRef} {...settings}>
-            {activeProjects.map((project, index) => (
+            {activeProjects.map((project) => (
               <ProjectCard
                 key={project.id}
                 onClick={() => handleProjectClick(project)}
-                tabIndex={index === settings.initialSlide ? 0 : -1}
+                tabIndex={0}
               >
                 <ProjectImage
                   src={project.image}
@@ -491,7 +487,7 @@ const Project = () => {
                   <ProjectTitle>{project.title}</ProjectTitle>
                   <p>{project.subTitle}</p>
                   <TagContainer>
-                    {project.tags.map((tag, index) => (
+                    {project.tags.slice(0, 3).map((tag, index) => (
                       <Tag key={index}>{tag}</Tag>
                     ))}
                   </TagContainer>

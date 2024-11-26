@@ -28,9 +28,10 @@ const ModalContent = styled.div`
   border-radius: 12px;
   padding: 30px;
   position: relative;
+  overflow-y: hidden;
   @media (max-width: 768px) {
     flex-direction: column;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     padding: 20px;
     gap: 20px;
   }
@@ -142,17 +143,7 @@ const ButtonGroup = styled.div`
 
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
-
-  const {
-    title,
-    subTitle,
-    tags = [],
-    contribution = "",
-    description = "",
-    demo = "#",
-    github = "#",
-    image = "",
-  } = project;
+  const { title, subTitle, tags, description, demo, github, image } = project;
 
   return (
     <ModalOverlay onClick={onClose}>
@@ -171,14 +162,8 @@ const ProjectModal = ({ project, onClose }) => {
               <TechBadge key={index}>{tech}</TechBadge>
             ))}
           </TechStack>
-
           <Section>
-            <SectionTitle>기여도</SectionTitle>
-            <SectionContent>{contribution}</SectionContent>
-          </Section>
-
-          <Section>
-            <SectionTitle>설명</SectionTitle>
+            <SectionTitle>프로젝트 설명</SectionTitle>
             <SectionContent>{description}</SectionContent>
           </Section>
 

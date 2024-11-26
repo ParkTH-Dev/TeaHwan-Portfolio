@@ -9,14 +9,12 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Button from "../components/Button";
 
-// Wrapper 스타일
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
 `;
 
-// Inner 컨테이너
 const Inner = styled.div`
   width: 100%;
   height: 100%;
@@ -29,7 +27,6 @@ const Inner = styled.div`
   }
 `;
 
-// 콘텐츠 섹션
 const Content = styled(motion.div)`
   width: 100%;
   height: 100%;
@@ -46,7 +43,6 @@ const Content = styled(motion.div)`
   }
 `;
 
-// 새로운 슬라이더 스타일 컴포넌트 추가
 const ProjectContainer = styled(Slider)`
   width: 90%;
   height: 100%;
@@ -98,7 +94,6 @@ const ProjectContainer = styled(Slider)`
   }
 `;
 
-// 제목 섹션 스타일
 const TitleWrap = styled.div`
   position: absolute;
   top: 100px;
@@ -174,7 +169,6 @@ const TitleBar = styled(motion.div)`
   }
 `;
 
-// 아이템 섹션 스타일
 const ItemsWrap = styled.div`
   height: 100%;
   @media (max-width: 1000px) {
@@ -204,7 +198,6 @@ const ItemLeft = styled.div`
   }
 `;
 
-// 왼쪽 아이템 스타일
 const LeftFirstItem = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -212,8 +205,6 @@ const LeftFirstItem = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  height: 100%;
-  flex: 1;
   @media (max-width: 768px) {
     padding: 10px;
   }
@@ -253,7 +244,6 @@ const ItemDesc = styled.div`
   }
 `;
 
-// 오른쪽 아이템 스타일
 const ItemRight = styled.div`
   flex: 2;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -360,8 +350,7 @@ const RightDesc = styled.div`
   width: 100%;
   gap: 10px;
   font-size: 16px;
-  line-height: 1.5;
-  margin-top: 15px;
+  line-height: 2;
   @media (max-width: 768px) {
     font-size: 14px;
     margin-top: 12px;
@@ -376,13 +365,8 @@ const ButtonGroup = styled.div`
   display: flex;
   gap: 15px;
   margin: 30px 0;
-  @media (max-width: 768px) {
-    /* margin-top: 0; */
-    /* padding-bottom: 20px; */
-  }
 `;
 
-// 푸터 스타일
 const Footer = styled.div`
   position: absolute;
   bottom: 40px;
@@ -400,7 +384,6 @@ const Footer = styled.div`
 
 const PageNumber = styled.div``;
 
-// 메인 컴포넌트
 const TeamProject = () => {
   const [projects, setProjects] = useState([]);
   const [selectedImages, setSelectedImages] = useState({});
@@ -429,7 +412,6 @@ const TeamProject = () => {
         });
         setSelectedImages(initialSelectedImages);
 
-        // 슬라이더를 첫 번째 슬라이드로 이동
         if (sliderRef) {
           sliderRef.slickGoTo(0);
         }
@@ -476,7 +458,6 @@ const TeamProject = () => {
   return (
     <Wrapper>
       <Inner>
-        {/* 제목 섹션 */}
         <TitleWrap>
           <TitleInner>
             <SubTitle>Some Word About Me</SubTitle>
@@ -532,14 +513,13 @@ const TeamProject = () => {
                         <div>팀 규모: {project.teamSize}</div>
                         <div>제작 기간: {project.updated}</div>
                         <div>카테고리: {project.category}</div>
-                        <div>기여: {project.contribute}</div>
                         <div>기술스택: </div>
                         <div>{project.tags}</div>
                       </ItemDesc>
                     </LeftFirstItem>
                     <LeftSecondItem>
                       <ItemTitle>기여도</ItemTitle>
-                      {/* <ItemDesc>{project.description}</ItemDesc> */}
+                      <ItemDesc>{project.contribute}</ItemDesc>
                     </LeftSecondItem>
                   </ItemLeft>
                   <ItemRight>
