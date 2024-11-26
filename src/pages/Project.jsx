@@ -297,7 +297,6 @@ const LoadingSpinner = styled.div`
 
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
   const [projects, setProjects] = useState([]);
   const [activeCategory, setActiveCategory] = useState("TypeScript");
   const [sliderRef, setSliderRef] = useState(null);
