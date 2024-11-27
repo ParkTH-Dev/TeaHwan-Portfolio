@@ -7,7 +7,7 @@
           "id": 1,
           "title": "Mini SNS",
           "subTitle": "타입스크립트 기반 소셜 네트워크",
-          "description": "TypeScript와 Firebase를 활용한 소셜 네트워크 서비스입니다. 사용자 인증, 게시물 작성/수정/삭제, 실시간 댓글 기능, 프로필 관리 등 SNS의 핵심 기능들을 구현했습니다.",
+          "description": "TypeScript와 Firebase를 활용한 소셜 네트워크 서비스입니다. Firebase Authentication을 통한 이메일/구글 로그인, 실시간 게시물 CRUD 기능, 이미지 업로드, 프로필 수정, 좋아요 기능을 구현했습니다. Firestore를 활용하여 실시간 데이터 동기화를 구현했으며, Firebase Storage를 통해 이미지 파일을 관리합니다.",
           "image": "/img/minisns.png",
           "github": "https://github.com/ParkTH-Dev/Mini-sns",
           "demo": "https://sns-faltfrom.web.app/",
@@ -23,11 +23,18 @@
           "id": 2,
           "title": "Crypto Tracker",
           "subTitle": "실시간 암호화폐 가격 추적기",
-          "description": "암호화폐 시세를 실시간으로 추적하고 차트로 시각화하는 웹 애플리케이션입니다. CoinGecko API를 활용하여 실시간 데이터를 제공하며, 사용자가 관심 있는 코인을 즐겨찾기할 수 있습니다.",
+          "description": "암호화폐 시세를 실시간으로 추적하고 차트로 시각화하는 웹 애플리케이션입니다. 외부 API를 활용하여 실시간 가격 데이터를 제공하며, ApexCharts를 통해 캔들스틱 차트를 구현했습니다. React-Query를 사용하여 데이터 캐싱 및 실시간 업데이트를 관리하고, Recoil로 전역 상태를 관리합니다. 다크모드/라이트모드 테마 전환 기능을 제공하며, 반응형 디자인으로 모바일 환경에서도 최적화되어 있습니다.",
           "image": "/img/crypto.png",
           "github": "https://github.com/ParkTH-Dev/CryptoTracker-challenge",
           "demo": "https://lucent-tanuki-6b4665.netlify.app/",
-          "tags": ["TypeScript", "React", "API 통합"]
+          "tags": [
+            "TypeScript",
+            "React",
+            "Recoil",
+            "React-Query",
+            "React-Router-Dom",
+            "Styled-components"
+          ]
         },
         {
           "id": 3,
@@ -37,7 +44,14 @@
           "image": "/img/taskmanager.png",
           "github": "https://github.com/ParkTH-Dev/DnD-ToDoApp",
           "demo": "https://bright-truffle-31af6e.netlify.app/",
-          "tags": ["TypeScript", "React", "DnD"]
+          "tags": [
+            "TypeScript",
+            "React",
+            "DnD",
+            "Recoil",
+            "React-Hook-Form",
+            "Styled-components"
+          ]
         }
       ]
     },
@@ -48,11 +62,17 @@
           "id": 4,
           "title": "Shopping Mall",
           "subTitle": "리액트 기반 이커머스 플랫폼",
-          "description": "React와 상태관리 라이브러리를 활용한 이커머스 플랫폼입니다. 상품 목록/상세 페이지, 장바구니 기능, 주문 프로세스, 사용자 인증 등 쇼핑몰의 핵심 기능들을 구현했습니다.",
+          "description": "React와 Redux를 활용한 쇼핑몰 프로젝트입니다.",
           "image": "/img/shoping.png",
           "github": "https://github.com/ParkTH-Dev/shoppingmall/",
           "demo": "https://cheery-genie-4c544a.netlify.app/",
-          "tags": ["React", "상태관리", "이커머스"]
+          "tags": [
+            "React",
+            "Redux",
+            "Vite",
+            "React-Router-Dom",
+            "Styled-components"
+          ]
         },
         {
           "id": 5,

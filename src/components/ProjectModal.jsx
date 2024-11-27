@@ -28,12 +28,16 @@ const ModalContent = styled.div`
   border-radius: 12px;
   padding: 30px;
   position: relative;
-  overflow-y: hidden;
   @media (max-width: 768px) {
     flex-direction: column;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     padding: 20px;
     gap: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 
@@ -43,6 +47,12 @@ const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+`;
+
+const TitleWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const ImageWrap = styled.div`
@@ -152,16 +162,16 @@ const ProjectModal = ({ project, onClose }) => {
           <img src={image} alt={title} />
         </ImageWrap>
         <InfoWrap>
-          <CloseButton onClick={onClose}>×</CloseButton>
-
-          <ProjectTitle>{title}</ProjectTitle>
-          <ProjectPeriod>{subTitle}</ProjectPeriod>
-
-          <TechStack>
-            {tags.map((tech, index) => (
-              <TechBadge key={index}>{tech}</TechBadge>
-            ))}
-          </TechStack>
+          <TitleWrap>
+            <CloseButton onClick={onClose}>×</CloseButton>
+            <ProjectTitle>{title}</ProjectTitle>
+            <ProjectPeriod>{subTitle}</ProjectPeriod>
+            <TechStack>
+              {tags.map((tech, index) => (
+                <TechBadge key={index}>{tech}</TechBadge>
+              ))}
+            </TechStack>
+          </TitleWrap>
           <Section>
             <SectionTitle>프로젝트 설명</SectionTitle>
             <SectionContent>{description}</SectionContent>
