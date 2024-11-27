@@ -61,14 +61,15 @@
         {
           "id": 4,
           "title": "Shopping Mall",
-          "subTitle": "리액트 기반 이커머스 플랫폼",
-          "description": "React와 Redux를 활용한 쇼핑몰 프로젝트입니다.",
+          "subTitle": "Mini 쇼핑몰",
+          "description": "React와 Redux를 활용한 쇼핑몰 프로젝트입니다. Redux를 통해 상품 목록의 전역 상태를 관리하고, Redux-Thunk 미들웨어를 사용하여 비동기 API 호출을 처리했습니다. 검색 기능과 함께 반응형 디자인을 적용한 현대적인 쇼핑몰 웹 애플리케이션을 구현했습니다.",
           "image": "/img/shoping.png",
           "github": "https://github.com/ParkTH-Dev/shoppingmall/",
           "demo": "https://cheery-genie-4c544a.netlify.app/",
           "tags": [
             "React",
             "Redux",
+            "Redux-Thunk",
             "Vite",
             "React-Router-Dom",
             "Styled-components"
@@ -82,17 +83,23 @@
           "image": "/img/emotion.png",
           "github": "https://github.com/ParkTH-Dev/EmotionDiary",
           "demo": "https://ezenminiproject.web.app/",
-          "tags": ["React", "Firebase", "CRUD"]
+          "tags": ["React", "Firebase", "React-Router-Dom", "Styled-components"]
         },
         {
           "id": 6,
           "title": "MBTI App",
           "subTitle": "MBTI 성격 유형 테스트 앱",
-          "description": "React를 활용한 MBTI 성격 유형 테스트 앱입니다. 질문에 따른 응답을 분석하여 사용자의 MBTI 유형을 판단하고, 결과를 시각적으로 표현합니다. 결과 공유 기능도 포함되어 있습니다.",
+          "description": "React를 활용한 MBTI 성격 유형 테스트 앱입니다. 질문에 따른 응답을 분석하여 사용자의 MBTI 유형을 판단하고, 결과를 시각적으로 표현합니다. 카카오톡 결과 공유 기능도 포함되어 있습니다.",
           "image": "/img/mbti.png",
           "github": "https://github.com/ParkTH-Dev/MBTI-App",
           "demo": "https://th-catmbti.netlify.app/",
-          "tags": ["React", "상태관리", "인터랙티브"]
+          "tags": [
+            "React",
+            "Framer-motion",
+            "Vite",
+            "React-Router-Dom",
+            "Styled-components"
+          ]
         }
       ]
     },
@@ -101,76 +108,76 @@
       "items": [
         {
           "id": 7,
-          "title": "Hanwha Eagles Fanpage",
-          "subTitle": "한화 이글스 팬 커뮤니티 페이지",
-          "description": "한화 이글스 팬들을 위한 커뮤니티 웹사이트입니다. 경기 일정, 선수 정보, 팬 게시판 등을 제공하며, 반응형 디자인으로 모바일 환경에서도 최적화되어 있습니다.",
+          "title": "Hanwha Eagles Website",
+          "subTitle": "한화 이글스 구단 소개 페이지",
+          "description": "한화 이글스의 역사와 선수단을 소개하는 반응형 웹사이트입니다. 구단의 주요 발자취와 현역 선수들의 상세 정보를 제공하며, 이미지 슬라이더와 스크롤 기반 애니메이션 등 다양한 인터랙티브 요소를 통해 역동적인 사용자 경험을 제공합니다.",
           "image": "/img/hanwha.png",
           "github": "https://github.com/ParkTH-Dev/HanwhaEaglesFanpage",
           "demo": "https://magenta-kataifi-82acd5.netlify.app/",
-          "tags": ["JavaScript", "커뮤니티", "반응형"]
+          "tags": ["HTML/CSS", "JavaScript", "반응형"]
         },
 
         {
           "id": 8,
           "title": "NewJeans Chrome App",
-          "subTitle": "뉴진스 테마 크롬 확장 프로그램",
-          "description": "크롬 확장 프로그램으로 개발한 뉴진스 테마 앱입니다. 새 탭을 열 때마다 랜덤한 뉴진스 이미지와 시계, 날씨 정보를 표시합니다. OpenWeather API를 활용했습니다.",
+          "subTitle": "커스텀 새 탭 크롬 확장 프로그램",
+          "description": "크롬 확장 프로그램으로 개발한 커스텀 새 탭 앱입니다. 새 탭을 열 때마다 랜덤한 배경 이미지와 함께 시계, 날씨, 할 일 목록, 명언을 표시합니다. OpenWeather API를 활용하여 실시간 날씨 정보를 제공하며, LocalStorage를 통해 할 일 목록을 저장합니다. 또한 자주 사용하는 웹사이트(GitHub, Google, Naver)로의 빠른 접근을 제공합니다.",
           "image": "/img/newjeansChrome.png",
           "github": "https://github.com/ParkTH-Dev/NewJeansChromeApp",
           "demo": "https://statuesque-gumdrop-8af43c.netlify.app/",
-          "tags": ["JavaScript", "Chrome Extension", "API"]
+          "tags": ["HTML/CSS", "JavaScript", "API", "Chrome Extension"]
         },
 
         {
           "id": 9,
-          "title": "Custom SNS",
+          "title": "Web SNS Page",
           "subTitle": "커스텀 소셜 네트워크 서비스",
-          "description": "LocalStorage를 활용한 소셜 네트워크 서비스입니다. 게시물 작성/수정/삭제, 좋아요 기능, 댓글 시스템 등을 구현했으며, 새로고침 후에도 데이터가 유지됩니다.",
+          "description": "HTML/CSS와 JavaScript를 활용하여 제작한 소셜 네트워크 서비스 웹페이지입니다. 프로필 카드, 미니게임(끝말잇기, 로또), 음악 플레이어 등 다양한 기능을 구현했습니다. SCSS를 사용하여 효율적인 스타일링을 적용했으며, 반응형 디자인으로 모바일 환경에서도 최적화된 사용자 경험을 제공합니다.",
           "image": "/img/webSns.png",
           "github": "https://github.com/ParkTH-Dev/CustomSNS-webPage",
           "demo": "https://celadon-druid-7e0395.netlify.app/",
-          "tags": ["JavaScript", "SNS", "LocalStorage"]
+          "tags": ["HTML/CSS", "JavaScript", "SCSS", "반응형"]
         },
         {
           "id": 10,
           "title": "Music Player",
           "subTitle": "웹 기반 음악 플레이어",
-          "description": "Web Audio API를 활용한 음악 플레이어입니다. 재생/일시정지, 볼륨 조절, 프로그레스 바, 재생 목록 관리 등의 기능을 구현했습니다.",
+          "description": "웹 기반 음악 플레이어입니다. 재생/일시정지, 볼륨 조절, 재생 시간 표시 등 기본적인 제어 기능과 함께 실시간 이퀄라이저 시각화, 앨범아트 표시 기능을 제공합니다. CSS 애니메이션을 활용하여 부드러운 전환 효과를 구현했으며, 직관적인 UI/UX로 편리한 음악 감상 경험을 제공합니다.",
           "image": "/img/music.png",
           "github": "https://github.com/ParkTH-Dev/Music-Player",
           "demo": "https://harmonious-sfogliatella-5049a9.netlify.app/",
-          "tags": ["JavaScript", "Web Audio API", "UI/UX"]
+          "tags": ["HTML/CSS", "JavaScript", "SCSS"]
         },
         {
           "id": 11,
           "title": "Canvas Drawing App",
           "subTitle": "Canvas API를 활용한 그림판",
-          "description": "HTML5 Canvas API를 활용한 드로잉 앱입니다. 다양한 색상과 브러시 크기 선택, 지우개 기능, 이미지 저장 기능 등을 제공합니다.",
+          "description": "HTML5 Canvas API를 활용한 드로잉 앱입니다. 다양한 색상과 브러시 크기 선택, 채우기, 도장, 지우개, 이미지 저장 등을 제공합니다.",
           "image": "/img/canvas.png",
           "github": "https://github.com/ParkTH-Dev/canvasAPI-canvas",
           "demo": "https://fascinating-maamoul-d8cd6c.netlify.app/",
-          "tags": ["JavaScript", "Canvas API", "그래픽"]
+          "tags": ["HTML/CSS", "JavaScript", "Canvas API"]
         },
 
         {
           "id": 12,
-          "title": "NewJeans Slide",
-          "subTitle": "뉴진스 이미지 슬라이더 구현",
-          "description": "JavaScript와 CSS 애니메이션을 활용한 이미지 슬라이더입니다. 자동 슬라이드, 수동 네비게이션, 페이드 효과 등 다양한 애니메이션 효과를 구현했습니다.",
+          "title": "NewJeans Image Slider",
+          "subTitle": "뉴진스 멤버별 이미지 슬라이드 갤러리",
+          "description": "CSS와 바닐라 JavaScript를 활용하여 구현한 이미지 슬라이더입니다. 멤버별 네비게이션 버튼을 통한 수동 전환, hover 시 이미지 확대 효과, 그라데이션 텍스트 애니메이션 등 다양한 인터랙티브 요소를 포함하고 있습니다.",
           "image": "/img/newjeansSlide.png",
           "github": "https://github.com/ParkTH-Dev/NewJeansSlide",
           "demo": "https://kaleidoscopic-rugelach-e7e851.netlify.app/",
-          "tags": ["JavaScript", "슬라이더", "애니메이션"]
+          "tags": ["HTML/CSS", "JavaScript"]
         },
         {
           "id": 13,
           "title": "Tving Login Form",
-          "subTitle": "바닐라 자바스크립트로 구현한 티빙 로그인 폼",
-          "description": "바닐라 자바스크립트로 구현한 티빙 로그인 폼",
+          "subTitle": "티빙 로그인 폼",
+          "description": "HTML/CSS와 바닐라 JavaScript를 활용하여 구현한 간단한 티빙 로그인 폼입니다.",
           "image": "/img/tvingForm.png",
           "github": "https://github.com/ParkTH-Dev/TvingLoginForm",
           "demo": "https://tivinloginform.netlify.app/",
-          "tags": ["JavaScript", "Form Validation", "CSS"]
+          "tags": ["HTML/CSS", "JavaScript"]
         }
       ]
     },
@@ -191,8 +198,8 @@
           "id": 15,
           "title": "Mini Movie App",
           "subTitle": "Next.js로 구현한 영화 정보 앱",
-          "description": "Next.js로 구현한 영화 정보 앱",
-          "image": "/images/movie.jpg",
+          "description": "Next.js의 SSR 기능을 활용한 영화 정보 앱입니다. TMDB API를 통해 영화 정보를 제공하며, 검색, 필터링, 상세 정보 조회 등의 기능을 구현했습니다.",
+          "image": "/img/nextmovie.png",
           "github": "https://github.com/ParkTH-Dev/Next.js-MiniMovieApp",
           "demo": "https://peppy-salamander-6b3c69.netlify.app/",
           "tags": ["Next.js", "SSR", "API"]
@@ -204,53 +211,53 @@
       "items": [
         {
           "id": 16,
-          "title": "SCSS Landing Page 2",
+          "title": "SCSS Landing Page 1",
           "subTitle": "SCSS 기반 모던 웹 디자인",
-          "description": "SCSS의 변수, 믹스인, 중첩 규칙 등을 활용한 모던한 웹사이트입니다. 반응형 디자인과 다양한 애니메이션 효과를 구현했습니다.",
+          "description": "SCSS를 활용한 Flexbox, Grid 레이아웃 프로젝트입니다.",
           "image": "/img/scss-2.png",
-          "github": "#",
+          "github": "https://github.com/ParkTH-Dev/CSS-practice2",
           "demo": "https://monumental-daffodil-f7d3a2.netlify.app/",
-          "tags": ["SCSS", "HTML5", "JavaScript"]
-        },
-        {
-          "id": 17,
-          "title": "SCSS Landing Page 3",
-          "subTitle": "SCSS를 활용한 인터랙티브 웹사이트",
-          "description": "SCSS를 활용한 인터랙티브 웹사이트입니다. 스크롤 애니메이션, 호버 효과, 페이지 전환 효과 등 다양한 인터랙션을 구현했습니다.",
-          "image": "/img/scss-3.png",
-          "github": "#",
-          "demo": "https://celebrated-froyo-abf330.netlify.app/",
-          "tags": ["SCSS", "HTML5", "인터랙티브"]
-        },
-        {
-          "id": 18,
-          "title": "SCSS Landing Page 4",
-          "subTitle": "SCSS 애니메이션 포트폴리오",
-          "description": "SCSS 애니메이션을 활용한 포트폴리오 웹사이트입니다. 부드러운 스크롤 효과, 요소 페이드인/아웃, 패럴랙스 효과 등을 구현했습니다.",
-          "image": "/img/scss-4.png",
-          "github": "#",
-          "demo": "https://incomparable-pegasus-5d73c2.netlify.app/",
-          "tags": ["SCSS", "애니메이션", "포트폴리오"]
-        },
-        {
-          "id": 19,
-          "title": "SCSS Landing Page 5",
-          "subTitle": "SCSS 그리드 레이아웃 프로젝트",
-          "description": "SCSS Grid와 Flexbox를 활용한 레이아웃 프로젝트입니다. 복잡한 그리드 시스템과 반응형 디자인을 효율적으로 구현했습니다.",
-          "image": "/img/scss-5.png",
-          "github": "#",
-          "demo": "https://eloquent-kringle-6f74a9.netlify.app/",
           "tags": ["SCSS", "Grid", "Flexbox"]
         },
         {
+          "id": 17,
+          "title": "SCSS Landing Page 2",
+          "subTitle": "SCSS를 활용한 인터랙티브 웹사이트",
+          "description": "SCSS를 활용한 Flexbox 레이아웃 프로젝트입니다.",
+          "image": "/img/scss-3.png",
+          "github": "https://github.com/ParkTH-Dev/CSS-practice3",
+          "demo": "https://celebrated-froyo-abf330.netlify.app/",
+          "tags": ["SCSS", "Flexbox"]
+        },
+        {
+          "id": 18,
+          "title": "SCSS Landing Page 3",
+          "subTitle": "SCSS 애니메이션 포트폴리오",
+          "description": "SCSS를 활용한 Flexbox, Grid 레이아웃 프로젝트입니다.",
+          "image": "/img/scss-4.png",
+          "github": "https://github.com/ParkTH-Dev/CSS-practice4",
+          "demo": "https://incomparable-pegasus-5d73c2.netlify.app/",
+          "tags": ["SCSS", "Flexbox", "Grid"]
+        },
+        {
+          "id": 19,
+          "title": "SCSS Landing Page 4",
+          "subTitle": "SCSS 그리드 레이아웃 프로젝트",
+          "description": "SCSS를 활용한 Flexbox, Grid 레이아웃 프로젝트입니다.",
+          "image": "/img/scss-5.png",
+          "github": "https://github.com/ParkTH-Dev/CSS-practice5",
+          "demo": "https://eloquent-kringle-6f74a9.netlify.app/",
+          "tags": ["SCSS", "Flexbox", "Grid"]
+        },
+        {
           "id": 20,
-          "title": "SCSS Landing Page 6",
+          "title": "SCSS Landing Page 5",
           "subTitle": "SCSS 반응형 대시보드",
-          "description": "SCSS를 활용한 반응형 대시보드입니다. 데이터 시각화, 관리자 패널, 다크 모드 등을 구현했으며 다양한 디바이스에 최적화되어 있습니다.",
+          "description": "SCSS를 활용한 Flexbox, Grid 레이아웃 프로젝트입니다.",
           "image": "/img/scss-6.png",
-          "github": "#",
+          "github": "https://github.com/ParkTH-Dev/CSS-practice6",
           "demo": "https://taupe-pothos-6782f3.netlify.app/",
-          "tags": ["SCSS", "대시보드", "반응형"]
+          "tags": ["SCSS", "Flexbox", "Grid"]
         }
       ]
     }
