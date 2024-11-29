@@ -8,7 +8,6 @@
       "updated": "2024.10 ~ 2024.11",
       "teamSize": "6인",
       "contribute": "부PM으로서 프로젝트의 전반적인 진행을 보조하며, React와 Firebase를 활용한 핵심 기능 개발을 담당했습니다. 회원가입 페이지와 메인 페이지를 제작하였으며, Firebase을 활용한 사용자 인증 시스템 및 CRUD 데이터 구조를 설계하고, 실시간 데이터 동기화 시스템을 구축했습니다.",
-      "mainImage": "/img/facebook-main.png",
       "thumbnails": [
         "/img/facebook-main.png",
         "/img/facebook-main2.png",
@@ -27,33 +26,39 @@
     },
     {
       "id": 2,
+      "title": "OTT 프로젝트",
+      "description": "React와 TypeScript를 활용하여 영화/TV 프로그램 브라우징, 검색, 상세 정보 조회 기능을 구현했습니다. TMDB API를 통해 실시간 콘텐츠 데이터를 가져오며, React Query를 사용하여 효율적인 데이터 캐싱과 상태 관리를 구현했습니다. 특히 모달 기반의 상세 정보 표시 시스템에서는 Framer Motion을 활용한 부드러운 애니메이션과 반응형 디자인을 적용했으며, YouTube API를 통해 관련 영상을 제공합니다. styled-components를 사용하여 일관된 디자인 시스템을 구축했고, 모바일부터 데스크톱까지 다양한 화면 크기에 대응하는 반응형 레이아웃을 구현했습니다.",
+      "category": "OTT 페이지",
+      "updated": "2024.11 ~ 2024.12",
+      "teamSize": "6인",
+      "contribute": "메인 페이지와 검색 페이지를 제작하였으며, Framer Motion을 활용한 모달 시스템을 구현했습니다. TMDB API와 YouTube API를 연동하여 실시간 콘텐츠 데이터를 가져오고 관련 영상을 제공하는 기능을 개발했습니다. 또한 React Query를 사용하여 효율적인 데이터 캐싱 시스템을 구축하고, styled-components로 반응형 디자인을 적용했습니다.",
+      "thumbnails": [
+        "/img/ott-main.png",
+        "/img/ott-modal.png",
+        "/img/ott-search.png",
+        "/img/ott-login.png",
+        "/img/ott-join.png"
+      ],
+      "demo": "https://guileless-concha-d08bcb.netlify.app/",
+      "github": "https://github.com/ParkTH-Dev/Moving_OTT_EZEN",
+      "tags": [
+        " TypeScript |",
+        " React |",
+        " React-query |",
+        " React-hook-form |",
+        " Framer-motion |",
+        " Styled-components"
+      ]
+    },
+    {
+      "id": 3,
       "title": "마켓컬리 클론",
       "description": "마켓컬리를 모티브로 한 이커머스 웹사이트 ‘마트캘리’를 제작했습니다. JavaScript를 사용하여 메인 페이지, 로그인 페이지, 회원가입 페이지, 장바구니 페이지를 구현하였으며, Firebase를 통해 배포했습니다. 기획서, WBS, IA를 작성하고, 피그마로 와이어프레임을 제작한 후 개발을 진행했습니다.",
       "category": "쇼핑몰 페이지",
       "updated": "2024.08 ~ 2024.09",
       "teamSize": "4인(PM)",
       "contribute": "상세 페이지 및 장바구니 페이지를 제작하였으며, 프로젝트 매니저(PM) 역할을 맡아 전체적인 일정 관리를 담당했습니다. 또한, JSON 데이터 구조를 설계하고, 검색 기능을 구현했습니다. 이 외에도 프로젝트의 전반적인 진행 상황을 관리하고, 팀원들과의 원활한 소통을 통해 프로젝트를 성공적으로 완료했습니다.",
-      "mainImage": "/images/kurly-main.jpg",
-      "thumbnails": [
-        "/img/kurly-main.png",
-        "/img/kurly-main2.png",
-        "/img/kurly-detail.png",
-        "/img/kurly-signup.png",
-        "/img/kurly-cart.png"
-      ],
-      "demo": "https://marketcoding-aa088.web.app/",
-      "github": "https://github.com/ParkTH-Dev/kurly-TeamProject",
-      "tags": [" HTML |", " CSS |", " JavaScript |", " Firebase "]
-    },
-    {
-      "id": 3,
-      "title": "마켓컬리 클론",
-      "description": "마켓컬리를 모티브로 한 이커머스 웹사이트 ‘마트캘리’ 프로젝트에서 PM을 맡아, 순수 JavaScript로 메인 배너 슬라이드, 장바구니, 검색 기능을 구현했습니다. 회원가입 시 유효성 검사를 적용해 사용자 입력의 정확도를 높였으며, 프로젝트 기획 단계에서 요구사항 분석과 설계를 주도했습니다. 또한, 반응형 웹 디자인을 통해 다양한 디바이스에서 최적의 사용자 경험을 제공하고, 성능 최적화에도 주력해 팀 프로젝트를 성공적으로 이끌었습니다.",
-      "category": "쇼핑몰 페이지",
-      "updated": "2024.08 ~ 2024.09",
-      "teamSize": "4인(PM)",
-      "contribute": "상세페이지 및 장바구니 페이지 제작",
-      "mainImage": "/images/kurly-main.jpg",
+
       "thumbnails": [
         "/img/kurly-main.png",
         "/img/kurly-main2.png",
