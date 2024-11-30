@@ -138,6 +138,11 @@ const ProjectContainer = styled(Slider)`
     padding: 0 10px;
     display: flex;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    &.slick-active {
+      opacity: 1;
+    }
   }
 
   .slick-prev:before,
@@ -183,12 +188,24 @@ const ProjectCard = styled.div`
 
 const ProjectImage = styled.img.attrs({
   loading: "eager",
+  decoding: "async",
 })`
   width: 100%;
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in-out forwards;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const ProjectInfo = styled.div`
@@ -387,18 +404,35 @@ const Project = () => {
 
   useEffect(() => {
     const preloadImages = () => {
-      projects.forEach((category) => {
-        category.items.forEach((project) => {
-          const img = new Image();
-          img.src = project.image;
-        });
-      });
+      const imagePromises = projects.flatMap((category) =>
+        category.items.map((project) => {
+          return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = reject;
+            img.src = project.image;
+          });
+        })
+      );
+
+      Promise.all(imagePromises).catch((error) =>
+        console.error("이미지 프리로딩 중 오류:", error)
+      );
     };
 
-    preloadImages();
-  }, []);
+    if (projects.length > 0) {
+      preloadImages();
+    }
+  }, [projects]);
 
   const handleCategoryChange = (category) => {
+    const currentProjects =
+      projects.find((p) => p.category === category)?.items || [];
+    currentProjects.forEach((project) => {
+      const img = new Image();
+      img.src = project.image;
+    });
+
     setActiveCategory(category);
     if (sliderRef) {
       sliderRef.slickGoTo(0);
