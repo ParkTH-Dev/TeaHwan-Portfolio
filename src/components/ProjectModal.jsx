@@ -12,9 +12,11 @@ const ModalOverlay = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  z-index: 9999;
+  padding: 0;
+
   @media (max-width: 768px) {
-    padding: 20px;
+    padding: 0;
   }
 `;
 
@@ -29,7 +31,9 @@ const ModalContent = styled(motion.div)`
   border-radius: 12px;
   padding: 30px;
   position: relative;
-  z-index: 10001;
+  z-index: 10000;
+  margin: 20px;
+
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
@@ -37,18 +41,7 @@ const ModalContent = styled(motion.div)`
     overflow-y: auto;
     padding: 20px;
     gap: 20px;
-
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.textColor}20;
-      border-radius: 4px;
-    }
-    position: relative;
+    margin: 10px;
   }
 `;
 
@@ -100,7 +93,7 @@ const CloseButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  z-index: 10002;
+  z-index: 10001;
 
   &:hover {
     background: rgba(0, 0, 0, 0.1);
