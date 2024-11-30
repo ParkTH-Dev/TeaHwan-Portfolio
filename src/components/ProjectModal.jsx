@@ -12,7 +12,7 @@ const ModalOverlay = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 10000;
   @media (max-width: 768px) {
     padding: 20px;
   }
@@ -29,7 +29,7 @@ const ModalContent = styled(motion.div)`
   border-radius: 12px;
   padding: 30px;
   position: relative;
-  z-index: 1000;
+  z-index: 10001;
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
@@ -48,6 +48,7 @@ const ModalContent = styled(motion.div)`
       background: ${({ theme }) => theme.textColor}20;
       border-radius: 4px;
     }
+    position: relative;
   }
 `;
 
@@ -99,6 +100,7 @@ const CloseButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  z-index: 10002;
 
   &:hover {
     background: rgba(0, 0, 0, 0.1);
