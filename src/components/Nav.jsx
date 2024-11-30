@@ -54,19 +54,25 @@ const StyledLink = styled(Link)`
   transition: all 0.3s;
   overflow: hidden;
   cursor: pointer;
-
   b {
-    font-weight: bold;
     margin-left: 20px;
   }
 
   &.active {
     border-left: 3px solid #000;
     background-color: rgba(0, 0, 0, 0.2);
+    b {
+      font-weight: bold;
+    }
   }
 
   &:hover {
     border-left: 3px solid #000;
+    b {
+      font-weight: bold;
+      /* color: ${({ theme }) => theme.accentColor}; */
+      transform: scale(1.02);
+    }
   }
 
   &:hover::before {
@@ -90,7 +96,6 @@ const StyledLink = styled(Link)`
 
 const Overlay = styled.div`
   display: none;
-
   @media (max-width: 1200px) {
     display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
     position: fixed;

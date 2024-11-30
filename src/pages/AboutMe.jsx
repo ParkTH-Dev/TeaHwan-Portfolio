@@ -114,7 +114,6 @@ const DescriptionWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
   background: ${({ theme }) => theme.cardColor}60;
   padding: 20px;
   border-radius: 10px;
@@ -124,9 +123,14 @@ const DescriptionWrap = styled.div`
 `;
 
 const DescriptionTitle = styled.h3`
-  font-size: 32px;
+  font-size: 28px;
+  margin-bottom: 20px;
   font-weight: bold;
-  margin-bottom: 60px;
+  transition: all 0.2s ease;
+  &:hover {
+    color: ${({ theme }) => theme.accentColor};
+    transform: scale(1.02);
+  }
   @media (max-width: 768px) {
     font-size: 24px;
     margin-bottom: 10px;
@@ -134,9 +138,21 @@ const DescriptionTitle = styled.h3`
 `;
 
 const Description = styled.p`
-  font-size: 20px;
-  line-height: 2.3;
+  font-size: 18px;
+  line-height: 1.5;
   width: 90%;
+
+  b {
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.2s ease;
+    font-size: 20px;
+    &:hover {
+      color: ${({ theme }) => theme.accentColor};
+      transform: scale(1.05);
+    }
+  }
+
   @media (max-width: 768px) {
     line-height: 1.5;
     font-size: 16px;
@@ -149,8 +165,8 @@ const Info = styled.div`
   flex-direction: column;
   margin-top: 20px;
   margin-bottom: 150px;
-  font-size: 20px;
-  gap: 20px;
+  font-size: 18px;
+  gap: 10px;
   background: ${({ theme }) => theme.cardColor}60;
   padding: 20px;
   border-radius: 10px;
@@ -180,6 +196,12 @@ const InfoLabel = styled.span`
 `;
 
 const InfoValue = styled.span`
+  transition: all 0.2s ease;
+  &:hover {
+    color: ${({ theme }) => theme.accentColor};
+    transform: scale(1.05);
+    font-weight: bold;
+  }
   @media (max-width: 768px) {
     width: 80%;
     line-height: 1.5;
@@ -251,12 +273,14 @@ const AboutMe = () => {
               안녕하세요 프론트엔드 개발자를 꿈꾸는 박태환입니다.
             </DescriptionTitle>
             <Description>
-              저는 온라인 사업을 운영하며 소비자의 관점과 니즈를 깊이 이해하게
-              되었습니다. 이러한 경험을 바탕으로 사용자 중심의 웹 서비스를
-              개발하는 데 열정을 가지고 있습니다. JavaScript, React, TypeScript,
-              Next.js 등 다양한 기술을 학습하며 개인 프로젝트를 진행하였고, 팀
-              프로젝트를 통해 협업의 중요성을 배웠습니다. 신입 개발자로서
-              지속적인 학습과 성장을 통해 계속 발전하고 싶습니다.
+              저는 <b>온라인 사업을 운영</b>하며 소비자의 관점과 니즈를 깊이
+              이해하게 되었습니다. <br />
+              이러한 경험을 바탕으로 <b>사용자 중심의 웹 서비스</b>를 개발하는
+              데 열정을 가지고 있습니다. <br />
+              <b>JavaScript, React, TypeScript, Next.js</b> 등 다양한 기술을
+              학습하며 개인 프로젝트를 진행하였고, 팀 프로젝트를 통해 협업의
+              중요성을 배웠습니다. 신입 개발자로서 지속적인 학습과 성장을 통해
+              계속 발전하고 싶습니다.
             </Description>
           </DescriptionWrap>
           <Info>

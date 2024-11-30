@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Button from "./Button";
+import { motion, AnimatePresence } from "framer-motion";
 
-const ModalOverlay = styled.div`
+const ModalOverlay = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -17,7 +18,7 @@ const ModalOverlay = styled.div`
   }
 `;
 
-const ModalContent = styled.div`
+const ModalContent = styled(motion.div)`
   display: flex;
   gap: 50px;
   background: ${({ theme }) => theme.bgColor};
@@ -28,15 +29,24 @@ const ModalContent = styled.div`
   border-radius: 12px;
   padding: 30px;
   position: relative;
+
   @media (max-width: 768px) {
     flex-direction: column;
-    overflow-y: scroll;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
     padding: 20px;
     gap: 20px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+
     &::-webkit-scrollbar {
-      display: none;
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme.textColor}20;
+      border-radius: 4px;
     }
   }
 `;
@@ -55,15 +65,23 @@ const TitleWrap = styled.div`
   gap: 10px;
 `;
 
-const ImageWrap = styled.div`
+const ImageWrap = styled(motion.div)`
   width: 100%;
   height: 100%;
+
+  @media (max-width: 768px) {
+    height: 300px;
+    min-height: 300px;
+  }
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 12px;
   }
+  cursor: pointer;
+  overflow: hidden;
 `;
 
 const CloseButton = styled.button`
@@ -112,14 +130,15 @@ const ProjectPeriod = styled.p`
   }
 `;
 
-const TechStack = styled.div`
+const TechStack = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 30px;
+  font-weight: bold;
 `;
 
-const TechBadge = styled.span`
+const TechBadge = styled(motion.span)`
   padding: 8px 16px;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
@@ -156,38 +175,107 @@ const ProjectModal = ({ project, onClose }) => {
   const { title, subTitle, tags, description, demo, github, image } = project;
 
   return (
-    <ModalOverlay onClick={onClose}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
-        <ImageWrap>
-          <img src={image} alt={title} />
-        </ImageWrap>
-        <InfoWrap>
-          <TitleWrap>
-            <CloseButton onClick={onClose}>×</CloseButton>
-            <ProjectTitle>{title}</ProjectTitle>
-            <ProjectPeriod>{subTitle}</ProjectPeriod>
-            <TechStack>
-              {tags.map((tech, index) => (
-                <TechBadge key={index}>{tech}</TechBadge>
-              ))}
-            </TechStack>
-          </TitleWrap>
-          <Section>
-            <SectionTitle>프로젝트 설명</SectionTitle>
-            <SectionContent>{description}</SectionContent>
-          </Section>
+    <AnimatePresence>
+      <ModalOverlay
+        onClick={onClose}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <ModalContent
+          onClick={(e) => e.stopPropagation()}
+          initial={{ scale: 0.9, y: 20 }}
+          animate={{ scale: 1, y: 0 }}
+          transition={{ type: "spring", duration: 0.5 }}
+        >
+          <ImageWrap
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "tween", duration: 0.2 }}
+          >
+            <motion.img
+              src={image}
+              alt={title}
+              initial={{ scale: 1.2 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          </ImageWrap>
 
-          <ButtonGroup>
-            <Button onClick={() => window.open(demo)} variant="primary">
-              사이트 보러가기
-            </Button>
-            <Button onClick={() => window.open(github)} variant="secondary">
-              Git-Hub
-            </Button>
-          </ButtonGroup>
-        </InfoWrap>
-      </ModalContent>
-    </ModalOverlay>
+          <InfoWrap>
+            <TitleWrap>
+              <CloseButton onClick={onClose}>×</CloseButton>
+              <motion.div
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <ProjectTitle>{title}</ProjectTitle>
+                <ProjectPeriod>{subTitle}</ProjectPeriod>
+              </motion.div>
+
+              <TechStack>
+                {tags.map((tech, index) => (
+                  <TechBadge
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "rgba(0, 0, 0, 0.2)",
+                    }}
+                  >
+                    {tech}
+                  </TechBadge>
+                ))}
+              </TechStack>
+            </TitleWrap>
+
+            <Section>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <SectionTitle>프로젝트 설명</SectionTitle>
+                <SectionContent>{description}</SectionContent>
+              </motion.div>
+            </Section>
+
+            <ButtonGroup>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Button
+                  onClick={() => window.open(demo)}
+                  variant="primary"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  사이트 보러가기
+                </Button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <Button
+                  onClick={() => window.open(github)}
+                  variant="secondary"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Git-Hub
+                </Button>
+              </motion.div>
+            </ButtonGroup>
+          </InfoWrap>
+        </ModalContent>
+      </ModalOverlay>
+    </AnimatePresence>
   );
 };
 

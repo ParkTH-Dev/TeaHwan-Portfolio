@@ -131,6 +131,8 @@ const ProjectContainer = styled(Slider)`
   width: 100%;
   margin-top: 15px;
   .slick-list {
+    /* overflow: hidden; */
+    padding-top: 20px;
   }
   .slick-slide {
     padding: 0 10px;
@@ -168,7 +170,6 @@ const ProjectCard = styled.div`
   z-index: 1;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-
   &:hover {
     transform: translateY(-10px);
     transition: transform 0.3s ease;
@@ -187,7 +188,7 @@ const ProjectImage = styled.img.attrs({
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
-  border: 1.5px solid ${({ theme }) => theme.textColor};
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 `;
 
 const ProjectInfo = styled.div`
@@ -226,7 +227,6 @@ const CategoryTabs = styled.div`
     -webkit-overflow-scrolling: touch;
     padding-bottom: 10px;
 
-    /* 스크롤바 스타일링 */
     &::-webkit-scrollbar {
       height: 6px;
     }
@@ -247,11 +247,12 @@ const CategoryTab = styled.button`
   border: none;
   background: ${(props) =>
     props.$active ? "rgba(0, 0, 0, 0.2)" : "transparent"};
+  font-weight: ${(props) => (props.$active ? "bold" : "normal")};
   border-radius: 20px;
   cursor: pointer;
   font-size: 18px;
   transition: all 0.3s ease;
-  flex-shrink: 0; /* 추가: 버튼이 줄어들지 않도록 설정 */
+  flex-shrink: 0;
 
   &:hover {
     background: rgba(0, 0, 0, 0.1);
@@ -261,7 +262,6 @@ const CategoryTab = styled.button`
   }
 `;
 
-// ProjectModal을 lazy loading으로 변경
 const ProjectModal = lazy(() => import("../components/ProjectModal"));
 
 const LoadingWrapper = styled.div`
@@ -300,7 +300,6 @@ const Project = () => {
   const [projects, setProjects] = useState([]);
   const [activeCategory, setActiveCategory] = useState("TypeScript");
   const [sliderRef, setSliderRef] = useState(null);
-
   const [titleRef, titleInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -326,8 +325,8 @@ const Project = () => {
   useEffect(() => {
     const hiddenElements = document.querySelectorAll('[aria-hidden="true"]');
     hiddenElements.forEach((el) => {
-      el.setAttribute("inert", ""); // inert 속성 추가
-      el.removeAttribute("aria-hidden"); // aria-hidden 제거
+      el.setAttribute("inert", "");
+      el.removeAttribute("aria-hidden");
     });
   }, []);
 
@@ -349,12 +348,6 @@ const Project = () => {
     swipe: true,
     swipeToSlide: true,
     touchThreshold: 5,
-    beforeChange: () => {
-      // 드래그 상태 관리 로직 제거
-    },
-    afterChange: () => {
-      // 드래그 상태 관리 로직 제거
-    },
     swipeEvent: null, // 추가
     responsive: [
       {

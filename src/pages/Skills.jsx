@@ -153,6 +153,24 @@ const CategoryName = styled.h3`
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: ${({ theme }) => theme.accentColor};
+    transition: width 0.5s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
   @media (max-width: 768px) {
     font-size: 18px;
   }
@@ -164,6 +182,15 @@ const SkillIcons = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 15px;
+
+  img {
+    transition: all 0.7s ease;
+    &:hover {
+      transform: rotate(360deg);
+      scale: 1.1;
+    }
+  }
+
   @media (max-width: 1200px) {
     justify-content: center;
   }
@@ -215,6 +242,35 @@ const Footer = styled.footer`
 `;
 
 const PageNumber = styled.div``;
+
+// 새로운 배경 아이콘 컴포넌트 추가
+const BackgroundSkillIcon = styled(motion.div)`
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  /* opacity: 0.01; */
+  z-index: 0;
+  pointer-events: none;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+  }
+  @media (max-width: 1200px) {
+    width: 400px;
+    height: 400px;
+  }
+
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 300px;
+    /* opacity: 0.02; */
+  }
+`;
 
 // Skills 컴포넌트
 const Skills = () => {
@@ -300,6 +356,18 @@ const Skills = () => {
 
   return (
     <Wrapper>
+      <BackgroundSkillIcon
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 0.2, y: 0 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+        key={selectedSkill.image}
+      >
+        <img src={selectedSkill.image} alt="background skill" />
+      </BackgroundSkillIcon>
+
       <Inner>
         <TitleWrap>
           <TitleInner>

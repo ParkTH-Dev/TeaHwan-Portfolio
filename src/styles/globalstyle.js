@@ -4,11 +4,35 @@ import reset from "styled-reset";
 export const GlobalStyle = createGlobalStyle`
   ${reset}
   @font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-family: 'LINESeedKR';
+    src: url('/fonts/LINESeedKR-Th.woff2') format('woff2'),
+         url('/fonts/LINESeedKR-Th.woff') format('woff'),
+         url('/fonts/LINESeedKR-Th.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LINESeedKR';
+    src: url('/fonts/LINESeedKR-Rg.woff2') format('woff2'),
+         url('/fonts/LINESeedKR-Rg.woff') format('woff'),
+         url('/fonts/LINESeedKR-Rg.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LINESeedKR';
+    src: url('/fonts/LINESeedKR-Bd.woff2') format('woff2'),
+         url('/fonts/LINESeedKR-Bd.woff') format('woff'),
+         url('/fonts/LINESeedKR-Bd.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
-  }
+    font-display: swap;
+}
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -21,7 +45,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
-    
     @media (max-width: 1200px) {
       font-size: 14px;
     }
@@ -34,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.bgColor};
     color: ${({ theme }) => theme.textColor};
-    font-family: 'LINESeedKR-Bd', sans-serif;
+    font-family: 'LINESeedKR', sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
     width: 100%;

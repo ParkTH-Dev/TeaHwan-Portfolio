@@ -10,15 +10,20 @@ const Wrapper = styled.div`
   backdrop-filter: blur(1.5px);
   position: fixed;
   z-index: 20;
-  span {
+  a {
     font-size: 30px;
     font-weight: 800;
+    transition: all 0.2s ease;
+    &:hover {
+      color: ${({ theme }) => theme.accentColor};
+      transform: scale(1.02);
+    }
   }
   @media (max-width: 1200px) {
     backdrop-filter: ${({ $isOpen }) => ($isOpen ? "none" : "blur(1.5px)")};
   }
   @media (max-width: 768px) {
-    span {
+    a {
       font-size: 20px;
     }
   }
@@ -85,7 +90,7 @@ const Header = () => {
   return (
     <Wrapper $isOpen={isOpen}>
       <Inner>
-        <span>ParkTH-Dev</span>
+        <a href="/">ParkTH-Dev</a>
         <Right>
           <ThemeSwitch />
           <MenuIcon $isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
