@@ -3,10 +3,10 @@ import { HiOutlineMailOpen } from "react-icons/hi";
 
 import { FiGithub } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Button from "../components/Button";
 import NextChapter from "../components/NextChapter";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Wrapper = styled.div`
@@ -153,13 +153,14 @@ const Item = styled.div`
     }
   }
 `;
-const Icon = styled.div`
+const Icon = styled(motion.div)`
   width: 70px;
   height: 70px;
   border: 1px solid ${(props) => props.theme.textColor};
   border-radius: 50%;
   position: relative;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 
   svg {
     position: absolute;
@@ -310,15 +311,31 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const MessageBox = styled.div`
+const LoadingSpinner = styled(motion.div)`
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  margin-left: 10px;
+`;
+
+const MessageBox = styled(motion.div)`
   text-align: center;
   color: ${(props) => (props.isError ? "red" : "green")};
+  padding: 10px;
+  border-radius: 5px;
 `;
 
 const Contact = () => {
   const form = useRef();
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [typedEmail, setTypedEmail] = useState("");
+  const emailPlaceholder = "xotj2635@naver.com";
+  const [typedGithub, setTypedGithub] = useState("");
+  const githubPlaceholder = "https://github.com/ParkTH-Dev";
 
   const [titleRef, titleInView] = useInView({
     triggerOnce: true,
@@ -330,14 +347,57 @@ const Contact = () => {
     threshold: 0.1,
   });
 
+  const [startTyping, setStartTyping] = useState(false);
+
+  useEffect(() => {
+    if (contentInView) {
+      setStartTyping(true);
+    }
+  }, [contentInView]);
+
+  useEffect(() => {
+    if (!startTyping) return;
+
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      if (currentIndex <= emailPlaceholder.length) {
+        setTypedEmail(emailPlaceholder.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [startTyping]);
+
+  useEffect(() => {
+    if (!startTyping) return;
+
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      if (currentIndex <= githubPlaceholder.length) {
+        setTypedGithub(githubPlaceholder.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [startTyping]);
+
   const sendEmail = (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setMessage("");
+
     emailjs
       .sendForm(
-        "service_avdc0as", // EmailJS에서 받은 Service ID
-        "template_d04oaiy", // EmailJS에서 받은 Template ID
+        "service_avdc0as",
+        "template_d04oaiy",
         form.current,
-        "GBUsQ34dBWfLuVpbq" // EmailJS에서 받은 Public Key
+        "GBUsQ34dBWfLuVpbq"
       )
       .then(
         () => {
@@ -349,7 +409,10 @@ const Contact = () => {
           setMessage("메시지 전송에 실패했습니다. 다시 시도해주세요.");
           setIsError(true);
         }
-      );
+      )
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -424,26 +487,64 @@ const Contact = () => {
               <TextArea name="message" placeholder="Your message" required />
             </InputWrapper>
             <ButtonWrapper>
-              <Button type="submit" variant="primary">
-                Send Message
+              <Button type="submit" variant="primary" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    Sending
+                    <LoadingSpinner
+                      animate={{ rotate: 360 }}
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    />
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </Button>
             </ButtonWrapper>
-            {message && <MessageBox isError={isError}>{message}</MessageBox>}
+            <AnimatePresence>
+              {message && (
+                <MessageBox
+                  isError={isError}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {message}
+                </MessageBox>
+              )}
+            </AnimatePresence>
           </FormWrapper>
           <Items>
             <Item>
-              <Icon>
+              <Icon whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
                 <HiOutlineMailOpen />
               </Icon>
-              <span>xotj2635@naver.com</span>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: contentInView ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {typedEmail}
+              </motion.span>
             </Item>
             <Item>
-              <Icon>
+              <Icon whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
                 <a href="https://github.com/ParkTH-Dev">
                   <FiGithub />
                 </a>
               </Icon>
-              <span>https://github.com/ParkTH-Dev</span>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: contentInView ? 1 : 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                {typedGithub}
+              </motion.span>
             </Item>
           </Items>
         </Content>

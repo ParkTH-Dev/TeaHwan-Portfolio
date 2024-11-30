@@ -384,6 +384,40 @@ const Footer = styled.div`
 
 const PageNumber = styled.div``;
 
+const StyledText = styled.span`
+  &.highlight {
+    color: ${({ theme }) => theme.accentColor};
+    font-weight: 600;
+  }
+
+  &.emphasis {
+    background: ${({ theme }) => theme.accentColor}20;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+`;
+
+const parseText = (text) => {
+  return text.split(/(\*\*.*?\*\*|`.*?`)/).map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      // 기술 스택, 주요 키워드 강조
+      return (
+        <StyledText key={index} className="highlight">
+          {part.slice(2, -2)}
+        </StyledText>
+      );
+    } else if (part.startsWith("`") && part.endsWith("`")) {
+      // 주요 기능 강조
+      return (
+        <StyledText key={index} className="emphasis">
+          {part.slice(1, -1)}
+        </StyledText>
+      );
+    }
+    return part;
+  });
+};
+
 const TeamProject = () => {
   const [projects, setProjects] = useState([]);
   const [selectedImages, setSelectedImages] = useState({});
@@ -509,17 +543,31 @@ const TeamProject = () => {
                     <LeftFirstItem>
                       <ItemTitle>프로젝트 정보</ItemTitle>
                       <ItemDesc>
-                        <div>프로젝트 이름: {project.title}</div>
-                        <div>팀 규모: {project.teamSize}</div>
-                        <div>제작 기간: {project.updated}</div>
-                        <div>카테고리: {project.category}</div>
+                        <div>
+                          {parseText("프로젝트 이름: `" + project.title + "`")}
+                        </div>
+                        <div>
+                          {parseText("팀 규모: `" + project.teamSize + "`")}
+                        </div>
+                        <div>
+                          {parseText("제작 기간: `" + project.updated + "`")}
+                        </div>
+                        <div>
+                          {parseText("카테고리: `" + project.category + "`")}
+                        </div>
                         <div>기술스택: </div>
-                        <div>{project.tags}</div>
+                        <div>
+                          {project.tags.map((tag, index) => (
+                            <span key={index}>
+                              {parseText("**" + tag + "**")}
+                            </span>
+                          ))}
+                        </div>
                       </ItemDesc>
                     </LeftFirstItem>
                     <LeftSecondItem>
                       <ItemTitle>기여도</ItemTitle>
-                      <ItemDesc>{project.contribute}</ItemDesc>
+                      <ItemDesc>{parseText(project.contribute)}</ItemDesc>
                     </LeftSecondItem>
                   </ItemLeft>
                   <ItemRight>
@@ -529,7 +577,7 @@ const TeamProject = () => {
                           src={selectedImages[project.id] || project.mainImage}
                           alt="Main Project"
                         />
-                        <RightDesc>{project.description}</RightDesc>
+                        <RightDesc>{parseText(project.description)}</RightDesc>
                       </FirstImage>
                       <SecondImage>
                         {project.thumbnails.map((thumb, index) => (

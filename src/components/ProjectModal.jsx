@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "./Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import ReactDOM from "react-dom";
 
 const ModalPortal = styled.div`
