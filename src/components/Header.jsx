@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   height: 80px;
   backdrop-filter: blur(1.5px);
   position: fixed;
-  z-index: 20;
+  z-index: 100;
   a {
     font-size: 30px;
     font-weight: 800;

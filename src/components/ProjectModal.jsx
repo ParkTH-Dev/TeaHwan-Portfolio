@@ -1,26 +1,26 @@
 import styled from "styled-components";
 import Button from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
+import ReactDOM from "react-dom";
+
+const ModalPortal = styled.div`
+  position: relative;
+  z-index: 1000;
+`;
 
 const ModalOverlay = styled(motion.div)`
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
-  padding: 0;
-
-  @media (max-width: 768px) {
-    padding: 0;
-  }
+  z-index: 1000;
+  isolation: isolate;
 `;
 
 const ModalContent = styled(motion.div)`
+  position: relative;
   display: flex;
   gap: 50px;
   background: ${({ theme }) => theme.bgColor};
@@ -30,9 +30,8 @@ const ModalContent = styled(motion.div)`
   height: 600px;
   border-radius: 12px;
   padding: 30px;
-  position: relative;
-  z-index: 10000;
   margin: 20px;
+  z-index: 1001;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -169,8 +168,8 @@ const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
   const { title, subTitle, tags, description, demo, github, image } = project;
 
-  return (
-    <AnimatePresence>
+  return ReactDOM.createPortal(
+    <ModalPortal>
       <ModalOverlay
         onClick={onClose}
         initial={{ opacity: 0 }}
@@ -270,7 +269,8 @@ const ProjectModal = ({ project, onClose }) => {
           </InfoWrap>
         </ModalContent>
       </ModalOverlay>
-    </AnimatePresence>
+    </ModalPortal>,
+    document.body
   );
 };
 
