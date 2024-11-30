@@ -29,7 +29,7 @@ const ModalContent = styled(motion.div)`
   border-radius: 12px;
   padding: 30px;
   position: relative;
-
+  z-index: 1000;
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
