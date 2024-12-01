@@ -222,7 +222,7 @@
         {
           "id": 16,
           "title": "SCSS Landing Page 1",
-          "subTitle": "SCSS 기반 모던 웹 디자인",
+          "subTitle": "SCSS 기반 레이아웃 프로젝트",
           "description": "SCSS를 활용한 Flexbox, Grid 레이아웃 프로젝트입니다.",
           "image": "/img/scss-2.png",
           "github": "https://github.com/ParkTH-Dev/CSS-practice2",
@@ -232,7 +232,7 @@
         {
           "id": 17,
           "title": "SCSS Landing Page 2",
-          "subTitle": "SCSS를 활용한 인터랙티브 웹사이트",
+          "subTitle": "SCSS 기반 레이아웃 프로젝트",
           "description": "SCSS를 활용한 Flexbox 레이아웃 프로젝트입니다.",
           "image": "/img/scss-3.png",
           "github": "https://github.com/ParkTH-Dev/CSS-practice3",
@@ -242,7 +242,7 @@
         {
           "id": 18,
           "title": "SCSS Landing Page 3",
-          "subTitle": "SCSS 애니메이션 포트폴리오",
+          "subTitle": "SCSS 기반 레이아웃 프로젝트",
           "description": "SCSS를 활용한 Flexbox, Grid 레이아웃 프로젝트입니다.",
           "image": "/img/scss-4.png",
           "github": "https://github.com/ParkTH-Dev/CSS-practice4",
@@ -252,7 +252,7 @@
         {
           "id": 19,
           "title": "SCSS Landing Page 4",
-          "subTitle": "SCSS 그리드 레이아웃 프로젝트",
+          "subTitle": "SCSS 기반 레이아웃 프로젝트",
           "description": "SCSS를 활용한 Flexbox, Grid 레이아웃 프로젝트입니다.",
           "image": "/img/scss-5.png",
           "github": "https://github.com/ParkTH-Dev/CSS-practice5",
@@ -262,7 +262,7 @@
         {
           "id": 20,
           "title": "SCSS Landing Page 5",
-          "subTitle": "SCSS 반응형 대시보드",
+          "subTitle": "SCSS 기반 레이아웃 프로젝트",
           "description": "SCSS를 활용한 Flexbox, Grid 레이아웃 프로젝트입니다.",
           "image": "/img/scss-6.png",
           "github": "https://github.com/ParkTH-Dev/CSS-practice6",
