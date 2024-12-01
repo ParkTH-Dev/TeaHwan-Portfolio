@@ -12,7 +12,6 @@ const Wrapper = styled.div`
   height: 100vh;
   position: relative;
   @media (max-width: 600px) {
-    /* height: 100%; */
     margin-bottom: 40px;
   }
 `;
@@ -80,7 +79,6 @@ const Title = styled.h2`
 `;
 
 const ButtotWrap = styled(motion.div)`
-  /* position: relative; */
   margin-top: 20px;
   display: flex;
   gap: 10px;
@@ -122,8 +120,6 @@ const ImgWrapper = styled(motion.div)`
   @media (max-width: 600px) {
     width: 300px;
     height: 300px;
-    /* width: 220px;
-    height: 220px; */
   }
 `;
 

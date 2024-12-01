@@ -400,14 +400,12 @@ const StyledText = styled.span`
 const parseText = (text) => {
   return text.split(/(\*\*.*?\*\*|`.*?`)/).map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
-      // 기술 스택, 주요 키워드 강조
       return (
         <StyledText key={index} className="highlight">
           {part.slice(2, -2)}
         </StyledText>
       );
     } else if (part.startsWith("`") && part.endsWith("`")) {
-      // 주요 기능 강조
       return (
         <StyledText key={index} className="emphasis">
           {part.slice(1, -1)}

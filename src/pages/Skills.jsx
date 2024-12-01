@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-// Styled Components
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -243,7 +242,6 @@ const Footer = styled.footer`
 
 const PageNumber = styled.div``;
 
-// 새로운 배경 아이콘 컴포넌트 추가
 const BackgroundSkillIcon = styled(motion.div)`
   position: absolute;
   left: 5%;
@@ -251,7 +249,6 @@ const BackgroundSkillIcon = styled(motion.div)`
   transform: translateY(-50%);
   width: 500px;
   height: 500px;
-  /* opacity: 0.01; */
   z-index: 0;
   pointer-events: none;
   img {
@@ -268,11 +265,9 @@ const BackgroundSkillIcon = styled(motion.div)`
   @media (max-width: 768px) {
     width: 300px;
     height: 300px;
-    /* opacity: 0.02; */
   }
 `;
 
-// Skills 컴포넌트
 const Skills = () => {
   const skillCategories = [
     {
@@ -297,7 +292,6 @@ const Skills = () => {
     },
   ];
 
-  // 새로운 방식으로 이미지 매핑
   const skillImages = {
     javascript: "/img/skills/JavaScript.svg",
     react: "/img/skills/React.svg",

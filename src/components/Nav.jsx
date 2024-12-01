@@ -70,7 +70,7 @@ const StyledLink = styled(Link)`
     border-left: 3px solid #000;
     b {
       font-weight: bold;
-      /* color: ${({ theme }) => theme.accentColor}; */
+
       transform: scale(1.02);
     }
   }

@@ -14,7 +14,6 @@ const Cursor = styled.div`
   filter: contrast(1.2) brightness(1.1);
   mix-blend-mode: difference;
 
-  // 모바일에서 숨기기
   @media (hover: none) and (pointer: coarse) {
     display: none;
   }
@@ -26,8 +25,8 @@ const MouseFollower = () => {
   useEffect(() => {
     const onMouseMove = (e) => {
       setPosition({
-        x: e.clientX - 10, // 커서 중앙 정렬을 위해 width/2 만큼 빼줍니다
-        y: e.clientY - 10, // 커서 중앙 정렬을 위해 height/2 만큼 빼줍니다
+        x: e.clientX - 10,
+        y: e.clientY - 10,
       });
     };
 

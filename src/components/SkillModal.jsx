@@ -9,7 +9,7 @@ const ModalWrapper = styled.div`
   padding: 20px;
   border-radius: 10px;
   @media (max-width: 768px) {
-    display: none; // 모바일에서는 기존 내용 숨김
+    display: none;
   }
 `;
 

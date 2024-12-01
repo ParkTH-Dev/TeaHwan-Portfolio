@@ -46,7 +46,6 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
-    /* gap: 0; */
   }
 `;
 
