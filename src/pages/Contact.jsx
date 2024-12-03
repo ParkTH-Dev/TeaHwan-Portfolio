@@ -420,7 +420,7 @@ const Contact = () => {
       <Inner>
         <TitleWrap>
           <TitleInner>
-            <SubTitle>Some Word About Me</SubTitle>
+            <SubTitle>Let me know your thoughts</SubTitle>
             <BackgroundText
               ref={titleRef}
               initial={{ opacity: 0, x: -100 }}

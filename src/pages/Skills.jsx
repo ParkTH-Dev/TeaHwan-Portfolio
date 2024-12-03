@@ -365,7 +365,7 @@ const Skills = () => {
       <Inner>
         <TitleWrap>
           <TitleInner>
-            <SubTitle>Some Word About Me</SubTitle>
+            <SubTitle>Check out my tech stack</SubTitle>
             <BackgroundText
               ref={titleRef}
               initial={{ opacity: 0, x: -100 }}

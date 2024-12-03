@@ -444,7 +444,7 @@ const Project = () => {
       <Inner>
         <TitleWrap>
           <TitleInner>
-            <SubTitle>Some Word About Me</SubTitle>
+            <SubTitle>Check out my projects</SubTitle>
             <BackgroundText
               ref={titleRef}
               initial={{ opacity: 0, x: -100 }}
