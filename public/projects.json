@@ -7,7 +7,7 @@
           "id": 1,
           "title": "Mini SNS",
           "subTitle": "타입스크립트 기반 소셜 네트워크",
-          "description": "TypeScript와 Firebase를 활용한 소셜 네트워크 서비스입니다. Firebase Authentication을 통한 이메일/구글 로그인, 실시간 게시물 CRUD 기능, 이미지 업로드, 프로필 수정, 좋아요 기능을 구현했습니다. Firestore를 활용하여 실시간 데이터 동기화를 구현했으며, Firebase Storage를 통해 이미지 파일을 관리합니다.",
+          "description": "TypeScript와 Firebase를 활용한 소셜 네트워크 서비스입니다. Firebase Authentication을 통한 이메일/구글 로그인, 실시간 게시물 CRUD 기능, 이미지 업로드, 프로필 수정, 좋아요 기능을 구현했습니다. Firestore를 활용하여 실시간 데이터 동기화를 구현했으며, Firebase Storage를 통해 이미지 파일을 관리합니다. 테스트ID/PW: test@test.com / 12341234",
           "image": "/img/minisns.png",
           "github": "https://github.com/ParkTH-Dev/Mini-sns",
           "demo": "https://sns-faltfrom.web.app/",

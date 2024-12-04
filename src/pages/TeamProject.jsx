@@ -398,8 +398,10 @@ const StyledText = styled.span`
 `;
 
 const parseText = (text) => {
-  return text.split(/(\*\*.*?\*\*|`.*?`)/).map((part, index) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
+  return text.split(/(\*\*.*?\*\*|`.*?`|\n)/).map((part, index) => {
+    if (part === "\n") {
+      return <br key={index} />;
+    } else if (part.startsWith("**") && part.endsWith("**")) {
       return (
         <StyledText key={index} className="highlight">
           {part.slice(2, -2)}
