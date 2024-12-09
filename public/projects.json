@@ -79,11 +79,11 @@
           "id": 5,
           "title": "Emotion Diary",
           "subTitle": "감정 일기 작성 애플리케이션",
-          "description": "Firebase를 활용한 CRUD 기능이 구현된 감정 일기장입니다. 사용자는 그날의 감정을 선택하고 일기를 작성할 수 있으며, 작성된 일기는 날짜별로 조회하고 수정/삭제할 수 있습니다.",
+          "description": "사용자는 그날의 감정을 선택하고 글을 작성할 수 있는 감정일기장입니다. 작성된 일기는 날짜별로 조회하고 수정/삭제할 수 있습니다.",
           "image": "/img/emotion.png",
           "github": "https://github.com/ParkTH-Dev/EmotionDiary",
           "demo": "https://ezenminiproject.web.app/",
-          "tags": ["React", "Firebase", "React-Router-Dom", "Styled-components"]
+          "tags": ["React", "React-Router-Dom", "Styled-components"]
         },
         {
           "id": 6,
