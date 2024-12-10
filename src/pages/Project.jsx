@@ -315,7 +315,7 @@ const LoadingSpinner = styled.div`
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("TypeScript");
+  const [activeCategory, setActiveCategory] = useState("All");
   const [sliderRef, setSliderRef] = useState(null);
   const [titleRef, titleInView] = useInView({
     triggerOnce: true,
@@ -348,7 +348,9 @@ const Project = () => {
   }, []);
 
   const activeProjects =
-    projects.find((p) => p.category === activeCategory)?.items || [];
+    activeCategory === "All"
+      ? projects.flatMap((p) => p.items)
+      : projects.find((p) => p.category === activeCategory)?.items || [];
 
   const settings = {
     dots: true,
@@ -486,6 +488,12 @@ const Project = () => {
           }}
         >
           <CategoryTabs>
+            <CategoryTab
+              $active={activeCategory === "All"}
+              onClick={() => handleCategoryChange("All")}
+            >
+              All
+            </CategoryTab>
             {projects.map((project) => (
               <CategoryTab
                 key={project.category}
