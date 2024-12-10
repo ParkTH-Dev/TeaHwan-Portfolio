@@ -353,7 +353,7 @@ const Project = () => {
       : projects.find((p) => p.category === activeCategory)?.items || [];
 
   const settings = {
-    dots: true,
+    dots: activeCategory !== "All",
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -367,7 +367,7 @@ const Project = () => {
     swipe: true,
     swipeToSlide: true,
     touchThreshold: 5,
-    swipeEvent: null, // 추가
+    swipeEvent: null,
     responsive: [
       {
         breakpoint: 1024,
