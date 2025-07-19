@@ -18,6 +18,7 @@ const StyledButton = styled(motion.button)`
   @media (max-width: 768px) {
     padding: 10px 30px;
     font-size: 16px;
+    width: 100%;
   }
 `;
 

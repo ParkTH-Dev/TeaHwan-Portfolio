@@ -272,11 +272,11 @@ const Skills = () => {
   const skillCategories = [
     {
       name: "프론트엔드",
-      skills: ["javascript", "react", "typescript", "nextjs"],
+      skills: ["nextjs", "javascript", "react", "typescript"],
     },
     {
       name: "백엔드 및 데이터베이스",
-      skills: ["nodejs", "firebase", "express", "mongodb"],
+      skills: ["mongodb", "firebase", "nodejs", "express"],
     },
     {
       name: "상태 관리 및 데이터 통신",
@@ -284,7 +284,7 @@ const Skills = () => {
     },
     {
       name: "스타일링 도구",
-      skills: ["sass", "styledcomponents", "tailwind", "pug"],
+      skills: ["sass", "styledcomponents", "tailwind", "mui"],
     },
     {
       name: "개발 및 협업 도구",
@@ -310,7 +310,7 @@ const Skills = () => {
     reactquery: "/img/skills/Reactquery.svg",
     redux: "/img/skills/Redux.svg",
     graphql: "/img/skills/GraphQL.svg",
-    pug: "/img/skills/Pug.svg",
+    mui: "/img/skills/Mui.svg",
     express: "/img/skills/Express.svg",
     mongodb: "/img/skills/MongoDB.svg",
   };

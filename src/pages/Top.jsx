@@ -24,7 +24,11 @@ const Inner = styled.div`
   align-items: center;
   gap: 10px;
   @media (max-width: 600px) {
-    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
   }
 `;
 
@@ -41,9 +45,13 @@ const Left = styled(motion.div)`
   }
   @media (max-width: 600px) {
     margin-left: 0;
-    margin-top: 100px;
+    margin-top: 0;
     flex: 1;
     align-items: center;
+    text-align: center;
+    order: 2;
+    min-height: 280px;
+    justify-content: flex-start;
   }
 `;
 
@@ -54,6 +62,9 @@ const Title = styled.h2`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  min-height: 280px;
+  justify-content: flex-start;
+  align-items: flex-start;
   span:last-child::after {
     content: "|";
     animation: blink 1s step-end infinite;
@@ -69,24 +80,36 @@ const Title = styled.h2`
   }
   @media (max-width: 1200px) {
     font-size: 60px;
+    min-height: 240px;
   }
   @media (max-width: 600px) {
-    height: 250px;
-    margin-bottom: 0;
-    font-size: 50px;
+    height: auto;
+    margin-bottom: 15px;
+    font-size: 36px;
     text-align: center;
+    align-items: center;
+    min-height: 140px;
+    line-height: 1.2;
   }
 `;
 
-const ButtotWrap = styled(motion.div)`
+const ButtonWrap = styled(motion.div)`
   margin-top: 20px;
   display: flex;
   gap: 10px;
+  position: relative;
   @media (max-width: 600px) {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 12px;
+    width: 280px;
+    min-height: 140px;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -102,7 +125,8 @@ const Right = styled(motion.div)`
   }
   @media (max-width: 600px) {
     margin-right: 0;
-    margin-bottom: 210px;
+    margin-bottom: 0;
+    order: 1;
   }
   position: relative;
 `;
@@ -118,8 +142,8 @@ const ImgWrapper = styled(motion.div)`
     height: 250px;
   }
   @media (max-width: 600px) {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
 `;
 
@@ -140,8 +164,9 @@ const Footer = styled.footer`
   font-size: 20px;
   @media (max-width: 600px) {
     left: 20px;
-    bottom: -10px;
-    font-size: 16px;
+    bottom: 20px;
+    font-size: 14px;
+    gap: 15px;
   }
 `;
 
@@ -166,7 +191,7 @@ const FloatingSquare = styled(motion.div)`
 
 const Top = () => {
   const [text, setText] = useState("");
-  const fullText = "Frontend\n Developer\n 박태환입니다.";
+  const fullText = "Frontend\n Developer\n ParkTaeHwan";
   const typingSpeed = 100;
   const pauseDuration = 2000;
 
@@ -236,7 +261,7 @@ const Top = () => {
               <span key={index}>{line}</span>
             ))}
           </Title>
-          <ButtotWrap
+          <ButtonWrap
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -251,7 +276,7 @@ const Top = () => {
             <Button onClick={handleContactClick} variant="secondary">
               Contact
             </Button>
-          </ButtotWrap>
+          </ButtonWrap>
         </Left>
         <Right
           ref={rightRef}
